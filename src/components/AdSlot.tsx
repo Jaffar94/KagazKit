@@ -23,11 +23,13 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
     }
   }, []);
 
-  // Determine minimum height based on format to prevent CLS
-  const minHeightClass = format === 'horizontal' ? 'min-h-[90px]' : 'min-h-[250px]';
+  // Determine height constraints based on format to prevent CLS and vertical stretching
+  const heightClass = format === 'horizontal' 
+    ? 'min-h-[90px] max-h-[90px] md:max-h-[120px]' 
+    : 'min-h-[250px]';
 
   return (
-    <div className={`w-full relative overflow-hidden flex justify-center items-center bg-slate-50 rounded-xl border border-dashed border-slate-200 my-8 ${minHeightClass} ${className}`}>
+    <div className={`w-full relative overflow-hidden flex justify-center items-center bg-slate-50 rounded-xl border border-dashed border-slate-200 my-8 ${heightClass} ${className}`}>
       {/* Dev placeholder text to show where the ad will appear */}
       <span className="text-xs text-slate-400 uppercase tracking-widest font-medium absolute z-0">Advertisement</span>
       
@@ -38,7 +40,7 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
         style={{ display: 'block', width: '100%', height: '100%' }}
         data-ad-client="ca-pub-5764631499636026"
         data-ad-slot={slotId}
-        data-ad-format="auto"
+        data-ad-format={format === 'horizontal' ? 'horizontal' : 'auto'}
         data-full-width-responsive="true"
       />
     </div>
