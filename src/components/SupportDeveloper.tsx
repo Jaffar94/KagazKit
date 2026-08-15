@@ -49,7 +49,7 @@ export default function SupportDeveloper() {
 
           <h3 className="text-xl font-extrabold text-slate-900 mb-2">Buy Me a Coffee ☕</h3>
           <p className="text-slate-500 text-sm mb-6 leading-relaxed">
-            Hi! I'm Mirza Jaffar Abbas. If KagazKit saved you time today, consider supporting the project to keep it fast, ad-light, and 100% free!
+            Hi! I&apos;m Mirza Jaffar Abbas. If KagazKit saved you time today, consider supporting the project to keep it fast, ad-light, and 100% free!
           </p>
 
           {/* QR Code Container */}
