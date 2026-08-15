@@ -163,7 +163,7 @@ export default function PhotoResizerPage() {
     <div className="max-w-4xl mx-auto px-4 w-full">
       <BackToHome />
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-slate-900 mb-3">Free Online Photo & Signature Resizer for Govt Exams</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-3">Free Online Photo & Signature Resizer</h1>
         <p className="text-slate-500">Resize image to 20KB-50KB for UPSC, SSC, IBPS with strict size limits. 100% private, client-side resizing.</p>
       </div>
 
