@@ -34,8 +34,8 @@ app.post('/compress', upload.single('file'), (req, res) => {
   const compressionPercent = req.body.compressionPercent ? parseInt(req.body.compressionPercent, 10) : 50; // default 50%
   
   // 0% compression -> 300 DPI (high quality)
-  // 100% compression -> 72 DPI (low quality)
-  const dpi = Math.round(300 - (compressionPercent / 100) * (300 - 72));
+  // 100% compression -> 100 DPI (low quality, but not overly destructive)
+  const dpi = Math.round(300 - (compressionPercent / 100) * (300 - 100));
   
   console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | Compression %: ${compressionPercent} | DPI: ${dpi}`);
 
