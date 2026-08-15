@@ -22,7 +22,7 @@ export default function DisclaimerPage() {
 
       <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Photo Resizer</h2>
       <p>
-        The Govt Exam Photo Resizer attempts to compress images strictly to the target KB requirements. However, individual government portals may have specific undocumented constraints. Always verify the final output file before submitting your application.
+        The Photo Resizer attempts to compress images strictly to the target KB requirements. However, individual government portals may have specific undocumented constraints. Always verify the final output file before submitting your application.
       </p>
     </div>
   );
