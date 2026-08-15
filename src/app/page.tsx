@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Image, Calculator, Wallet, TrendingUp, ChevronRight } from 'lucide-react';
+import { Image, Calculator, Wallet, TrendingUp, ChevronRight, Calendar, FileText, Home as HomeIcon } from 'lucide-react';
 import AdSlot from '@/components/AdSlot';
 
 export default function Home() {
@@ -35,6 +35,30 @@ export default function Home() {
       icon: TrendingUp,
       color: 'bg-amber-50 text-amber-600',
       href: '/tools/sip-calculator'
+    },
+    {
+      id: 'age-calculator',
+      name: 'Govt Exam Age Calculator',
+      description: 'Calculate your exact age in years, months, and days for exam forms as of a cutoff date.',
+      icon: Calendar,
+      color: 'bg-rose-50 text-rose-600',
+      href: '/tools/age-calculator'
+    },
+    {
+      id: 'image-to-pdf',
+      name: 'Image to PDF Converter (Under 300KB)',
+      description: 'Convert Aadhaar, PAN, or images to PDF strictly within specific KB limits. 100% private.',
+      icon: FileText,
+      color: 'bg-cyan-50 text-cyan-600',
+      href: '/tools/image-to-pdf'
+    },
+    {
+      id: 'emi-calculator',
+      name: 'Home Loan EMI Calculator India',
+      description: 'Calculate monthly EMI, interest, and view a visual breakdown of principal vs interest.',
+      icon: HomeIcon,
+      color: 'bg-fuchsia-50 text-fuchsia-600',
+      href: '/tools/emi-calculator'
     }
   ];
 
