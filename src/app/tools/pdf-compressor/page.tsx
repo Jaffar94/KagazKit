@@ -22,16 +22,8 @@ export default function CompressPdfPage() {
     return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
   };
 
-  const getEstimatedSize = () => {
-    if (!file) return null;
-    // Base compression curve: 0% slider = ~90% of original, 100% slider = ~25% of original
-    const expectedRatio = 0.9 - (compressionPercent / 100) * 0.65;
-    const estimatedBytes = file.size * expectedRatio;
-    
-    const minBytes = estimatedBytes * 0.8;
-    const maxBytes = estimatedBytes * 1.2;
-    
-    return `~ ${formatSize(minBytes)} to ${formatSize(maxBytes)}`;
+  const getTargetDpi = () => {
+    return Math.round(300 - (compressionPercent / 100) * (300 - 100));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -138,7 +130,7 @@ export default function CompressPdfPage() {
                 <h3 className="font-bold text-slate-800 text-lg mb-1 truncate w-full px-4">{file.name}</h3>
                 <div className="flex flex-col gap-1 mb-6 text-sm">
                   <p className="text-slate-500">Original Size: <span className="font-medium text-slate-700">{formatSize(file.size)}</span></p>
-                  <p className="text-indigo-600 font-medium bg-indigo-50 px-3 py-1 rounded-full inline-block mt-1">Est. New Size: {getEstimatedSize()}</p>
+                  <p className="text-indigo-600 font-medium bg-indigo-50 px-3 py-1 rounded-full inline-block mt-1">Target Resolution: {getTargetDpi()} DPI</p>
                 </div>
 
                 <div className="w-full mb-6">
