@@ -32,28 +32,51 @@ export default function ToolsDropdown() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 max-h-[80vh] overflow-y-auto">
-          <div className="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
-            All Tools
+        <>
+          {/* Mobile Overlay to capture outside clicks */}
+          <div 
+            className="fixed inset-0 z-40 sm:hidden" 
+            onClick={() => setIsOpen(false)} 
+          />
+          
+          <div className="fixed inset-x-4 top-[4.5rem] sm:absolute sm:inset-auto sm:top-full sm:right-0 sm:mt-2 sm:w-[500px] bg-white rounded-xl shadow-2xl border border-slate-200 z-50 max-h-[calc(100vh-6rem)] sm:max-h-[80vh] flex flex-col overflow-hidden">
+            <div className="px-4 py-3 border-b border-slate-100 bg-slate-50/50">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                All Tools
+              </span>
+            </div>
+            
+            <div className="overflow-y-auto p-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                {TOOLS_DATA.map((tool) => (
+                  <Link 
+                    key={tool.id} 
+                    href={tool.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-3 py-2.5 hover:bg-slate-50 rounded-lg transition-colors group"
+                  >
+                    <div className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${tool.color}`}>
+                      <tool.icon className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-semibold text-slate-700 group-hover:text-indigo-600 transition-colors line-clamp-1">
+                        {tool.name}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              
+              {/* Ad Slot Placeholder for Future Ads */}
+              <div className="mt-3 mx-1 mb-1 p-4 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-center">
+                <span className="text-xs font-semibold text-slate-400 mb-1">Advertisement</span>
+                <div className="w-full h-[60px] sm:h-[90px] border-2 border-dashed border-slate-200 rounded flex items-center justify-center">
+                  <span className="text-xs text-slate-400">Ad Space (Responsive)</span>
+                </div>
+              </div>
+            </div>
           </div>
-          {TOOLS_DATA.map((tool) => (
-            <Link 
-              key={tool.id} 
-              href={tool.href}
-              onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-            >
-              <div className={`w-8 h-8 rounded-md flex items-center justify-center shrink-0 ${tool.color}`}>
-                <tool.icon className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-slate-700 group-hover:text-indigo-600 transition-colors line-clamp-1">
-                  {tool.name}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+        </>
       )}
     </div>
   );
