@@ -36,7 +36,7 @@ export default function AdSlot({ format = 'horizontal', slotId = '1234567890', c
         ref={adRef}
         className="adsbygoogle"
         style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', opacity: 0 }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-client="ca-pub-3593243970022857"
         data-ad-slot={slotId}
         data-ad-format="auto"
         data-full-width-responsive="true"
