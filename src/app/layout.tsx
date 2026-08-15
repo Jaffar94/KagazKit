@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kagazkit.site'),
+  metadataBase: new URL('https://www.kagazkit.site'),
   title: "KagazKit | Free Web Tools & Calculators",
   description: "Free online web tools and calculators. 100% Client-Side tools including photo resizer, PDF compressor, tax calculator, and SIP calculator.",
   keywords: ["photo resizer", "pdf compressor", "tax calculator", "sip calculator", "free web tools", "online calculators"],
