@@ -1,16 +1,16 @@
-import { 
-  Image, 
-  FileText, 
-  Layers, 
-  Minimize2, 
-  Calculator, 
-  Briefcase, 
-  Home as HomeIcon, 
-  Wallet, 
-  TrendingUp, 
-  Percent, 
-  PiggyBank, 
-  Calendar, 
+import {
+  Image,
+  FileText,
+  Layers,
+  Minimize2,
+  Calculator,
+  Briefcase,
+  Home as HomeIcon,
+  Wallet,
+  TrendingUp,
+  Percent,
+  PiggyBank,
+  Calendar,
   Clock,
   QrCode,
   SplitSquareHorizontal
@@ -19,7 +19,7 @@ import {
 export const TOOLS_DATA = [
   {
     id: 'photo-resizer',
-    name: 'Govt Exam Photo Resizer',
+    name: 'Image Resizer',
     description: 'Resize image to 20KB-50KB for UPSC, SSC, IBPS with strict size limits.',
     icon: Image,
     color: 'bg-blue-50 text-blue-600',
