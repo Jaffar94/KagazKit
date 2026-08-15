@@ -10,7 +10,6 @@ export default function SupportDeveloper() {
   const [mounted, setMounted] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Replace this with your actual UPI ID
   const upiId = "jaffarabs4@oksbi";
 
   useEffect(() => {
@@ -78,8 +77,8 @@ export default function SupportDeveloper() {
             <button
               onClick={handleCopy}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-all ${copied
-                  ? 'bg-emerald-100 text-emerald-700'
-                  : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+                ? 'bg-emerald-100 text-emerald-700'
+                : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
                 }`}
             >
               {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
