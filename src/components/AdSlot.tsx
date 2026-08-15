@@ -8,7 +8,7 @@ type AdSlotProps = {
   className?: string;
 };
 
-export default function AdSlot({ format = 'horizontal', slotId = '6818794408', className = '' }: AdSlotProps) {
+export default function AdSlot({ format = 'horizontal', slotId = '3809487681', className = '' }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function AdSlot({ format = 'horizontal', slotId = '6818794408', c
         ref={adRef}
         className="adsbygoogle z-10"
         style={{ display: 'block', width: '100%', height: '100%' }}
-        data-ad-client="ca-pub-3593243970022857"
+        data-ad-client="ca-pub-5764631499636026"
         data-ad-slot={slotId}
         data-ad-format="auto"
         data-full-width-responsive="true"
