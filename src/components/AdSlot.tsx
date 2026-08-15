@@ -8,7 +8,7 @@ type AdSlotProps = {
   className?: string;
 };
 
-export default function AdSlot({ format = 'horizontal', slotId = '1234567890', className = '' }: AdSlotProps) {
+export default function AdSlot({ format = 'horizontal', slotId = '6818794408', className = '' }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   
   useEffect(() => {
