@@ -31,13 +31,14 @@ app.post('/compress', upload.single('file'), (req, res) => {
     return res.status(400).json({ error: 'No file uploaded.' });
   }
 
-  const compressionPercent = req.body.compressionPercent ? parseInt(req.body.compressionPercent, 10) : 50; // default 50%
+  // Expect the frontend to send the exact target DPI and grayscale flag
+  const requestedDpi = parseInt(req.body.dpi, 10) || 150; // default 150 DPI
+  const convertToGrayscale = req.body.grayscale === 'true';
   
-  // 0% compression -> 300 DPI (high quality)
-  // 100% compression -> 100 DPI (low quality, but not overly destructive)
-  const dpi = Math.round(300 - (compressionPercent / 100) * (300 - 100));
+  // Safe bounds check to ensure Ghostscript doesn't get crazy values
+  const dpi = Math.max(72, Math.min(300, requestedDpi));
   
-  console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | Compression %: ${compressionPercent} | DPI: ${dpi}`);
+  console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | DPI: ${dpi} | Grayscale: ${convertToGrayscale}`);
 
   const inputPath = req.file.path;
   const outputPath = `${inputPath}-compressed.pdf`;
@@ -57,10 +58,16 @@ app.post('/compress', upload.single('file'), (req, res) => {
     `-dMonoImageResolution=${dpi}`,
     '-dColorImageDownsampleThreshold=1.0',
     '-dGrayImageDownsampleThreshold=1.0',
-    '-dMonoImageDownsampleThreshold=1.0',
-    `-sOutputFile=${outputPath}`,
-    inputPath
+    '-dMonoImageDownsampleThreshold=1.0'
   ];
+
+  if (convertToGrayscale) {
+    gsArgs.push('-sColorConversionStrategy=Gray');
+    gsArgs.push('-dProcessColorModel=/DeviceGray');
+  }
+
+  gsArgs.push(`-sOutputFile=${outputPath}`);
+  gsArgs.push(inputPath);
 
   // Run Ghostscript
   console.log(`[EXEC] Running gs with DPI=${dpi}`);
