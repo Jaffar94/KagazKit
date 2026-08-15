@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Free online web tools and calculators. 100% Client-Side tools including photo resizer, PDF compressor, tax calculator, and SIP calculator.",
   keywords: ["photo resizer", "pdf compressor", "tax calculator", "sip calculator", "free web tools", "online calculators"],
   other: {
-    "google-adsense-account": "ca-pub-3593243970022857"
+    "google-adsense-account": "ca-pub-5764631499636026"
   }
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3593243970022857"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5764631499636026"
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
