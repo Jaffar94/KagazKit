@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kagazkit.site'; // Replace with actual domain later
+  const baseUrl = 'https://www.kagazkit.site';
 
   return [
     {
