@@ -9,6 +9,7 @@ import { FileUp, FileText, Download, CheckCircle, Loader2, AlertCircle } from 'l
 export default function CompressPdfPage() {
   const [file, setFile] = useState<File | null>(null);
   const [compressionPercent, setCompressionPercent] = useState<number>(50);
+  const [grayscale, setGrayscale] = useState<boolean>(false);
   const [isCompressing, setIsCompressing] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
@@ -49,7 +50,8 @@ export default function CompressPdfPage() {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('compressionPercent', compressionPercent.toString());
+      formData.append('dpi', getTargetDpi().toString());
+      formData.append('grayscale', grayscale.toString());
 
       const apiUrl = process.env.NEXT_PUBLIC_PDF_API_URL || 'http://localhost:8080/compress';
       const response = await fetch(apiUrl, {
@@ -161,6 +163,22 @@ export default function CompressPdfPage() {
                     {compressionPercent >= 30 && compressionPercent <= 70 && 'Recommended for web and email sharing.'}
                     {compressionPercent > 70 && 'Maximum compression, images may lose noticeable detail.'}
                   </p>
+                </div>
+
+                <div className="w-full mb-8 text-left">
+                  <label className="flex items-center gap-3 p-4 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition-colors">
+                    <input 
+                      type="checkbox" 
+                      checked={grayscale}
+                      onChange={(e) => setGrayscale(e.target.checked)}
+                      disabled={isCompressing}
+                      className="w-5 h-5 text-indigo-600 rounded border-slate-300 focus:ring-indigo-600 focus:ring-offset-0 disabled:opacity-50"
+                    />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-slate-800">Convert to Black & White</span>
+                      <span className="text-xs text-slate-500">Massively reduces file size by completely removing all color data.</span>
+                    </div>
+                  </label>
                 </div>
                 
                 <div className="w-full flex gap-3">
