@@ -33,6 +33,8 @@ app.post('/compress', upload.single('file'), (req, res) => {
 
   const compressionLevel = req.body.compressionLevel || 'medium';
   
+  console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | Level: ${compressionLevel}`);
+  
   // Map our UI slider levels to Ghostscript PDFSETTINGS
   let pdfSettings = '/ebook'; // default medium
   if (compressionLevel === 'high') {
@@ -59,6 +61,7 @@ app.post('/compress', upload.single('file'), (req, res) => {
   ];
 
   // Run Ghostscript
+  console.log(`[EXEC] Running gs with PDFSETTINGS=${pdfSettings}`);
   const gsProcess = spawn('gs', gsArgs);
 
   gsProcess.on('error', (error) => {
@@ -80,6 +83,7 @@ app.post('/compress', upload.single('file'), (req, res) => {
     }
 
     // Read the output file and send it back
+    console.log(`[SUCCESS] Finished compressing ${req.file.originalname}. Sending back to client...`);
     res.download(outputPath, 'compressed.pdf', (err) => {
       if (err) {
         console.error('Error sending file:', err);
