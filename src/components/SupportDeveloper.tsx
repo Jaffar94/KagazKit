@@ -36,7 +36,7 @@ export default function SupportDeveloper() {
 
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors z-10"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors z-50"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
