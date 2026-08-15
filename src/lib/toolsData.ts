@@ -11,7 +11,9 @@ import {
   Percent, 
   PiggyBank, 
   Calendar, 
-  Clock 
+  Clock,
+  QrCode,
+  SplitSquareHorizontal
 } from 'lucide-react';
 
 export const TOOLS_DATA = [
@@ -104,14 +106,6 @@ export const TOOLS_DATA = [
     href: '/tools/deposit-calculator'
   },
   {
-    id: 'percentage-calculator',
-    name: 'Percentage Calculator',
-    description: 'Easily calculate percentages, find percentage increase/decrease.',
-    icon: Percent,
-    color: 'bg-lime-50 text-lime-600',
-    href: '/tools/percentage-calculator'
-  },
-  {
     id: 'age-calculator',
     name: 'Govt Exam Age Calculator',
     description: 'Calculate your exact age in years, months, and days for exam forms.',
@@ -126,5 +120,21 @@ export const TOOLS_DATA = [
     icon: Clock,
     color: 'bg-sky-50 text-sky-600',
     href: '/tools/date-calculator'
+  },
+  {
+    id: 'qr-code-generator',
+    name: 'QR Code Generator',
+    description: 'Instantly generate free, high-quality QR codes for URLs and text.',
+    icon: QrCode,
+    color: 'bg-indigo-50 text-indigo-600',
+    href: '/tools/qr-code-generator'
+  },
+  {
+    id: 'split-pdf',
+    name: 'Split PDF Online',
+    description: 'Extract pages from your PDF or split it into multiple files. 100% private.',
+    icon: SplitSquareHorizontal,
+    color: 'bg-rose-50 text-rose-600',
+    href: '/tools/split-pdf'
   }
 ];
