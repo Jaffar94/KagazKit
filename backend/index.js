@@ -31,37 +31,39 @@ app.post('/compress', upload.single('file'), (req, res) => {
     return res.status(400).json({ error: 'No file uploaded.' });
   }
 
-  const compressionLevel = req.body.compressionLevel || 'medium';
+  const compressionPercent = req.body.compressionPercent ? parseInt(req.body.compressionPercent, 10) : 50; // default 50%
   
-  console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | Level: ${compressionLevel}`);
+  // 0% compression -> 300 DPI (high quality)
+  // 100% compression -> 72 DPI (low quality)
+  const dpi = Math.round(300 - (compressionPercent / 100) * (300 - 72));
   
-  // Map our UI slider levels to Ghostscript PDFSETTINGS
-  let pdfSettings = '/ebook'; // default medium
-  if (compressionLevel === 'high') {
-    pdfSettings = '/screen'; // lowest quality, smallest size (72 dpi)
-  } else if (compressionLevel === 'medium') {
-    pdfSettings = '/ebook'; // medium quality (150 dpi)
-  } else if (compressionLevel === 'low') {
-    pdfSettings = '/printer'; // high quality (300 dpi)
-  }
+  console.log(`[START] Compressing: ${req.file.originalname} | Size: ${(req.file.size / 1024 / 1024).toFixed(2)} MB | Compression %: ${compressionPercent} | DPI: ${dpi}`);
 
   const inputPath = req.file.path;
   const outputPath = `${inputPath}-compressed.pdf`;
 
-  // Ghostscript command args
+  // Ghostscript command args with granular DPI control
   const gsArgs = [
     '-sDEVICE=pdfwrite',
     '-dCompatibilityLevel=1.4',
-    `-dPDFSETTINGS=${pdfSettings}`,
     '-dNOPAUSE',
     '-dQUIET',
     '-dBATCH',
+    '-dDownsampleColorImages=true',
+    '-dDownsampleGrayImages=true',
+    '-dDownsampleMonoImages=true',
+    `-dColorImageResolution=${dpi}`,
+    `-dGrayImageResolution=${dpi}`,
+    `-dMonoImageResolution=${dpi}`,
+    '-dColorImageDownsampleThreshold=1.0',
+    '-dGrayImageDownsampleThreshold=1.0',
+    '-dMonoImageDownsampleThreshold=1.0',
     `-sOutputFile=${outputPath}`,
     inputPath
   ];
 
   // Run Ghostscript
-  console.log(`[EXEC] Running gs with PDFSETTINGS=${pdfSettings}`);
+  console.log(`[EXEC] Running gs with DPI=${dpi}`);
   const gsProcess = spawn('gs', gsArgs);
 
   gsProcess.on('error', (error) => {
