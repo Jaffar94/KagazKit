@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { Home, Percent, CalendarDays } from 'lucide-react';
 
 export default function EmiCalculatorPage() {
@@ -55,6 +56,7 @@ export default function EmiCalculatorPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Home Loan EMI Calculator</h1>
         <p className="text-slate-500">Calculate your monthly EMI and see the breakdown of principal vs interest.</p>

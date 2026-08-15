@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import SupportDeveloper from './SupportDeveloper';
+import ToolsDropdown from './ToolsDropdown';
 
 export default function Header() {
   return (
@@ -10,6 +12,10 @@ export default function Header() {
           </div>
           <span className="font-bold text-xl tracking-tight text-slate-900">KagazKit</span>
         </Link>
+        <div className="flex items-center gap-2">
+          <ToolsDropdown />
+          <SupportDeveloper />
+        </div>
       </div>
     </header>
   );

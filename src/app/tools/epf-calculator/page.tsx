@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { IndianRupee, User, Wallet, TrendingUp } from 'lucide-react';
 
 export default function EPFCalculatorPage() {
@@ -84,6 +85,7 @@ export default function EPFCalculatorPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">EPF Calculator India & PF Balance Estimator</h1>
         <p className="text-slate-500">Calculate your Provident Fund maturity value, PF interest, and check employer vs employee contributions.</p>

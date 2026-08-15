@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KagazKit | Free Indian Web Tools & Calculators",
-  description: "Free online calculators for India. 100% Client-Side tools including UPSC photo resizer, Income Tax Calculator, EPF Calculator, and SIP Calculator.",
-  keywords: ["UPSC photo resizer", "Income tax calculator India", "EPF calculator India", "SIP calculator India", "Free Indian web tools"],
+  title: "KagazKit | Free Web Tools & Calculators",
+  description: "Free online web tools and calculators. 100% Client-Side tools including photo resizer, PDF compressor, tax calculator, and SIP calculator.",
+  keywords: ["photo resizer", "pdf compressor", "tax calculator", "sip calculator", "free web tools", "online calculators"],
 };
 
 export default function RootLayout({

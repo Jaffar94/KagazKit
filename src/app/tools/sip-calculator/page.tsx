@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { IndianRupee, TrendingUp, Calendar, ArrowUpRight } from 'lucide-react';
 
 export default function SIPCalculatorPage() {
@@ -57,6 +58,7 @@ export default function SIPCalculatorPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">SIP Return & Mutual Fund Step-Up Calculator</h1>
         <p className="text-slate-500">Plan your mutual fund investments and discover the power of step-up compounding.</p>

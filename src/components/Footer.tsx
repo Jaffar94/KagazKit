@@ -24,7 +24,11 @@ export default function Footer() {
         
         <div className="mt-8 text-center text-sm text-slate-400">
           <p>This portal is for educational and utility purposes only.</p>
-          <p className="mt-2">&copy; {currentYear} KagazKit. All rights reserved.</p>
+          <p className="mt-2">
+            &copy; {currentYear} KagazKit. All rights reserved. 
+            <span className="mx-2">•</span> 
+            Built with <span className="text-red-500">♥</span> by <span className="font-medium text-slate-500">Mirza Jaffar Abbas</span>
+          </p>
         </div>
       </div>
     </footer>

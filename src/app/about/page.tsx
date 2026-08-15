@@ -26,6 +26,14 @@ export default function AboutPage() {
         <li><strong>No Databases:</strong> Your tax calculation inputs and SIP amounts are never saved or sent to any server.</li>
         <li><strong>Instant Results:</strong> Because everything happens locally, tools operate at lightning speed.</li>
       </ul>
+
+      <div className="mt-12 p-6 bg-indigo-50/50 rounded-2xl border border-indigo-100">
+        <h2 className="text-2xl font-semibold text-slate-900 mt-0 mb-4">About the Creator</h2>
+        <p className="mb-0">
+          KagazKit was created and is actively maintained by <strong>Mirza Jaffar Abbas</strong>. 
+          The project started with a simple goal: to build high-quality, ad-light utility tools that respect user privacy while providing an exceptionally smooth experience. 
+        </p>
+      </div>
     </div>
   );
 }

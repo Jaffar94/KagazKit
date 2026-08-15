@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { UploadCloud, Image as ImageIcon, Download, Loader2, CheckCircle2 } from 'lucide-react';
 
 type Preset = {
@@ -160,6 +161,7 @@ export default function PhotoResizerPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Free Online Photo & Signature Resizer for Govt Exams</h1>
         <p className="text-slate-500">Resize image to 20KB-50KB for UPSC, SSC, IBPS with strict size limits. 100% private, client-side resizing.</p>

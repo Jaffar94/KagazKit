@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { IndianRupee, FileText } from 'lucide-react';
 
 export default function TaxCalculatorPage() {
@@ -99,6 +100,7 @@ export default function TaxCalculatorPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Income Tax Calculator India: Old vs New Regime</h1>
         <p className="text-slate-500">Calculate exactly which tax regime saves you more money based on standard deductions and rebates.</p>

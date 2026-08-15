@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { Calendar, User, Clock } from 'lucide-react';
 
 export default function AgeCalculatorPage() {
@@ -41,6 +42,7 @@ export default function AgeCalculatorPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Govt Exam Age Calculator</h1>
         <p className="text-slate-500">Calculate your exact age in years, months, and days for exam forms.</p>

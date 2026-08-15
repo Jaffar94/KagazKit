@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
+import BackToHome from '@/components/BackToHome';
 import { UploadCloud, FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 
@@ -159,6 +160,7 @@ export default function ImageToPdfPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 w-full">
+      <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Image to PDF Converter (Under 300KB)</h1>
         <p className="text-slate-500">Convert Aadhaar, PAN, or any image to PDF format strictly within your KB limit.</p>
