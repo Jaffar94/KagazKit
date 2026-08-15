@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://kagazkit.com/sitemap.xml',
+    sitemap: 'https://kagazkit.site/sitemap.xml',
   }
 }
