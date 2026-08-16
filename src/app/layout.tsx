@@ -42,8 +42,8 @@ export default function RootLayout({
         <Header />
         
         <div className="flex-1 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:gap-8 xl:gap-12 pt-8 pb-12 px-4 sm:px-6 lg:px-8 justify-center">
-          {/* Left Ad Sidebar (Visible on 1280px+ screens) */}
-          <aside className="hidden xl:block w-[300px] shrink-0 h-full">
+          {/* Left Ad Sidebar (Visible on 1024px+ screens) */}
+          <aside className="hidden lg:block lg:w-[160px] xl:w-[300px] shrink-0 h-full">
             <SidebarAd />
           </aside>
 
@@ -52,7 +52,7 @@ export default function RootLayout({
           </main>
           
           {/* Right Ad Sidebar (Visible on 1024px+ screens) */}
-          <aside className="hidden lg:block w-[300px] shrink-0 h-full">
+          <aside className="hidden lg:block lg:w-[160px] xl:w-[300px] shrink-0 h-full">
             <SidebarAd />
           </aside>
         </div>

@@ -204,7 +204,7 @@ export default function ImageToPdfPage() {
             <p className="text-slate-500 text-sm">JPG, PNG (Max 10MB)</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="flex flex-col gap-8">
             <div className="space-y-4">
               <div className="relative aspect-square md:aspect-auto md:h-64 w-full bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

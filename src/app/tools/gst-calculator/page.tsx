@@ -61,7 +61,7 @@ export default function GstCalculatorPage() {
       <AdSlot format="horizontal" slotId="gst-top-ad" className="mb-8" />
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-8">
           <div className="space-y-6">
             
             {/* Mode Toggle */}

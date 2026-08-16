@@ -108,7 +108,7 @@ export default function TaxCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="tax-top-ad" className="mb-8" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="flex flex-col gap-8">
         <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-5">
           <h2 className="text-lg font-bold text-slate-800 border-b border-slate-100 pb-2">Income & Deductions</h2>
           

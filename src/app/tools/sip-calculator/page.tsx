@@ -66,7 +66,7 @@ export default function SIPCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="sip-top-ad" className="mb-8" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="flex flex-col gap-8">
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
           <div className="space-y-6">
             <div>
