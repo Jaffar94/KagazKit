@@ -46,7 +46,7 @@ export default function RootLayout({
             {children}
           </main>
           
-          <aside className="hidden lg:block w-[300px] shrink-0 sticky top-24 h-fit">
+          <aside className="hidden lg:block w-[300px] shrink-0 h-full">
             <SidebarAd />
           </aside>
         </div>
