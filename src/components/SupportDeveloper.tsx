@@ -24,6 +24,9 @@ export default function SupportDeveloper() {
 
   const modalContent = isOpen ? (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="support-modal-title"
       className="fixed inset-0 z-[100] px-4 py-12 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200 flex items-center justify-center"
       onClick={() => setIsOpen(false)}
     >
@@ -47,7 +50,7 @@ export default function SupportDeveloper() {
             <Heart className="w-8 h-8 text-rose-500 fill-rose-500 animate-pulse" />
           </div>
 
-          <h3 className="text-xl font-extrabold text-slate-900 mb-2">Buy Me a Coffee ☕</h3>
+          <h3 id="support-modal-title" className="text-xl font-extrabold text-slate-900 mb-2">Buy Me a Coffee ☕</h3>
           <p className="text-slate-500 text-sm mb-6 leading-relaxed">
             Hi! I&apos;m Mirza Jaffar Abbas. If KagazKit saved you time today, consider supporting the project to keep it fast, ad-light, and 100% free!
           </p>

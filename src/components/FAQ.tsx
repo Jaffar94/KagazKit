@@ -42,8 +42,9 @@ export default function FAQ({ items }: FAQProps) {
         {items.map((item, index) => (
           <div key={index} className="border border-slate-200/80 rounded-2xl bg-white overflow-hidden">
             <button
-              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-none"
+              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              aria-expanded={openIndex === index}
             >
               <span className="font-semibold text-slate-800 pr-4">{item.question}</span>
               {openIndex === index ? (

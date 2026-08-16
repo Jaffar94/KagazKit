@@ -118,8 +118,9 @@ export default function TaxCalculatorPage() {
             </label>
             <input 
               type="number" 
-              value={salary} 
-              onChange={(e) => setSalary(Number(e.target.value))}
+              min="0"
+              value={salary || ''} 
+              onChange={(e) => setSalary(Number(e.target.value) || 0)}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
             />
           </div>
@@ -129,8 +130,9 @@ export default function TaxCalculatorPage() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Sec 80C (Max 1.5L)</label>
               <input 
                 type="number" 
-                value={sec80c} 
-                onChange={(e) => setSec80c(Number(e.target.value))}
+                min="0"
+                value={sec80c || ''} 
+                onChange={(e) => setSec80c(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -138,8 +140,9 @@ export default function TaxCalculatorPage() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Sec 80D (Health)</label>
               <input 
                 type="number" 
-                value={sec80d} 
-                onChange={(e) => setSec80d(Number(e.target.value))}
+                min="0"
+                value={sec80d || ''} 
+                onChange={(e) => setSec80d(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -150,8 +153,9 @@ export default function TaxCalculatorPage() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">HRA Exemption</label>
               <input 
                 type="number" 
-                value={hra} 
-                onChange={(e) => setHra(Number(e.target.value))}
+                min="0"
+                value={hra || ''} 
+                onChange={(e) => setHra(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -159,8 +163,9 @@ export default function TaxCalculatorPage() {
               <label className="block text-sm font-semibold text-slate-700 mb-2">Home Loan Int.</label>
               <input 
                 type="number" 
-                value={homeLoan} 
-                onChange={(e) => setHomeLoan(Number(e.target.value))}
+                min="0"
+                value={homeLoan || ''} 
+                onChange={(e) => setHomeLoan(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>

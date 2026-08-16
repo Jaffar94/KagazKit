@@ -47,6 +47,10 @@ export default function PhotoResizerPage() {
   const onFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const selected = e.target.files[0];
+      if (!selected.type.startsWith('image/')) {
+        alert('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
+        return;
+      }
       setFile(selected);
       setPreviewUrl(URL.createObjectURL(selected));
       setResultDataUrl(null);
@@ -76,7 +80,10 @@ export default function PhotoResizerPage() {
     try {
       const img = new window.Image();
       img.src = previewUrl;
-      await new Promise((resolve) => { img.onload = resolve; });
+      await new Promise((resolve, reject) => { 
+        img.onload = resolve; 
+        img.onerror = () => reject(new Error("Failed to load image into canvas"));
+      });
 
       const canvas = document.createElement('canvas');
       canvas.width = targetW;

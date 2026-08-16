@@ -24,6 +24,8 @@ export default function ToolsDropdown() {
     <div className="relative" ref={dropdownRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
         className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition-colors"
       >
         <Wrench className="w-4 h-4" />
@@ -35,8 +37,9 @@ export default function ToolsDropdown() {
         <>
           {/* Mobile Overlay to capture outside clicks */}
           <div 
-            className="fixed inset-0 z-40 sm:hidden" 
+            className="fixed inset-0 z-40 sm:hidden bg-transparent" 
             onClick={() => setIsOpen(false)} 
+            aria-hidden="true"
           />
           
           <div className="fixed inset-x-4 top-[4.5rem] sm:absolute sm:inset-auto sm:top-full sm:right-0 sm:mt-2 sm:w-[500px] bg-white rounded-xl shadow-2xl border border-slate-200 z-50 max-h-[calc(100vh-6rem)] sm:max-h-[80vh] flex flex-col overflow-hidden">

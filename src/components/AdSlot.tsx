@@ -19,9 +19,11 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
     // This prevents AdSense from calculating the wrong container width and serving a narrow 320px ad.
     const timer = setTimeout(() => {
       try {
-        if (typeof window !== 'undefined') {
-          const adsbygoogle = (window as any).adsbygoogle || [];
-          adsbygoogle.push({});
+        if (typeof window !== 'undefined' && adRef.current) {
+          if (!adRef.current.getAttribute('data-adsbygoogle-status')) {
+            const adsbygoogle = (window as any).adsbygoogle || [];
+            adsbygoogle.push({});
+          }
         }
       } catch (err) {
         console.error('AdSense error', err);
