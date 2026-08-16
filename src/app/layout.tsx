@@ -41,11 +41,17 @@ export default function RootLayout({
       <body className="font-sans min-h-screen flex flex-col pb-20 lg:pb-0 relative overflow-x-hidden">
         <Header />
         
-        <div className="flex-1 w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:gap-12 pt-8 pb-12 px-4 sm:px-6 lg:px-8">
-          <main className="flex-1 w-full flex flex-col">
+        <div className="flex-1 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:gap-8 xl:gap-12 pt-8 pb-12 px-4 sm:px-6 lg:px-8 justify-center">
+          {/* Left Ad Sidebar (Visible on 1280px+ screens) */}
+          <aside className="hidden xl:block w-[300px] shrink-0 h-full">
+            <SidebarAd />
+          </aside>
+
+          <main className="flex-1 w-full max-w-4xl flex flex-col">
             {children}
           </main>
           
+          {/* Right Ad Sidebar (Visible on 1024px+ screens) */}
           <aside className="hidden lg:block w-[300px] shrink-0 h-full">
             <SidebarAd />
           </aside>
