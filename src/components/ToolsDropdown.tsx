@@ -66,14 +66,6 @@ export default function ToolsDropdown() {
                   </Link>
                 ))}
               </div>
-              
-              {/* Ad Slot Placeholder for Future Ads */}
-              <div className="mt-3 mx-1 mb-1 p-4 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-center">
-                <span className="text-xs font-semibold text-slate-400 mb-1">Advertisement</span>
-                <div className="w-full h-[60px] sm:h-[90px] border-2 border-dashed border-slate-200 rounded flex items-center justify-center">
-                  <span className="text-xs text-slate-400">Ad Space (Responsive)</span>
-                </div>
-              </div>
             </div>
           </div>
         </>
