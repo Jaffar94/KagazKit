@@ -187,8 +187,8 @@ export default function ImageToPdfPage() {
         <div className="mb-6">
             <label className="block text-sm font-semibold text-slate-700 mb-2">Target Maximum Size (KB)</label>
             <input type="number" min="0" 
-              value={targetMaxKb}
-              onChange={(e) => setTargetMaxKb(Number(e.target.value) || 0)}
+              value={targetMaxKb === 0 ? '' : targetMaxKb}
+              onChange={(e) => setTargetMaxKb(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
               className="w-full md:w-1/3 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none"
             />
             <p className="text-xs text-slate-500 mt-2">Example: 300 for Aadhaar/ID proof uploads.</p>

@@ -16,31 +16,30 @@ export default function EmiCalculatorPage() {
   const [totalAmount, setTotalAmount] = useState<number>(0);
 
   useEffect(() => {
+    const calculateEMI = () => {
+      const p = principal;
+      const r = rate / 12 / 100; // monthly interest rate
+      const n = years * 12; // number of months
+
+      if (p <= 0 || r <= 0 || n <= 0) {
+        setEmi(0);
+        setTotalInterest(0);
+        setTotalAmount(0);
+        return;
+      }
+
+      // EMI formula: P x R x (1+R)^N / [(1+R)^N-1]
+      const emiValue = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+      const totalPayment = emiValue * n;
+      const totalInt = totalPayment - p;
+
+      setEmi(Math.round(emiValue));
+      setTotalAmount(Math.round(totalPayment));
+      setTotalInterest(Math.round(totalInt));
+    };
+
     calculateEMI();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [principal, rate, years]);
-
-  const calculateEMI = () => {
-    const p = principal;
-    const r = rate / 12 / 100; // monthly interest rate
-    const n = years * 12; // number of months
-
-    if (p <= 0 || r <= 0 || n <= 0) {
-      setEmi(0);
-      setTotalInterest(0);
-      setTotalAmount(0);
-      return;
-    }
-
-    // EMI formula: P x R x (1+R)^N / [(1+R)^N-1]
-    const emiValue = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    const totalPayment = emiValue * n;
-    const totalInt = totalPayment - p;
-
-    setEmi(Math.round(emiValue));
-    setTotalAmount(Math.round(totalPayment));
-    setTotalInterest(Math.round(totalInt));
-  };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -76,8 +75,8 @@ export default function EmiCalculatorPage() {
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">₹</span>
                 <input type="number" min="0"
-                  value={principal || ''}
-                  onChange={(e) => setPrincipal(Number(e.target.value) || 0)}
+                  value={principal === 0 ? '' : principal}
+                  onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                   className="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none font-semibold text-slate-900"
                 />
               </div>
@@ -91,8 +90,8 @@ export default function EmiCalculatorPage() {
               <div className="relative">
                 <input type="number" min="0"
                   step="0.1"
-                  value={rate || ''}
-                  onChange={(e) => setRate(Number(e.target.value) || 0)}
+                  value={rate === 0 ? '' : rate}
+                  onChange={(e) => setRate(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                   className="w-full pl-4 pr-8 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none font-semibold text-slate-900"
                 />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">%</span>
@@ -110,7 +109,7 @@ export default function EmiCalculatorPage() {
                   min="1"
                   max="30"
                   value={years}
-                  onChange={(e) => setYears(Number(e.target.value) || 0)}
+                  onChange={(e) => setYears(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                   className="w-full accent-indigo-600"
                 />
                 <div className="w-16 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-center font-semibold text-slate-900">

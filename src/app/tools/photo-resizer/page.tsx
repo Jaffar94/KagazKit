@@ -214,15 +214,15 @@ export default function PhotoResizerPage() {
             <div className="grid grid-cols-3 gap-3 p-4 bg-slate-50 rounded-lg border border-slate-200">
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Width (px)</label>
-                <input type="number" min="0" value={customWidth} onChange={(e) => setCustomWidth(Number(e.target.value) || 0)} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customWidth === 0 ? '' : customWidth} onChange={(e) => setCustomWidth(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Height (px)</label>
-                <input type="number" min="0" value={customHeight} onChange={(e) => setCustomHeight(Number(e.target.value) || 0)} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customHeight === 0 ? '' : customHeight} onChange={(e) => setCustomHeight(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Max KB</label>
-                <input type="number" min="0" value={customMaxKb} onChange={(e) => setCustomMaxKb(Number(e.target.value) || 0)} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customMaxKb === 0 ? '' : customMaxKb} onChange={(e) => setCustomMaxKb(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
             </div>
           )}
