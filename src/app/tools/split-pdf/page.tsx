@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { PDFDocument } from 'pdf-lib';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
@@ -16,6 +17,14 @@ export default function SplitPdfPage() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    return () => {
+      if (splitPdfUrl) {
+        URL.revokeObjectURL(splitPdfUrl);
+      }
+    };
+  }, [splitPdfUrl]);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -106,7 +115,9 @@ export default function SplitPdfPage() {
       setSplitPdfUrl(url);
     } catch (error: any) {
       console.error('Error splitting PDF:', error);
-      setErrorMsg(error.message || 'Failed to split PDF.');
+      const msg = error.message || 'Failed to split PDF.';
+      setErrorMsg(msg);
+      toast.error(msg);
     } finally {
       setIsSplitting(false);
     }

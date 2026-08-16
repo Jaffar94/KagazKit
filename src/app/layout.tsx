@@ -4,6 +4,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import SidebarAd from "@/components/SidebarAd";
+import MobileAnchorAd from "@/components/MobileAnchorAd";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -35,12 +38,22 @@ export default function RootLayout({
           strategy="lazyOnload"
         />
       </head>
-      <body className="font-sans min-h-screen flex flex-col">
+      <body className="font-sans min-h-screen flex flex-col pb-20 lg:pb-0 relative overflow-x-hidden">
         <Header />
-        <main className="flex-1 flex flex-col pt-8 pb-12">
-          {children}
-        </main>
+        
+        <div className="flex-1 w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:gap-8 pt-8 pb-12 px-4">
+          <main className="flex-1 w-full flex flex-col">
+            {children}
+          </main>
+          
+          <aside className="hidden lg:block w-[300px] shrink-0 sticky top-24 h-fit">
+            <SidebarAd />
+          </aside>
+        </div>
+
         <Footer />
+        <MobileAnchorAd />
+        <Toaster position="bottom-center" />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { Calendar, User, Clock } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function AgeCalculatorPage() {
   const [dob, setDob] = useState<string>('');
@@ -18,7 +19,7 @@ export default function AgeCalculatorPage() {
     const d2 = new Date(cutoffDate);
 
     if (d1 > d2) {
-      alert('Date of Birth cannot be after the Cutoff Date!');
+      toast.error('Date of Birth cannot be after the Cutoff Date!');
       return;
     }
 

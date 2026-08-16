@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { UploadCloud, FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
+import toast from 'react-hot-toast';
 
 export default function ImageToPdfPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -16,6 +17,14 @@ export default function ImageToPdfPage() {
   const [targetMaxKb, setTargetMaxKb] = useState<number>(300);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -141,11 +150,12 @@ export default function ImageToPdfPage() {
       if (bestBlob) {
         setResultBlob(bestBlob);
         setResultSizeKb(Math.round(bestBlob.size / 1024));
+        toast.success('Converted successfully!');
       }
 
     } catch (error) {
       console.error(error);
-      alert('Error converting image to PDF');
+      toast.error('Error converting image to PDF');
     }
 
     setIsProcessing(false);
@@ -158,6 +168,7 @@ export default function ImageToPdfPage() {
       link.href = url;
       link.download = `document_${targetMaxKb}kb.pdf`;
       link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
   };
 
@@ -197,7 +208,7 @@ export default function ImageToPdfPage() {
             <div className="space-y-4">
               <div className="relative aspect-square md:aspect-auto md:h-64 w-full bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={previewUrl!} alt="Preview" className="w-full h-full object-contain" />
+                <img src={previewUrl!} alt="Preview" loading="lazy" className="w-full h-full object-contain" />
               </div>
               <button 
                 onClick={() => { setFile(null); setResultBlob(null); }}

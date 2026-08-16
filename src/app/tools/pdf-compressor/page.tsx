@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
@@ -17,6 +18,14 @@ export default function CompressPdfPage() {
   const [compressedSize, setCompressedSize] = useState<number | null>(null);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    return () => {
+      if (compressedPdfUrl) {
+        URL.revokeObjectURL(compressedPdfUrl);
+      }
+    };
+  }, [compressedPdfUrl]);
 
   const formatSize = (bytes: number) => {
     if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
@@ -72,7 +81,9 @@ export default function CompressPdfPage() {
 
     } catch (error: any) {
       console.error('Error compressing PDF:', error);
-      setErrorMsg(error.message || 'Failed to compress PDF. Please try again.');
+      const msg = error.message || 'Failed to compress PDF. Please try again.';
+      setErrorMsg(msg);
+      toast.error(msg);
     } finally {
       setIsCompressing(false);
     }

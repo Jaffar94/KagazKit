@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 type AdSlotProps = {
-  format?: 'horizontal' | 'display';
+  format?: 'horizontal' | 'display' | 'vertical';
   slotId?: string;
   className?: string;
 };
@@ -34,7 +34,8 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
   }, [pathname]);
 
   const isHorizontal = format === 'horizontal';
-  const adHeight = isHorizontal ? '90px' : '250px';
+  const isVertical = format === 'vertical';
+  const adHeight = isVertical ? '600px' : isHorizontal ? '90px' : '250px';
 
   return (
     <div key={pathname} className={`w-full relative overflow-hidden flex justify-center items-center bg-slate-50 rounded-xl border border-dashed border-slate-200 my-8 ${className}`} style={{ height: adHeight }}>
@@ -48,7 +49,7 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
         style={{ display: 'inline-block', width: '100%', height: adHeight }}
         data-ad-client="ca-pub-5764631499636026"
         data-ad-slot={slotId}
-        data-ad-format={isHorizontal ? 'horizontal' : 'auto'}
+        data-ad-format={isVertical ? 'vertical' : isHorizontal ? 'horizontal' : 'auto'}
         data-full-width-responsive={isHorizontal ? "false" : "true"}
       />
     </div>

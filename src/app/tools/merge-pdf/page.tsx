@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
+import toast from 'react-hot-toast';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
@@ -75,7 +76,7 @@ export default function MergePdfPage() {
       setMergedPdfUrl(url);
     } catch (error) {
       console.error('Error merging PDFs:', error);
-      alert('Failed to merge PDFs. Please ensure all files are valid PDF documents.');
+      toast.error('Failed to merge PDFs. Please ensure all files are valid PDF documents.');
     } finally {
       setIsMerging(false);
     }

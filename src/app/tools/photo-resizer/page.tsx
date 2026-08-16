@@ -5,6 +5,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { UploadCloud, Image as ImageIcon, Download, Loader2, CheckCircle2 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 type Preset = {
   id: string;
@@ -36,6 +37,14 @@ export default function PhotoResizerPage() {
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
+
   const activePreset = PRESETS.find(p => p.id === selectedPresetId) || PRESETS[0];
   const isCustom = activePreset.id === 'custom';
 
@@ -48,7 +57,7 @@ export default function PhotoResizerPage() {
     if (e.target.files && e.target.files.length > 0) {
       const selected = e.target.files[0];
       if (!selected.type.startsWith('image/')) {
-        alert('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
+        toast.error('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
         return;
       }
       setFile(selected);
@@ -69,6 +78,8 @@ export default function PhotoResizerPage() {
         setFile(selected);
         setPreviewUrl(URL.createObjectURL(selected));
         setResultDataUrl(null);
+      } else {
+        toast.error('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
       }
     }
   };
@@ -132,10 +143,11 @@ export default function PhotoResizerPage() {
 
       setResultDataUrl(bestDataUrl);
       setResultSizeKb(Number(bestSizeKb.toFixed(1)));
+      toast.success('Image resized successfully!');
 
     } catch (err) {
       console.error(err);
-      alert('Error processing image.');
+      toast.error('Error processing image.');
     } finally {
       setIsProcessing(false);
     }
@@ -258,7 +270,7 @@ export default function PhotoResizerPage() {
                 <>
                   <div className="relative mb-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={previewUrl!} alt="Original" className="max-w-[200px] max-h-[200px] object-contain rounded border border-slate-200" />
+                    <img src={previewUrl!} alt="Original" loading="lazy" className="max-w-[200px] max-h-[200px] object-contain rounded border border-slate-200" />
                     <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider">Original</span>
                   </div>
                   <button 
@@ -281,7 +293,7 @@ export default function PhotoResizerPage() {
                     <div className="flex flex-col items-center">
                       <div className="w-[150px] h-[150px] flex items-center justify-center border border-dashed border-slate-300 bg-slate-50 rounded mb-2 overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={resultDataUrl} alt="Result" className="max-w-full max-h-full" />
+                        <img src={resultDataUrl} alt="Result" loading="lazy" className="max-w-full max-h-full" />
                       </div>
                       <span className="text-xs font-semibold bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full">
                         {resultSizeKb} KB

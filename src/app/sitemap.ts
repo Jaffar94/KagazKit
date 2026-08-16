@@ -1,28 +1,11 @@
 import { MetadataRoute } from 'next'
+import { TOOLS_DATA } from '@/lib/toolsData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.kagazkit.site';
 
-  const tools = [
-    'photo-resizer',
-    'tax-calculator',
-    'epf-calculator',
-    'sip-calculator',
-    'age-calculator',
-    'image-to-pdf',
-    'emi-calculator',
-    'date-calculator',
-    'deposit-calculator',
-    'gst-calculator',
-    'merge-pdf',
-    'pdf-compressor',
-    'qr-code-generator',
-    'salary-calculator',
-    'split-pdf'
-  ];
-
-  const toolsSitemap = tools.map((tool) => ({
-    url: `${baseUrl}/tools/${tool}`,
+  const toolsSitemap = TOOLS_DATA.map((tool) => ({
+    url: `${baseUrl}${tool.href}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.9,

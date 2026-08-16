@@ -119,8 +119,8 @@ export default function TaxCalculatorPage() {
             <input 
               type="number" 
               min="0"
-              value={salary || ''} 
-              onChange={(e) => setSalary(Number(e.target.value) || 0)}
+              value={salary === 0 ? '' : salary} 
+              onChange={(e) => setSalary(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
             />
           </div>
@@ -131,8 +131,8 @@ export default function TaxCalculatorPage() {
               <input 
                 type="number" 
                 min="0"
-                value={sec80c || ''} 
-                onChange={(e) => setSec80c(Number(e.target.value) || 0)}
+                value={sec80c === 0 ? '' : sec80c} 
+                onChange={(e) => setSec80c(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -141,8 +141,8 @@ export default function TaxCalculatorPage() {
               <input 
                 type="number" 
                 min="0"
-                value={sec80d || ''} 
-                onChange={(e) => setSec80d(Number(e.target.value) || 0)}
+                value={sec80d === 0 ? '' : sec80d} 
+                onChange={(e) => setSec80d(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -154,8 +154,8 @@ export default function TaxCalculatorPage() {
               <input 
                 type="number" 
                 min="0"
-                value={hra || ''} 
-                onChange={(e) => setHra(Number(e.target.value) || 0)}
+                value={hra === 0 ? '' : hra} 
+                onChange={(e) => setHra(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
@@ -164,8 +164,8 @@ export default function TaxCalculatorPage() {
               <input 
                 type="number" 
                 min="0"
-                value={homeLoan || ''} 
-                onChange={(e) => setHomeLoan(Number(e.target.value) || 0)}
+                value={homeLoan === 0 ? '' : homeLoan} 
+                onChange={(e) => setHomeLoan(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
