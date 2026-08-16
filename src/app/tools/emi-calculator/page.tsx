@@ -173,7 +173,7 @@ export default function EmiCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="emi-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="emi-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

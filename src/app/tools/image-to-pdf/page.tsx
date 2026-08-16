@@ -250,7 +250,7 @@ export default function ImageToPdfPage() {
         />
       </div>
 
-      <AdSlot format="display" slotId="imgpdf-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="imgpdf-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

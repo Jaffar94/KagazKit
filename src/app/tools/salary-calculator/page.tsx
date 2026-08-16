@@ -158,7 +158,7 @@ export default function SalaryCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="salary-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="salary-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

@@ -154,7 +154,7 @@ export default function DateCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="date-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="date-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

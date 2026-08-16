@@ -238,7 +238,7 @@ export default function SplitPdfPage() {
 
       </div>
 
-      <AdSlot format="display" slotId="split-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="split-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

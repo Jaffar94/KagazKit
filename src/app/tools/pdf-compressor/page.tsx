@@ -257,7 +257,7 @@ export default function CompressPdfPage() {
 
       </div>
 
-      <AdSlot format="display" slotId="compress-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="compress-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

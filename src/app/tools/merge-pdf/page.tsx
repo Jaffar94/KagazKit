@@ -211,7 +211,7 @@ export default function MergePdfPage() {
 
       </div>
 
-      <AdSlot format="display" slotId="merge-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="merge-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

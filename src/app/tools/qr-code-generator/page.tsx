@@ -123,7 +123,7 @@ export default function QrCodeGeneratorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="qr-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="qr-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

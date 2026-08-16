@@ -170,7 +170,7 @@ export default function GstCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="gst-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="gst-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

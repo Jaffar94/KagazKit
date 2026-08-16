@@ -168,7 +168,7 @@ export default function DepositCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="deposit-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="deposit-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[

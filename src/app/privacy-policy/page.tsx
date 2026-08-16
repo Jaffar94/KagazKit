@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
     <div className="max-w-3xl mx-auto px-4 w-full prose prose-slate">
       <h1 className="text-3xl font-bold text-slate-900 mb-6">Privacy Policy</h1>
       <p className="text-sm text-slate-500 mb-8">Last updated: August 2024</p>
-      
+
       <p>At KagazKit, accessible from kagazkit.site, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by KagazKit and how we use it.</p>
 
       <AdSlot format="horizontal" slotId="privacy-ad-1" className="not-prose my-8" />

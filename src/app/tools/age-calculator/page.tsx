@@ -115,7 +115,7 @@ export default function AgeCalculatorPage() {
         </div>
       </div>
 
-      <AdSlot format="display" slotId="age-bottom-ad" className="mb-12" />
+      <AdSlot format="horizontal" slotId="age-bottom-ad" className="mb-12" />
 
       <FAQ 
         items={[
