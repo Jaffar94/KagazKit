@@ -14,15 +14,21 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
   const pathname = usePathname();
   
   useEffect(() => {
-    // Attempt to push ad to Google AdSense. In development, this does nothing but visually simulates the space.
-    try {
-      if (typeof window !== 'undefined') {
-        const adsbygoogle = (window as any).adsbygoogle || [];
-        adsbygoogle.push({});
+    // Attempt to push ad to Google AdSense. 
+    // We use a small timeout to ensure the DOM layout is fully settled after Next.js client-side navigation.
+    // This prevents AdSense from calculating the wrong container width and serving a narrow 320px ad.
+    const timer = setTimeout(() => {
+      try {
+        if (typeof window !== 'undefined') {
+          const adsbygoogle = (window as any).adsbygoogle || [];
+          adsbygoogle.push({});
+        }
+      } catch (err) {
+        console.error('AdSense error', err);
       }
-    } catch (err) {
-      console.error('AdSense error', err);
-    }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   const isHorizontal = format === 'horizontal';
