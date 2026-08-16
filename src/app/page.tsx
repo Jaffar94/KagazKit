@@ -5,7 +5,7 @@ import ToolsList from '@/components/ToolsList';
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-4 w-full">
+    <div className="w-full">
       <div className="text-center py-12 md:py-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
           Simple, Instant <span className="text-indigo-600">Web Tools & Calculators</span>

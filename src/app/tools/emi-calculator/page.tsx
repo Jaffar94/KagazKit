@@ -55,7 +55,7 @@ export default function EmiCalculatorPage() {
   const interestPercent = totalAmount > 0 ? (totalInterest / totalAmount) * 100 : 50;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 w-full">
+    <div className="w-full max-w-5xl">
       <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Home Loan EMI Calculator</h1>

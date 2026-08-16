@@ -51,7 +51,7 @@ export default function GstCalculatorPage() {
   }, [amount, gstRate, mode]);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 w-full">
+    <div className="w-full max-w-5xl">
       <BackToHome />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">Online GST Calculator India</h1>

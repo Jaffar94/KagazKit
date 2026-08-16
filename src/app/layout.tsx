@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className="font-sans min-h-screen flex flex-col pb-20 lg:pb-0 relative overflow-x-hidden">
         <Header />
         
-        <div className="flex-1 w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:gap-8 pt-8 pb-12 px-4">
+        <div className="flex-1 w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:gap-12 pt-8 pb-12 px-4 sm:px-6 lg:px-8">
           <main className="flex-1 w-full flex flex-col">
             {children}
           </main>
