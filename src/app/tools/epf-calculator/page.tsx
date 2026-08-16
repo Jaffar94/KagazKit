@@ -99,10 +99,9 @@ export default function EPFCalculatorPage() {
             <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><IndianRupee className="w-4 h-4 text-indigo-600"/> Basic + DA (Monthly)</span>
             </label>
-            <input 
-              type="number" 
+            <input type="number" min="0" 
               value={basicPay} 
-              onChange={(e) => setBasicPay(Number(e.target.value))}
+              onChange={(e) => setBasicPay(Number(e.target.value) || 0)}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
             />
           </div>
@@ -112,10 +111,9 @@ export default function EPFCalculatorPage() {
               <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
                 <span className="flex items-center gap-2"><User className="w-4 h-4 text-indigo-600"/> Current Age</span>
               </label>
-              <input 
-                type="number" 
+              <input type="number" min="0" 
                 value={currentAge} 
-                onChange={(e) => setCurrentAge(Number(e.target.value))}
+                onChange={(e) => setCurrentAge(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
               />
             </div>
@@ -123,10 +121,9 @@ export default function EPFCalculatorPage() {
               <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
                 <span className="flex items-center gap-2"><User className="w-4 h-4 text-indigo-600"/> Retire Age</span>
               </label>
-              <input 
-                type="number" 
+              <input type="number" min="0" 
                 value={retirementAge} 
-                onChange={(e) => setRetirementAge(Number(e.target.value))}
+                onChange={(e) => setRetirementAge(Number(e.target.value) || 0)}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
               />
             </div>
@@ -136,10 +133,9 @@ export default function EPFCalculatorPage() {
             <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><Wallet className="w-4 h-4 text-indigo-600"/> Current EPF Balance</span>
             </label>
-            <input 
-              type="number" 
+            <input type="number" min="0" 
               value={currentBalance} 
-              onChange={(e) => setCurrentBalance(Number(e.target.value))}
+              onChange={(e) => setCurrentBalance(Number(e.target.value) || 0)}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
             />
           </div>
@@ -151,7 +147,7 @@ export default function EPFCalculatorPage() {
             </label>
             <input 
               type="range" min="0" max="20" step="1" 
-              value={salaryIncrement} onChange={(e) => setSalaryIncrement(Number(e.target.value))}
+              value={salaryIncrement} onChange={(e) => setSalaryIncrement(Number(e.target.value) || 0)}
               className="w-full accent-indigo-600"
             />
           </div>

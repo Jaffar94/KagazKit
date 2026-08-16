@@ -34,7 +34,10 @@ export default function ImageToPdfPage() {
     try {
       const img = new Image();
       img.src = previewUrl;
-      await new Promise((resolve) => (img.onload = resolve));
+      await new Promise((resolve, reject) => { 
+        img.onload = resolve; 
+        img.onerror = () => reject(new Error("Failed to load image into canvas"));
+      });
 
       // Target size in bytes
       const targetBytes = targetMaxKb * 1024;
@@ -172,10 +175,9 @@ export default function ImageToPdfPage() {
         
         <div className="mb-6">
             <label className="block text-sm font-semibold text-slate-700 mb-2">Target Maximum Size (KB)</label>
-            <input 
-              type="number" 
+            <input type="number" min="0" 
               value={targetMaxKb}
-              onChange={(e) => setTargetMaxKb(Number(e.target.value))}
+              onChange={(e) => setTargetMaxKb(Number(e.target.value) || 0)}
               className="w-full md:w-1/3 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none"
             />
             <p className="text-xs text-slate-500 mt-2">Example: 300 for Aadhaar/ID proof uploads.</p>

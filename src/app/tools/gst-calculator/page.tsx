@@ -93,8 +93,7 @@ export default function GstCalculatorPage() {
                 <IndianRupee className="w-4 h-4 text-indigo-500" />
                 {mode === 'add' ? 'Initial Amount' : 'Total Invoice Amount'}
               </label>
-              <input
-                type="number"
+              <input type="number" min="0"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 10000"

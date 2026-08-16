@@ -96,8 +96,7 @@ export default function DepositCalculatorPage() {
                 <IndianRupee className="w-4 h-4 text-indigo-500" />
                 {type === 'FD' ? 'Total Investment Amount' : 'Monthly Deposit Amount'}
               </label>
-              <input
-                type="number"
+              <input type="number" min="0"
                 value={principal}
                 onChange={(e) => setPrincipal(e.target.value ? Number(e.target.value) : '')}
                 placeholder={type === 'FD' ? 'e.g. 100000' : 'e.g. 5000'}
@@ -111,8 +110,7 @@ export default function DepositCalculatorPage() {
                   <Percent className="w-4 h-4 text-indigo-500" />
                   Interest Rate
                 </label>
-                <input
-                  type="number"
+                <input type="number" min="0"
                   value={rate}
                   onChange={(e) => setRate(e.target.value ? Number(e.target.value) : '')}
                   placeholder="e.g. 7.5"
@@ -125,8 +123,7 @@ export default function DepositCalculatorPage() {
                   <Calendar className="w-4 h-4 text-indigo-500" />
                   Time Period (Years)
                 </label>
-                <input
-                  type="number"
+                <input type="number" min="0"
                   value={years}
                   onChange={(e) => setYears(e.target.value ? Number(e.target.value) : '')}
                   placeholder="e.g. 5"

@@ -76,7 +76,7 @@ export default function SIPCalculatorPage() {
               </label>
               <input 
                 type="range" min="500" max="100000" step="500" 
-                value={monthlySIP} onChange={(e) => setMonthlySIP(Number(e.target.value))}
+                value={monthlySIP} onChange={(e) => setMonthlySIP(Number(e.target.value) || 0)}
                 className="w-full accent-indigo-600"
               />
             </div>
@@ -88,7 +88,7 @@ export default function SIPCalculatorPage() {
               </label>
               <input 
                 type="range" min="1" max="30" step="0.5" 
-                value={returnRate} onChange={(e) => setReturnRate(Number(e.target.value))}
+                value={returnRate} onChange={(e) => setReturnRate(Number(e.target.value) || 0)}
                 className="w-full accent-indigo-600"
               />
             </div>
@@ -100,7 +100,7 @@ export default function SIPCalculatorPage() {
               </label>
               <input 
                 type="range" min="1" max="40" step="1" 
-                value={duration} onChange={(e) => setDuration(Number(e.target.value))}
+                value={duration} onChange={(e) => setDuration(Number(e.target.value) || 0)}
                 className="w-full accent-indigo-600"
               />
             </div>
@@ -112,7 +112,7 @@ export default function SIPCalculatorPage() {
               </label>
               <input 
                 type="range" min="0" max="50" step="1" 
-                value={stepUp} onChange={(e) => setStepUp(Number(e.target.value))}
+                value={stepUp} onChange={(e) => setStepUp(Number(e.target.value) || 0)}
                 className="w-full accent-indigo-600"
               />
             </div>

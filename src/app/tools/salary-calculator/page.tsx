@@ -81,8 +81,7 @@ export default function SalaryCalculatorPage() {
                 <Briefcase className="w-4 h-4 text-indigo-500" />
                 Annual CTC (₹)
               </label>
-              <input
-                type="number"
+              <input type="number" min="0"
                 value={ctc}
                 onChange={(e) => setCtc(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 1200000"
@@ -95,8 +94,7 @@ export default function SalaryCalculatorPage() {
                 <IndianRupee className="w-4 h-4 text-indigo-500" />
                 Annual Bonus / Variable (₹) - Optional
               </label>
-              <input
-                type="number"
+              <input type="number" min="0"
                 value={bonus}
                 onChange={(e) => setBonus(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 100000"

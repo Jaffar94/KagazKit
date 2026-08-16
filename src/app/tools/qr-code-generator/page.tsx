@@ -88,7 +88,7 @@ export default function QrCodeGeneratorPage() {
                 max="512"
                 step="32"
                 value={size}
-                onChange={(e) => setSize(Number(e.target.value))}
+                onChange={(e) => setSize(Number(e.target.value) || 0)}
                 className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
               />
             </div>
