@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import AdSlot from '@/components/AdSlot';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact Us | KagazKit',
@@ -43,85 +44,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="md:col-span-2 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm">
-          {/* Note: Using Web3Forms for easy form submissions without exposing an email address. 
-              You can get a free access key at https://web3forms.com/ and replace YOUR_ACCESS_KEY_HERE */}
-          <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-            
-            {/* Optional: Redirect after successful submission. Replace with your actual domain */}
-            {/* <input type="hidden" name="redirect" value="https://kagazkit.site/contact?success=true" /> */}
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-semibold text-slate-900">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-900">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none"
-                  placeholder="john@example.com"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="subject" className="block text-sm font-semibold text-slate-900">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none"
-                placeholder="How can we help you?"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="message" className="block text-sm font-semibold text-slate-900">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none resize-none"
-                placeholder="Write your message here..."
-              ></textarea>
-            </div>
-
-            {/* Honeypot Spam Protection */}
-            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2"
-            >
-              <Send className="w-5 h-5" />
-              Send Message
-            </button>
-          </form>
-        </div>
+        <ContactForm />
       </div>
     </div>
   );
