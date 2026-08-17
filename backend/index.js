@@ -50,6 +50,10 @@ app.post('/compress', upload.single('file'), (req, res) => {
     '-dNOPAUSE',
     '-dQUIET',
     '-dBATCH',
+    '-dNumRenderingThreads=1', // Limit CPU threads
+    '-dBufferSpace=50000000', // 50MB hard limit on RAM buffer
+    '-c', '<< /MaxBitmap 50000000 >> setuserparams', // Force bitmap rendering to disk if it exceeds 50MB
+    '-f', // Needed after -c to parse the rest of the arguments as files/flags
     '-dDownsampleColorImages=true',
     '-dDownsampleGrayImages=true',
     '-dDownsampleMonoImages=true',
@@ -69,9 +73,11 @@ app.post('/compress', upload.single('file'), (req, res) => {
   gsArgs.push(`-sOutputFile=${outputPath}`);
   gsArgs.push(inputPath);
 
-  // Run Ghostscript
+  // Run Ghostscript with custom env to force temp files to our disk directory
   console.log(`[EXEC] Running gs with DPI=${dpi}`);
-  const gsProcess = spawn('gs', gsArgs);
+  const gsProcess = spawn('gs', gsArgs, {
+    env: { ...process.env, TMPDIR: path.join(__dirname, 'uploads') }
+  });
 
   gsProcess.on('error', (error) => {
     console.error('Failed to start ghostscript:', error);
