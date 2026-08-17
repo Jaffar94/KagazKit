@@ -52,8 +52,7 @@ app.post('/compress', upload.single('file'), (req, res) => {
     '-dBATCH',
     '-dNumRenderingThreads=1', // Limit CPU threads
     '-dBufferSpace=50000000', // 50MB hard limit on RAM buffer
-    '-c', '<< /MaxBitmap 50000000 >> setuserparams', // Force bitmap rendering to disk if it exceeds 50MB
-    '-f', // Needed after -c to parse the rest of the arguments as files/flags
+    '-dMaxBitmap=50000000', // Force bitmap rendering to disk if it exceeds 50MB
     '-dDownsampleColorImages=true',
     '-dDownsampleGrayImages=true',
     '-dDownsampleMonoImages=true',
