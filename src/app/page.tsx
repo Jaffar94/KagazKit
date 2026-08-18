@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import AdSlot from '@/components/AdSlot';
 import ToolsList from '@/components/ToolsList';
 
 export default function Home() {
@@ -14,8 +13,6 @@ export default function Home() {
           No signups. No server uploads. 100% private, client-side tools designed for everyday tasks and personal finance.
         </p>
       </div>
-
-      <AdSlot format="horizontal" slotId="home-top-ad" className="mb-12" />
 
       <ToolsList />
     </div>
