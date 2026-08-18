@@ -20,8 +20,7 @@ export default function ContactPage() {
           Have a question, feedback, or a feature request? We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you as soon as possible.
         </p>
       </div>
-      
-      <AdSlot format="horizontal" slotId="contact-ad-1" className="mb-12" />
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {/* Contact Information */}
@@ -46,6 +45,8 @@ export default function ContactPage() {
 
         <ContactForm />
       </div>
+
+      <AdSlot format="horizontal" slotId="contact-ad-1" className="mb-12" />
     </div>
   );
 }
