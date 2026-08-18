@@ -64,7 +64,10 @@ export default function ScannerClient() {
     toast.loading('Analyzing receipt...', { id: 'scan' });
 
     try {
-      const response = await fetch('/api/extract-receipt', {
+      const baseUrl = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/compress').replace('/compress', '');
+      const apiUrl = `${baseUrl}/extract-receipt`;
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageBase64, mimeType }),
@@ -75,7 +78,7 @@ export default function ScannerClient() {
       try {
         result = JSON.parse(responseText);
       } catch (e) {
-        throw new Error(`Server Error (${response.status}): ${responseText.slice(0, 50)}... Please try a smaller image.`);
+        throw new Error(`Server Error (${response.status}): Please ensure your backend is running and try a smaller image.`);
       }
 
       if (!response.ok) {
