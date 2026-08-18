@@ -70,7 +70,13 @@ export default function ScannerClient() {
         body: JSON.stringify({ imageBase64, mimeType }),
       });
 
-      const result = await response.json();
+      const responseText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (e) {
+        throw new Error(`Server Error (${response.status}): ${responseText.slice(0, 50)}... Please try a smaller image.`);
+      }
 
       if (!response.ok) {
         throw new Error(result.error || 'Failed to scan receipt');

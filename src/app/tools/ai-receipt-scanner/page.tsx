@@ -24,6 +24,10 @@ const faqItems = [
     answer: "You can upload standard image formats including JPG, PNG, and WEBP. For the best results, ensure the image is well-lit, in focus, and the text is legible."
   },
   {
+    question: "Why did my receipt fail to scan or say 'Not in pattern'?",
+    answer: "Our AI is strictly programmed to extract structured financial data (Item Name, Price, Tax, and Total). If you upload a receipt with a highly unusual layout, missing prices, or a document that isn't a receipt at all (like a credit card slip or a promotional voucher), the AI will reject it to prevent giving you corrupted data. For best results, use standard retail, grocery, or restaurant itemized receipts."
+  },
+  {
     question: "Can I export the extracted data to Excel?",
     answer: "Yes! Once the AI successfully extracts the line items and totals, a 'Download CSV' button will appear. Clicking it will instantly download a spreadsheet file that you can open in Microsoft Excel, Google Sheets, or Apple Numbers."
   }
