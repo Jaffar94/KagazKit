@@ -13,13 +13,22 @@ import {
   Calendar,
   Clock,
   QrCode,
-  SplitSquareHorizontal
+  SplitSquareHorizontal,
+  ReceiptText
 } from 'lucide-react';
 
 export const TOOLS_CATEGORIES = [
   {
     categoryName: 'General Utilities',
     tools: [
+      {
+        id: 'ai-receipt-scanner',
+        name: 'AI Receipt Scanner',
+        description: 'Instantly extract items, prices, and taxes from receipts using Vision AI.',
+        icon: ReceiptText,
+        color: 'bg-emerald-50 text-emerald-600',
+        href: '/tools/ai-receipt-scanner'
+      },
       {
         id: 'qr-code-generator',
         name: 'QR Code Generator',

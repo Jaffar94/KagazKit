@@ -1,12 +1,13 @@
 # KagazKit
 
-**KagazKit** is an ultra-fast, modern web utility portal designed for global users. It provides 14 essential tools and calculators with a focus on ease of use, zero server uploads for image processing, and a premium "Soft UI" aesthetic.
+**KagazKit** is an ultra-fast, modern web utility portal designed for global users. It provides 15 essential tools and calculators with a focus on ease of use, zero server uploads for image processing, and a premium "Soft UI" aesthetic.
 
 ## Features & Tools
 
-KagazKit currently includes 14 core utilities:
+KagazKit currently includes 15 core utilities:
 
-1. **PDF Compressor:** High-quality PDF compression powered by a custom Ghostscript backend with a continuous granular percentage slider.
+1. **AI Receipt Scanner:** Instantly extract items, prices, and taxes from receipt images using Google Gemini Vision AI.
+2. **PDF Compressor:** High-quality PDF compression powered by a custom Ghostscript backend with a continuous granular percentage slider.
 2. **Merge PDF:** Combine multiple PDF documents seamlessly in your browser.
 3. **Image to PDF:** Convert JPG, PNG, and other images to a single PDF document.
 4. **Photo Resizer:** Strictly compress and resize images to exact KB limits (e.g., 20KB - 50KB) using HTML5 Canvas in the browser.
@@ -63,12 +64,13 @@ node index.js
 In your Next.js root directory, create a `.env.local` file and add:
 ```env
 NEXT_PUBLIC_PDF_API_URL=http://localhost:8080/compress
+GEMINI_API_KEY=your_google_ai_studio_key_here
 ```
 
 ## Deployment
 
-### Frontend (Vercel)
-The easiest way to deploy the frontend is to push this repository to GitHub and import it into [Vercel](https://vercel.com). Vercel will automatically detect the Next.js framework. Make sure to add `NEXT_PUBLIC_PDF_API_URL` to your Vercel Environment Variables, pointing to your live backend URL.
+### Frontend (Vercel / Cloudflare Pages)
+The easiest way to deploy the frontend is to push this repository to GitHub and import it into Vercel or Cloudflare. Make sure to add `NEXT_PUBLIC_PDF_API_URL` and `GEMINI_API_KEY` to your Environment Variables. Note: `GEMINI_API_KEY` must be saved as an Encrypted Secret to protect your Google AI account.
 
 ### Backend (Render)
 The backend is Dockerized and ready to be deployed on [Render.com](https://render.com).
