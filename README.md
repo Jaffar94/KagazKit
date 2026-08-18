@@ -63,17 +63,22 @@ node index.js
 
 In your Next.js root directory, create a `.env.local` file and add:
 ```env
-NEXT_PUBLIC_PDF_API_URL=http://localhost:8080/compress
+NEXT_PUBLIC_API_URL=http://localhost:8080/compress
+```
+
+In your `backend/` directory, create a `.env` file and add:
+```env
 GEMINI_API_KEY=your_google_ai_studio_key_here
 ```
 
 ## Deployment
 
 ### Frontend (Vercel / Cloudflare Pages)
-The easiest way to deploy the frontend is to push this repository to GitHub and import it into Vercel or Cloudflare. Make sure to add `NEXT_PUBLIC_PDF_API_URL` and `GEMINI_API_KEY` to your Environment Variables. Note: `GEMINI_API_KEY` must be saved as an Encrypted Secret to protect your Google AI account.
+The easiest way to deploy the frontend is to push this repository to GitHub and import it into Vercel or Cloudflare. Make sure to add `NEXT_PUBLIC_API_URL` to your Environment Variables, pointing to your live Render backend URL.
 
 ### Backend (Render)
 The backend is Dockerized and ready to be deployed on [Render.com](https://render.com).
 1. Create a new **Web Service** on Render.
 2. Connect this repository and set the **Root Directory** to `backend`.
 3. Set the Environment to **Docker** (Render will automatically use the provided `Dockerfile` to install Ghostscript and Node.js).
+4. In the Render Dashboard, add `GEMINI_API_KEY` to your Environment Variables.
