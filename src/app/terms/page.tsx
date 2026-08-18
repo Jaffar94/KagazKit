@@ -23,7 +23,12 @@ export default function TermsPage() {
         All calculations and resizing results provided by KagazKit are for informational and convenience purposes. While we strive for accuracy, the results should be verified before being used for official government or financial submissions. We do not guarantee absolute accuracy.
       </p>
 
-      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">3. Prohibited Uses</h2>
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">3. Third-Party AI Services</h2>
+      <p>
+        Certain tools on this website (such as the AI Receipt Scanner) utilize third-party Artificial Intelligence APIs (like Google Gemini) to process images and extract text. By using these specific tools, you acknowledge that your uploaded images are transmitted securely to these third-party processors for the sole purpose of fulfilling your request. AI-generated extraction results are experimental and may contain errors; always verify the extracted financial data before use.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">4. Prohibited Uses</h2>
       <p>
         You must not use this website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of KagazKit.
       </p>

@@ -18,8 +18,12 @@ export default function PrivacyPolicyPage() {
 
       <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Data Processing</h2>
       <p>
-        <strong>KagazKit operates entirely client-side.</strong> We do not have servers that collect your images, financial numbers, or inputs. All image processing and calculations are performed directly within your web browser.
+        The majority of KagazKit's tools operate <strong>entirely client-side</strong> (within your browser), meaning your data never leaves your device. However, certain advanced features require secure third-party processing:
       </p>
+      <ul className="list-disc pl-6 space-y-2 mt-4 text-slate-700">
+        <li><strong>AI Receipt Scanner:</strong> Images uploaded to this tool are securely transmitted to the <strong>Google Gemini API</strong> for data extraction. The images are processed in-memory for extraction purposes and are not persistently stored or used to train Google's models.</li>
+        <li><strong>PDF Compressor:</strong> PDF files are securely transmitted to our temporary Ghostscript processing servers. Files are processed entirely in memory and are instantly discarded after compression. We do not store or inspect your documents.</li>
+      </ul>
 
       <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Google AdSense and Cookies</h2>
       <p>
