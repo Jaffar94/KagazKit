@@ -63,9 +63,19 @@ const upload = multer({
   }
 });
 
-// Create uploads directory if it doesn't exist
+// Create uploads directory if it doesn't exist, or clean it if it does
 if (!fs.existsSync('uploads')) {
   fs.mkdirSync('uploads');
+} else {
+  // Cleanup any orphaned files from previous crashed runs
+  fs.readdirSync('uploads').forEach(file => {
+    try {
+      fs.unlinkSync(path.join('uploads', file));
+    } catch (err) {
+      console.error(`Failed to delete orphaned file ${file}:`, err);
+    }
+  });
+  console.log('Cleaned up orphaned files in uploads directory.');
 }
 
 app.get('/health', (req, res) => {
@@ -119,9 +129,11 @@ app.post('/compress', upload.single('file'), (req, res) => {
   gsArgs.push(inputPath);
 
   // Run Ghostscript with custom env to force temp files to our disk directory
+  // Added a strict 60-second timeout to prevent zombie processes
   console.log(`[EXEC] Running gs with DPI=${dpi}`);
   const gsProcess = spawn('gs', gsArgs, {
-    env: { ...process.env, TMPDIR: path.join(__dirname, 'uploads') }
+    env: { ...process.env, TMPDIR: path.join(__dirname, 'uploads') },
+    timeout: 60000 // 60 seconds
   });
 
   gsProcess.on('error', (error) => {
