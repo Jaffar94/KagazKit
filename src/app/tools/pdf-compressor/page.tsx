@@ -64,6 +64,11 @@ export default function CompressPdfPage() {
 
       // Using environment variable for backend URL
       const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+      
+      if (!apiUrl) {
+        throw new Error('Backend API URL is not configured. Please check environment variables.');
+      }
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         body: formData,
