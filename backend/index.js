@@ -8,8 +8,29 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Enable CORS so the Next.js frontend can communicate with this backend
-app.use(cors());
+// List of allowed frontend URLs (Origins)
+// You can easily add more frontend domains here in the future
+const allowedOrigins = [
+  'http://localhost:3000',     // Local development
+  'https://www.kagazkit.site', // Your production domain (with www)
+  'https://kagazkit.site'      // Your production domain (without www)
+];
+
+// Configure CORS to only allow requests from the allowedOrigins list
+const corsOptions = {
+  origin: function (origin, callback) {
+    // If there is no origin (e.g., Postman/curl) or it's in the allowed list, allow it.
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS. Request from unauthorized origin.'));
+    }
+  },
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// Enable CORS with the restrictive options
+app.use(cors(corsOptions));
 
 // Configure multer for file uploads
 const upload = multer({ 
