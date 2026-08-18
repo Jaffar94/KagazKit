@@ -1,12 +1,17 @@
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 8080;
+
+// Set security HTTP headers
+app.use(helmet());
 
 // List of allowed frontend URLs (Origins)
 // You can easily add more frontend domains here in the future
@@ -32,10 +37,30 @@ const corsOptions = {
 // Enable CORS with the restrictive options
 app.use(cors(corsOptions));
 
+// Configure rate limiting: Max 15 requests per IP every 15 minutes
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 15, // limit each IP to 15 requests per windowMs
+  message: { error: 'Too many requests from this IP, please try again after 15 minutes.' },
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// Apply rate limiter specifically to the compression endpoint
+app.use('/compress', limiter);
+
 // Configure multer for file uploads
 const upload = multer({ 
   dest: 'uploads/',
-  limits: { fileSize: 50 * 1024 * 1024 } // 50MB limit
+  limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit
+  fileFilter: (req, file, cb) => {
+    // Only accept PDF files
+    if (file.mimetype === 'application/pdf') {
+      cb(null, true);
+    } else {
+      cb(new Error('INVALID_FILE_TYPE'), false);
+    }
+  }
 });
 
 // Create uploads directory if it doesn't exist
@@ -145,6 +170,9 @@ app.use((err, req, res, next) => {
     }
     return res.status(400).json({ error: err.message });
   } else if (err) {
+    if (err.message === 'INVALID_FILE_TYPE') {
+      return res.status(400).json({ error: 'Invalid file type. Only PDF files are allowed.' });
+    }
     console.error('Unhandled server error:', err);
     return res.status(500).json({ error: 'Internal server error.' });
   }
