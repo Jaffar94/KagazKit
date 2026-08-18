@@ -220,7 +220,7 @@ export default function ScannerClient() {
                       <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
                         <td className="px-6 py-4 font-medium">{item.name}</td>
                         <td className="px-6 py-4 text-center text-slate-500">{item.quantity || '-'}</td>
-                        <td className="px-6 py-4 text-right">{item.price != null ? `$${item.price.toFixed(2)}` : '-'}</td>
+                        <td className="px-6 py-4 text-right">{item.price != null ? item.price.toFixed(2) : '-'}</td>
                       </tr>
                     ))}
                     {data.items.length === 0 && (
@@ -236,18 +236,18 @@ export default function ScannerClient() {
                     {data.subtotal != null && (
                       <tr>
                         <td colSpan={2} className="px-6 py-3 text-right text-slate-500">Subtotal</td>
-                        <td className="px-6 py-3 text-right font-medium">${data.subtotal.toFixed(2)}</td>
+                        <td className="px-6 py-3 text-right font-medium">{data.subtotal.toFixed(2)}</td>
                       </tr>
                     )}
                     {data.tax != null && (
                       <tr>
                         <td colSpan={2} className="px-6 py-3 text-right text-slate-500">Tax</td>
-                        <td className="px-6 py-3 text-right font-medium">${data.tax.toFixed(2)}</td>
+                        <td className="px-6 py-3 text-right font-medium">{data.tax.toFixed(2)}</td>
                       </tr>
                     )}
                     <tr>
                       <td colSpan={2} className="px-6 py-4 text-right font-bold text-slate-900 text-base">Total</td>
-                      <td className="px-6 py-4 text-right font-bold text-primary text-lg">${data.total?.toFixed(2) || '0.00'}</td>
+                      <td className="px-6 py-4 text-right font-bold text-primary text-lg">{data.total?.toFixed(2) || '0.00'}</td>
                     </tr>
                   </tfoot>
                 </table>
