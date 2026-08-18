@@ -102,43 +102,58 @@ export default function PhotoResizerPage() {
       const ctx = canvas.getContext('2d');
       if (!ctx) throw new Error("Canvas not supported");
 
-      // Fill white background in case of transparent PNGs
-      ctx.fillStyle = '#FFFFFF';
-      ctx.fillRect(0, 0, targetW, targetH);
+      const isPng = file?.type === 'image/png';
+      const exportType = isPng ? 'image/png' : 'image/jpeg';
+
+      if (!isPng) {
+        // Fill white background in case of transparent images converted to JPEG
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, targetW, targetH);
+      } else {
+        // Clear canvas to ensure transparency
+        ctx.clearRect(0, 0, targetW, targetH);
+      }
       ctx.drawImage(img, 0, 0, targetW, targetH);
 
-      // Binary search for JPEG quality
-      let minQ = 0.0;
-      let maxQ = 1.0;
       let bestDataUrl = null;
       let bestSizeKb = 0;
-      let attempt = 0;
 
-      while (attempt < 15 && (maxQ - minQ) > 0.01) {
-        attempt++;
-        let midQ = (minQ + maxQ) / 2;
-        let dataUrl = canvas.toDataURL('image/jpeg', midQ);
-        // Estimate size in KB (Base64 is ~33% larger than binary)
-        let sizeKb = (dataUrl.length * (3/4)) / 1024;
-
-        if (sizeKb > targetMaxKb) {
-          maxQ = midQ;
-        } else if (sizeKb < targetMinKb) {
-          minQ = midQ;
-          bestDataUrl = dataUrl;
-          bestSizeKb = sizeKb;
-        } else {
-          // Hits the sweet spot
-          bestDataUrl = dataUrl;
-          bestSizeKb = sizeKb;
-          break;
-        }
-      }
-
-      // Fallback if we couldn't hit the target but got something below max
-      if (!bestDataUrl) {
-        bestDataUrl = canvas.toDataURL('image/jpeg', minQ);
+      if (isPng) {
+        // PNG doesn't support quality parameter natively in toDataURL
+        bestDataUrl = canvas.toDataURL('image/png');
         bestSizeKb = (bestDataUrl.length * (3/4)) / 1024;
+      } else {
+        // Binary search for JPEG quality
+        let minQ = 0.0;
+        let maxQ = 1.0;
+        let attempt = 0;
+
+        while (attempt < 15 && (maxQ - minQ) > 0.01) {
+          attempt++;
+          let midQ = (minQ + maxQ) / 2;
+          let dataUrl = canvas.toDataURL('image/jpeg', midQ);
+          // Estimate size in KB (Base64 is ~33% larger than binary)
+          let sizeKb = (dataUrl.length * (3/4)) / 1024;
+
+          if (sizeKb > targetMaxKb) {
+            maxQ = midQ;
+          } else if (sizeKb < targetMinKb) {
+            minQ = midQ;
+            bestDataUrl = dataUrl;
+            bestSizeKb = sizeKb;
+          } else {
+            // Hits the sweet spot
+            bestDataUrl = dataUrl;
+            bestSizeKb = sizeKb;
+            break;
+          }
+        }
+
+        // Fallback if we couldn't hit the target but got something below max
+        if (!bestDataUrl) {
+          bestDataUrl = canvas.toDataURL('image/jpeg', minQ);
+          bestSizeKb = (bestDataUrl.length * (3/4)) / 1024;
+        }
       }
 
       setResultDataUrl(bestDataUrl);
@@ -157,7 +172,9 @@ export default function PhotoResizerPage() {
     if (!resultDataUrl) return;
     const link = document.createElement('a');
     link.href = resultDataUrl;
-    link.download = `kagazkit_${targetW}x${targetH}.jpg`;
+    const isPng = file?.type === 'image/png';
+    const extension = isPng ? 'png' : 'jpg';
+    link.download = `kagazkit_${targetW}x${targetH}.${extension}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

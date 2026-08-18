@@ -35,10 +35,10 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5764631499636026"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </head>
-      <body className="font-sans min-h-screen flex flex-col pb-20 lg:pb-0 relative overflow-x-hidden">
+      <body className="font-sans min-h-screen flex flex-col pb-20 lg:pb-0 relative">
         <Header />
         
         <div className="flex-1 w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:gap-8 xl:gap-12 pt-8 pb-12 px-4 sm:px-6 lg:px-8 justify-center">
