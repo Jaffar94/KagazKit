@@ -207,7 +207,7 @@ export default function PhotoResizerPage() {
 
       <div className="flex flex-col gap-8">
         {/* Controls */}
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">Select Preset Format</label>
             <div className="space-y-2">
@@ -231,15 +231,15 @@ export default function PhotoResizerPage() {
             <div className="grid grid-cols-3 gap-3 p-4 bg-slate-50 rounded-lg border border-slate-200">
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Width (px)</label>
-                <input type="number" min="0" value={customWidth === 0 ? '' : customWidth} onChange={(e) => setCustomWidth(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customWidth === 0 ? '' : customWidth} onChange={(e) => setCustomWidth(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded-sm outline-hidden focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Height (px)</label>
-                <input type="number" min="0" value={customHeight === 0 ? '' : customHeight} onChange={(e) => setCustomHeight(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customHeight === 0 ? '' : customHeight} onChange={(e) => setCustomHeight(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded-sm outline-hidden focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-slate-500 mb-1">Max KB</label>
-                <input type="number" min="0" value={customMaxKb === 0 ? '' : customMaxKb} onChange={(e) => setCustomMaxKb(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded outline-none focus:ring-1 focus:ring-indigo-600 text-sm" />
+                <input type="number" min="0" value={customMaxKb === 0 ? '' : customMaxKb} onChange={(e) => setCustomMaxKb(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))} className="w-full p-2 border border-slate-200 rounded-sm outline-hidden focus:ring-1 focus:ring-indigo-600 text-sm" />
               </div>
             </div>
           )}
@@ -287,7 +287,7 @@ export default function PhotoResizerPage() {
                 <>
                   <div className="relative mb-6">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={previewUrl!} alt="Original" loading="lazy" className="max-w-[200px] max-h-[200px] object-contain rounded border border-slate-200" />
+                    <img src={previewUrl!} alt="Original" loading="lazy" className="max-w-[200px] max-h-[200px] object-contain rounded-sm border border-slate-200" />
                     <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider">Original</span>
                   </div>
                   <button 
@@ -308,7 +308,7 @@ export default function PhotoResizerPage() {
                   
                   <div className="flex gap-8 items-end mb-8">
                     <div className="flex flex-col items-center">
-                      <div className="w-[150px] h-[150px] flex items-center justify-center border border-dashed border-slate-300 bg-slate-50 rounded mb-2 overflow-hidden">
+                      <div className="w-[150px] h-[150px] flex items-center justify-center border border-dashed border-slate-300 bg-slate-50 rounded-sm mb-2 overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={resultDataUrl} alt="Result" loading="lazy" className="max-w-full max-h-full" />
                       </div>

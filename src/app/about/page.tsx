@@ -24,7 +24,7 @@ export default function AboutPage() {
 
       {/* Core Values Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center">
           <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <ShieldCheck className="w-6 h-6" />
           </div>
@@ -34,7 +34,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center">
           <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <Zap className="w-6 h-6" />
           </div>
@@ -44,7 +44,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center">
           <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <Globe className="w-6 h-6" />
           </div>

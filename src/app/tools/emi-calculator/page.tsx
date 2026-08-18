@@ -65,7 +65,7 @@ export default function EmiCalculatorPage() {
 
       <div className="flex flex-col gap-8">
         {/* Left Column: Inputs */}
-        <div className="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
+        <div className="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-xs">
           <div className="space-y-6">
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
@@ -77,7 +77,7 @@ export default function EmiCalculatorPage() {
                 <input type="number" min="0"
                   value={principal === 0 ? '' : principal}
                   onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                  className="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none font-semibold text-slate-900"
+                  className="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden font-semibold text-slate-900"
                 />
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function EmiCalculatorPage() {
                   step="0.1"
                   value={rate === 0 ? '' : rate}
                   onChange={(e) => setRate(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                  className="w-full pl-4 pr-8 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none font-semibold text-slate-900"
+                  className="w-full pl-4 pr-8 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden font-semibold text-slate-900"
                 />
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">%</span>
               </div>

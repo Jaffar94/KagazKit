@@ -51,7 +51,7 @@ export default function AgeCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="age-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             <div>
@@ -63,7 +63,7 @@ export default function AgeCalculatorPage() {
                 type="date"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
             
@@ -76,7 +76,7 @@ export default function AgeCalculatorPage() {
                 type="date"
                 value={cutoffDate}
                 onChange={(e) => setCutoffDate(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
               <p className="text-xs text-slate-500 mt-2">The specific date mentioned in the exam notification.</p>
             </div>
@@ -100,7 +100,7 @@ export default function AgeCalculatorPage() {
                   <div className="text-4xl font-extrabold text-slate-900 mb-4">
                     {result.years} <span className="text-xl font-medium text-slate-500">Years</span>
                   </div>
-                  <div className="flex items-center justify-center gap-4 text-slate-700 text-lg font-medium bg-white px-4 py-3 rounded-lg border border-slate-200 shadow-sm inline-flex">
+                  <div className="flex items-center justify-center gap-4 text-slate-700 text-lg font-medium bg-white px-4 py-3 rounded-lg border border-slate-200 shadow-xs inline-flex">
                     <span>{result.months} Months</span>
                     <span className="w-1 h-1 rounded-full bg-slate-300"></span>
                     <span>{result.days} Days</span>

@@ -20,7 +20,10 @@ export default function AdSlot({ format = 'horizontal', slotId = '3809487681', c
     const timer = setTimeout(() => {
       try {
         if (typeof window !== 'undefined' && adRef.current) {
-          if (!adRef.current.getAttribute('data-adsbygoogle-status')) {
+          // Only push if the element is actually visible (has width). 
+          // This prevents the "No slot size for availableWidth=0" error on hidden sidebar ads.
+          const isVisible = adRef.current.offsetWidth > 0 || (adRef.current.parentElement?.offsetWidth || 0) > 0;
+          if (!adRef.current.getAttribute('data-adsbygoogle-status') && isVisible) {
             const adsbygoogle = (window as any).adsbygoogle || [];
             adsbygoogle.push({});
           }

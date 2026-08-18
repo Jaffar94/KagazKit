@@ -60,7 +60,7 @@ export default function GstCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="gst-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             
@@ -70,7 +70,7 @@ export default function GstCalculatorPage() {
                 onClick={() => setMode('add')}
                 className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
                   mode === 'add' 
-                    ? 'bg-white text-indigo-700 shadow-sm' 
+                    ? 'bg-white text-indigo-700 shadow-xs' 
                     : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -80,7 +80,7 @@ export default function GstCalculatorPage() {
                 onClick={() => setMode('remove')}
                 className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
                   mode === 'remove' 
-                    ? 'bg-white text-indigo-700 shadow-sm' 
+                    ? 'bg-white text-indigo-700 shadow-xs' 
                     : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -97,7 +97,7 @@ export default function GstCalculatorPage() {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 10000"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none text-lg font-medium"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden text-lg font-medium"
               />
             </div>
             
@@ -140,20 +140,20 @@ export default function GstCalculatorPage() {
                 </div>
 
                 <div className="space-y-3 text-sm">
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Base Amount</span>
                     <span className="font-medium text-slate-900">₹{result.baseAmount.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Total GST ({gstRate}%)</span>
                     <span className="font-medium text-indigo-600">+ ₹{result.gstAmount.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="border-t border-slate-200 my-2"></div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors text-slate-500 text-xs">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors text-slate-500 text-xs">
                     <span>CGST ({gstRate / 2}%)</span>
                     <span>₹{result.cgst.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors text-slate-500 text-xs">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors text-slate-500 text-xs">
                     <span>SGST ({gstRate / 2}%)</span>
                     <span>₹{result.sgst.toLocaleString('en-IN')}</span>
                   </div>

@@ -33,7 +33,7 @@ export default function FAQ({ items }: FAQProps) {
     <div className="mt-16 max-w-3xl mx-auto w-full">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       
       <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">Frequently Asked Questions</h2>
@@ -42,15 +42,15 @@ export default function FAQ({ items }: FAQProps) {
         {items.map((item, index) => (
           <div key={index} className="border border-slate-200/80 rounded-2xl bg-white overflow-hidden">
             <button
-              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               aria-expanded={openIndex === index}
             >
               <span className="font-semibold text-slate-800 pr-4">{item.question}</span>
               {openIndex === index ? (
-                <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+                <ChevronUp className="w-5 h-5 text-primary shrink-0" />
               ) : (
-                <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
               )}
             </button>
             

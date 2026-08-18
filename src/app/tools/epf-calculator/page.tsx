@@ -94,7 +94,7 @@ export default function EPFCalculatorPage() {
       <AdSlot format="horizontal" slotId="epf-top-ad" className="mb-8" />
 
       <div className="flex flex-col gap-8">
-        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+        <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
           <div>
             <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><IndianRupee className="w-4 h-4 text-indigo-600"/> Basic + DA (Monthly)</span>
@@ -102,7 +102,7 @@ export default function EPFCalculatorPage() {
             <input type="number" min="0" 
               value={basicPay === 0 ? '' : basicPay} 
               onChange={(e) => setBasicPay(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
+              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function EPFCalculatorPage() {
               <input type="number" min="0" 
                 value={currentAge === 0 ? '' : currentAge} 
                 onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
               />
             </div>
             <div>
@@ -124,7 +124,7 @@ export default function EPFCalculatorPage() {
               <input type="number" min="0" 
                 value={retirementAge === 0 ? '' : retirementAge} 
                 onChange={(e) => setRetirementAge(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
               />
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function EPFCalculatorPage() {
             <input type="number" min="0" 
               value={currentBalance === 0 ? '' : currentBalance} 
               onChange={(e) => setCurrentBalance(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-600/20"
+              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
             />
           </div>
 

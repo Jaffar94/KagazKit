@@ -63,7 +63,7 @@ export default function DepositCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="deposit-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             
@@ -73,7 +73,7 @@ export default function DepositCalculatorPage() {
                 onClick={() => setType('FD')}
                 className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
                   type === 'FD' 
-                    ? 'bg-white text-indigo-700 shadow-sm' 
+                    ? 'bg-white text-indigo-700 shadow-xs' 
                     : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -83,7 +83,7 @@ export default function DepositCalculatorPage() {
                 onClick={() => setType('RD')}
                 className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
                   type === 'RD' 
-                    ? 'bg-white text-indigo-700 shadow-sm' 
+                    ? 'bg-white text-indigo-700 shadow-xs' 
                     : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
@@ -100,7 +100,7 @@ export default function DepositCalculatorPage() {
                 value={principal}
                 onChange={(e) => setPrincipal(e.target.value ? Number(e.target.value) : '')}
                 placeholder={type === 'FD' ? 'e.g. 100000' : 'e.g. 5000'}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
             
@@ -115,7 +115,7 @@ export default function DepositCalculatorPage() {
                   onChange={(e) => setRate(e.target.value ? Number(e.target.value) : '')}
                   placeholder="e.g. 7.5"
                   step="0.1"
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
                 />
               </div>
               <div>
@@ -127,7 +127,7 @@ export default function DepositCalculatorPage() {
                   value={years}
                   onChange={(e) => setYears(e.target.value ? Number(e.target.value) : '')}
                   placeholder="e.g. 5"
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
                 />
               </div>
             </div>
@@ -145,11 +145,11 @@ export default function DepositCalculatorPage() {
                 </div>
 
                 <div className="space-y-3 text-sm">
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Total Investment</span>
                     <span className="font-medium text-slate-900">₹{result.invested.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Total Interest Earned</span>
                     <span className="font-medium text-emerald-600">+ ₹{result.interest.toLocaleString('en-IN')}</span>
                   </div>

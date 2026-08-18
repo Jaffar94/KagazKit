@@ -23,10 +23,11 @@ KagazKit currently includes 14 core utilities:
 
 ## Tech Stack
 
-*   **Frontend Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+*   **Frontend Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+*   **UI Library:** [React 19](https://react.dev/) (with React Compiler)
 *   **Backend Server:** Node.js / Express (for heavy PDF compression tasks via Ghostscript)
 *   **Language:** [TypeScript](https://www.typescriptlang.org/)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
 *   **Icons:** [Lucide React](https://lucide.dev/)
 
 ## Getting Started (Local Development)

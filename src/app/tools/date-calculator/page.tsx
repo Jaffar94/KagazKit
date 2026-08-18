@@ -73,7 +73,7 @@ export default function DateCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="date-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             <div>
@@ -85,7 +85,7 @@ export default function DateCalculatorPage() {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
             
@@ -98,7 +98,7 @@ export default function DateCalculatorPage() {
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
 
@@ -107,7 +107,7 @@ export default function DateCalculatorPage() {
                 type="checkbox"
                 checked={includeEnd}
                 onChange={(e) => setIncludeEnd(e.target.checked)}
-                className="w-5 h-5 text-indigo-600 rounded border-slate-300 focus:ring-indigo-600"
+                className="w-5 h-5 text-indigo-600 rounded-sm border-slate-300 focus:ring-indigo-600"
               />
               <span className="text-sm font-medium text-slate-700">Include end date in calculation (add 1 day)</span>
             </label>
@@ -133,7 +133,7 @@ export default function DateCalculatorPage() {
                   {result.totalDays} <span className="text-xl font-medium text-slate-500">Days</span>
                 </div>
                 
-                <div className="space-y-3 text-sm text-left bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div className="space-y-3 text-sm text-left bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                   <div className="flex justify-between border-b border-slate-100 pb-2">
                     <span className="text-slate-500">Years, Months, Days</span>
                     <span className="font-medium text-slate-800">{result.years}y, {result.months}m, {result.days}d</span>

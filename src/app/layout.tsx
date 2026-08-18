@@ -47,7 +47,7 @@ export default function RootLayout({
             <SidebarAd />
           </aside>
 
-          <main className="flex-1 w-full max-w-4xl flex flex-col">
+          <main className="flex-1 w-full max-w-4xl flex flex-col @container">
             {children}
           </main>
           

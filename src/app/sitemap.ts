@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { TOOLS_DATA } from '@/lib/toolsData';
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.kagazkit.site';

@@ -112,7 +112,7 @@ export default function CompressPdfPage() {
 
       <AdSlot format="horizontal" slotId="compress-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
         {!file ? (
           <div 
@@ -189,7 +189,7 @@ export default function CompressPdfPage() {
                       checked={grayscale}
                       onChange={(e) => setGrayscale(e.target.checked)}
                       disabled={isCompressing}
-                      className="w-5 h-5 text-indigo-600 rounded border-slate-300 focus:ring-indigo-600 focus:ring-offset-0 disabled:opacity-50"
+                      className="w-5 h-5 text-indigo-600 rounded-sm border-slate-300 focus:ring-indigo-600 focus:ring-offset-0 disabled:opacity-50"
                     />
                     <div className="flex flex-col">
                       <span className="text-sm font-bold text-slate-800">Convert to Black & White</span>
@@ -251,7 +251,7 @@ export default function CompressPdfPage() {
                   <a
                     href={compressedPdfUrl}
                     download={`Compressed_${file.name}`}
-                    className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                    className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-xs"
                   >
                     <Download className="w-5 h-5" />
                     Download PDF

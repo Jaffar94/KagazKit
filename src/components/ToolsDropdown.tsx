@@ -53,7 +53,7 @@ export default function ToolsDropdown() {
             aria-hidden="true"
           />
           
-          <div className="fixed inset-x-4 top-[4.5rem] sm:absolute sm:inset-auto sm:top-full sm:right-0 sm:mt-2 sm:w-[500px] bg-white rounded-xl shadow-2xl border border-slate-200 z-50 max-h-[calc(100vh-6rem)] sm:max-h-[80vh] flex flex-col overflow-hidden">
+          <div className="fixed inset-x-4 top-18 sm:absolute sm:inset-auto sm:top-full sm:right-0 sm:mt-2 sm:w-[500px] bg-white rounded-xl shadow-2xl border border-slate-200 z-50 max-h-[calc(100vh-6rem)] sm:max-h-[80vh] flex flex-col overflow-hidden">
             <div className="overflow-y-auto p-4">
               {TOOLS_CATEGORIES.map((category) => (
                 <div key={category.categoryName} className="mb-6 last:mb-0">

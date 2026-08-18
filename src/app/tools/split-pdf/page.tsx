@@ -133,7 +133,7 @@ export default function SplitPdfPage() {
 
       <AdSlot format="horizontal" slotId="split-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
         {/* Upload Area */}
         {!file && (
@@ -193,7 +193,7 @@ export default function SplitPdfPage() {
                   placeholder="e.g., 1-5, 8, 11-13"
                   value={pageRange}
                   onChange={(e) => setPageRange(e.target.value)}
-                  className="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all text-slate-700 font-medium"
+                  className="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-hidden transition-all text-slate-700 font-medium"
                 />
                 <p className="text-xs text-slate-500">
                   Enter page numbers and/or page ranges separated by commas. The document has {totalPages} pages.
@@ -227,7 +227,7 @@ export default function SplitPdfPage() {
                   <a
                     href={splitPdfUrl}
                     download={`Extracted_${file.name}`}
-                    className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                    className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-xs"
                   >
                     <Download className="w-5 h-5" />
                     Download PDF

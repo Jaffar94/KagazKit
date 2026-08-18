@@ -25,7 +25,7 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         {/* Contact Information */}
         <div className="md:col-span-1 space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-center md:text-left">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs text-center md:text-left">
             <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
               <MessageSquare className="w-6 h-6" />
             </div>

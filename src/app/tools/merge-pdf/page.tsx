@@ -92,7 +92,7 @@ export default function MergePdfPage() {
 
       <AdSlot format="horizontal" slotId="merge-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
         {/* Upload Area */}
         <div 
@@ -187,7 +187,7 @@ export default function MergePdfPage() {
                 <a
                   href={mergedPdfUrl}
                   download="KagazKit_Merged.pdf"
-                  className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                  className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-xs"
                 >
                   <Download className="w-5 h-5" />
                   Download Merged PDF

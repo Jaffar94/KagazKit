@@ -109,7 +109,7 @@ export default function TaxCalculatorPage() {
       <AdSlot format="horizontal" slotId="tax-top-ad" className="mb-8" />
 
       <div className="flex flex-col gap-8">
-        <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-5">
+        <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-5">
           <h2 className="text-lg font-bold text-slate-800 border-b border-slate-100 pb-2">Income & Deductions</h2>
           
           <div>
@@ -121,7 +121,7 @@ export default function TaxCalculatorPage() {
               min="0"
               value={salary === 0 ? '' : salary} 
               onChange={(e) => setSalary(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
+              className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-emerald-600/20"
             />
           </div>
 
@@ -133,7 +133,7 @@ export default function TaxCalculatorPage() {
                 min="0"
                 value={sec80c === 0 ? '' : sec80c} 
                 onChange={(e) => setSec80c(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
             <div>
@@ -143,7 +143,7 @@ export default function TaxCalculatorPage() {
                 min="0"
                 value={sec80d === 0 ? '' : sec80d} 
                 onChange={(e) => setSec80d(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function TaxCalculatorPage() {
                 min="0"
                 value={hra === 0 ? '' : hra} 
                 onChange={(e) => setHra(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
             <div>
@@ -166,7 +166,7 @@ export default function TaxCalculatorPage() {
                 min="0"
                 value={homeLoan === 0 ? '' : homeLoan} 
                 onChange={(e) => setHomeLoan(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-emerald-600/20"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-emerald-600/20"
               />
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function TaxCalculatorPage() {
 
         <div className="lg:col-span-6 flex flex-col gap-6">
           {winner !== 'EQUAL' && savings > 0 && (
-            <div className="bg-emerald-100 border border-emerald-200 text-emerald-800 p-4 rounded-xl flex items-center justify-between shadow-sm">
+            <div className="bg-emerald-100 border border-emerald-200 text-emerald-800 p-4 rounded-xl flex items-center justify-between shadow-xs">
               <span className="font-semibold text-sm uppercase tracking-wider">Recommendation</span>
               <span className="font-bold">{winner} Regime saves you {formatCurrency(savings)}</span>
             </div>

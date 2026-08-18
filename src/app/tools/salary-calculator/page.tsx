@@ -73,7 +73,7 @@ export default function SalaryCalculatorPage() {
 
       <AdSlot format="horizontal" slotId="salary-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             <div>
@@ -85,7 +85,7 @@ export default function SalaryCalculatorPage() {
                 value={ctc}
                 onChange={(e) => setCtc(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 1200000"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
             
@@ -98,7 +98,7 @@ export default function SalaryCalculatorPage() {
                 value={bonus}
                 onChange={(e) => setBonus(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 100000"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-none"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
             </div>
 
@@ -123,24 +123,24 @@ export default function SalaryCalculatorPage() {
                 </div>
 
                 <div className="space-y-3 text-sm">
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Basic Salary</span>
                     <span className="font-medium text-slate-900">₹{result.basic.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">HRA</span>
                     <span className="font-medium text-slate-900">₹{result.hra.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors">
                     <span className="text-slate-600">Special Allowance</span>
                     <span className="font-medium text-slate-900">₹{result.specialAllowance.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="border-t border-slate-200 my-2"></div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors text-red-600">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors text-red-600">
                     <span>Provident Fund (PF)</span>
                     <span className="font-medium">- ₹{result.pf.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between p-2 rounded hover:bg-white transition-colors text-red-600">
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors text-red-600">
                     <span>Professional Tax (PT)</span>
                     <span className="font-medium">- ₹{result.pt.toLocaleString('en-IN')}</span>
                   </div>

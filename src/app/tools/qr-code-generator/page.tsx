@@ -38,7 +38,7 @@ export default function QrCodeGeneratorPage() {
 
       <AdSlot format="horizontal" slotId="qr-top-ad" className="mb-8" />
 
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-sm">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
           
           {/* Controls */}
@@ -46,7 +46,7 @@ export default function QrCodeGeneratorPage() {
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-2">URL or Text Content</label>
               <textarea
-                className="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all resize-none h-32 text-slate-700"
+                className="w-full border border-slate-300 rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-hidden transition-all resize-none h-32 text-slate-700"
                 placeholder="Enter URL (e.g., https://example.com) or text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -61,7 +61,7 @@ export default function QrCodeGeneratorPage() {
                     type="color"
                     value={fgColor}
                     onChange={(e) => setFgColor(e.target.value)}
-                    className="w-10 h-10 rounded cursor-pointer border-0 p-0 bg-transparent"
+                    className="w-10 h-10 rounded-sm cursor-pointer border-0 p-0 bg-transparent"
                   />
                   <span className="text-sm text-slate-500 uppercase">{fgColor}</span>
                 </div>
@@ -73,7 +73,7 @@ export default function QrCodeGeneratorPage() {
                     type="color"
                     value={bgColor}
                     onChange={(e) => setBgColor(e.target.value)}
-                    className="w-10 h-10 rounded cursor-pointer border-0 p-0 bg-transparent"
+                    className="w-10 h-10 rounded-sm cursor-pointer border-0 p-0 bg-transparent"
                   />
                   <span className="text-sm text-slate-500 uppercase">{bgColor}</span>
                 </div>
@@ -96,7 +96,7 @@ export default function QrCodeGeneratorPage() {
 
           {/* Preview & Download */}
           <div className="flex flex-col items-center justify-center p-8 bg-slate-50 rounded-2xl border border-slate-100">
-            <div className="mb-6 bg-white p-4 rounded-xl shadow-sm" ref={qrRef}>
+            <div className="mb-6 bg-white p-4 rounded-xl shadow-xs" ref={qrRef}>
               <QRCodeCanvas
                 value={text || 'https://kagazkit.com'}
                 size={size}
@@ -110,7 +110,7 @@ export default function QrCodeGeneratorPage() {
             <button
               onClick={downloadQR}
               disabled={!text}
-              className="w-full px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
+              className="w-full px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-xs"
             >
               <Download className="w-5 h-5" />
               Download PNG
