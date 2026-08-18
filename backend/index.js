@@ -1,4 +1,5 @@
 const express = require('express');
+const { GoogleGenAI } = require('@google/genai');
 const multer = require('multer');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -80,6 +81,84 @@ if (!fs.existsSync('uploads')) {
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
+});
+
+// AI Receipt Scanner Endpoint
+const receiptResponseSchema = {
+  type: 'object',
+  properties: {
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', description: 'Name of the item purchased' },
+          quantity: { type: 'number', description: 'Quantity of the item' },
+          price: { type: 'number', description: 'Total price for this line item, if found' }
+        },
+        required: ['name']
+      }
+    },
+    subtotal: { type: 'number', description: 'Subtotal amount before tax' },
+    tax: { type: 'number', description: 'Total tax amount' },
+    total: { type: 'number', description: 'Final total amount paid' },
+    merchant: { type: 'string', description: 'Name of the store or merchant' },
+    date: { type: 'string', description: 'Date of the transaction in YYYY-MM-DD format if available' }
+  },
+  required: ['items']
+};
+
+app.post('/extract-receipt', express.json({ limit: '10mb' }), async (req, res) => {
+  try {
+    const { imageBase64, mimeType } = req.body;
+
+    if (!imageBase64 || !mimeType) {
+      return res.status(400).json({ error: 'Missing image data' });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({ error: 'API key not configured on server' });
+    }
+
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: [
+        {
+          role: 'user',
+          parts: [
+            { text: 'Extract the items, prices, tax, and total from this receipt.' },
+            {
+              inlineData: {
+                data: imageBase64,
+                mimeType: mimeType
+              }
+            }
+          ]
+        }
+      ],
+      config: {
+        responseMimeType: 'application/json',
+        responseSchema: receiptResponseSchema,
+        temperature: 0.1,
+      }
+    });
+
+    const resultText = response.text;
+    if (!resultText) {
+      throw new Error("No response text from Gemini");
+    }
+
+    const data = JSON.parse(resultText);
+    return res.json({ success: true, data });
+
+  } catch (error) {
+    console.error('Error extracting receipt:', error);
+    return res.status(500).json({ 
+      error: 'Failed to extract data. Please ensure the image is clear and try again.' 
+    });
+  }
 });
 
 app.post('/compress', upload.single('file'), (req, res) => {
