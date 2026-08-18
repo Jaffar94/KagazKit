@@ -62,8 +62,8 @@ export default function CompressPdfPage() {
       formData.append('dpi', getTargetDpi().toString());
       formData.append('grayscale', grayscale.toString());
 
-      // Hardcoded Render backend URL for Cloudflare Pages
-      const apiUrl = 'https://kagazkitbackend.onrender.com/compress';
+      // Using environment variable for backend URL
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
       const response = await fetch(apiUrl, {
         method: 'POST',
         body: formData,
