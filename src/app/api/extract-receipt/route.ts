@@ -17,9 +17,9 @@ const responseSchema = {
         properties: {
           name: { type: 'string', description: 'Name of the item purchased' },
           quantity: { type: 'number', description: 'Quantity of the item' },
-          price: { type: 'number', description: 'Total price for this line item' }
+          price: { type: 'number', description: 'Total price for this line item, if found' }
         },
-        required: ['name', 'price']
+        required: ['name']
       }
     },
     subtotal: { type: 'number', description: 'Subtotal amount before tax' },
@@ -28,7 +28,7 @@ const responseSchema = {
     merchant: { type: 'string', description: 'Name of the store or merchant' },
     date: { type: 'string', description: 'Date of the transaction in YYYY-MM-DD format if available' }
   },
-  required: ['items', 'total']
+  required: ['items']
 };
 
 export async function POST(req: Request) {
