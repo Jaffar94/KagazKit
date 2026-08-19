@@ -14,17 +14,19 @@ export default function SplitPdfPage() {
   const [pageRange, setPageRange] = useState<string>('');
   const [isSplitting, setIsSplitting] = useState(false);
   const [splitPdfUrl, setSplitPdfUrl] = useState<string | null>(null);
+  const [previewPdfUrl, setPreviewPdfUrl] = useState<string | null>(null);
+  const [isPreviewGenerating, setIsPreviewGenerating] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const originalPdfRef = useRef<PDFDocument | null>(null);
 
   useEffect(() => {
     return () => {
-      if (splitPdfUrl) {
-        URL.revokeObjectURL(splitPdfUrl);
-      }
+      if (splitPdfUrl) URL.revokeObjectURL(splitPdfUrl);
+      if (previewPdfUrl) URL.revokeObjectURL(previewPdfUrl);
     };
-  }, [splitPdfUrl]);
+  }, [splitPdfUrl, previewPdfUrl]);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -38,11 +40,13 @@ export default function SplitPdfPage() {
       try {
         const arrayBuffer = await selectedFile.arrayBuffer();
         const pdfDoc = await PDFDocument.load(arrayBuffer);
+        originalPdfRef.current = pdfDoc;
         setTotalPages(pdfDoc.getPageCount());
       } catch (err) {
         console.error("Failed to read PDF:", err);
         setErrorMsg("Failed to read the PDF. It might be corrupted or encrypted.");
         setFile(null);
+        originalPdfRef.current = null;
       }
     }
   };
@@ -52,7 +56,9 @@ export default function SplitPdfPage() {
     setTotalPages(0);
     setPageRange('');
     setSplitPdfUrl(null);
+    setPreviewPdfUrl(null);
     setErrorMsg(null);
+    originalPdfRef.current = null;
   };
 
   const parsePageRange = (rangeStr: string, maxPages: number): number[] => {
@@ -87,8 +93,48 @@ export default function SplitPdfPage() {
     return Array.from(pages).sort((a, b) => a - b);
   };
 
+  // Debounced live preview generation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      generatePreview();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [pageRange, file]);
+
+  const generatePreview = async () => {
+    if (!file || !pageRange || !originalPdfRef.current) {
+      setPreviewPdfUrl(null);
+      return;
+    }
+    
+    setIsPreviewGenerating(true);
+    try {
+      const pageNumbers = parsePageRange(pageRange, totalPages);
+      if (pageNumbers.length === 0) {
+        setPreviewPdfUrl(null);
+        return;
+      }
+
+      const newPdf = await PDFDocument.create();
+      const zeroIndexedPages = pageNumbers.map(p => p - 1);
+      
+      const copiedPages = await newPdf.copyPages(originalPdfRef.current, zeroIndexedPages);
+      copiedPages.forEach(page => newPdf.addPage(page));
+
+      const pdfBytes = await newPdf.save();
+      const blob = new Blob([pdfBytes as any], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      setPreviewPdfUrl(url);
+    } catch (error) {
+      // Silently fail during live preview (user might be mid-typing)
+      setPreviewPdfUrl(null);
+    } finally {
+      setIsPreviewGenerating(false);
+    }
+  };
+
   const splitPdf = async () => {
-    if (!file || !pageRange) return;
+    if (!file || !pageRange || !originalPdfRef.current) return;
     
     setErrorMsg(null);
     setIsSplitting(true);
@@ -99,14 +145,10 @@ export default function SplitPdfPage() {
         throw new Error("Please enter a valid page range.");
       }
 
-      const arrayBuffer = await file.arrayBuffer();
-      const originalPdf = await PDFDocument.load(arrayBuffer);
       const newPdf = await PDFDocument.create();
-
-      // pdf-lib uses 0-indexed pages, our UI uses 1-indexed
       const zeroIndexedPages = pageNumbers.map(p => p - 1);
       
-      const copiedPages = await newPdf.copyPages(originalPdf, zeroIndexedPages);
+      const copiedPages = await newPdf.copyPages(originalPdfRef.current, zeroIndexedPages);
       copiedPages.forEach(page => newPdf.addPage(page));
 
       const pdfBytes = await newPdf.save();
@@ -198,6 +240,29 @@ export default function SplitPdfPage() {
                 <p className="text-xs text-slate-500">
                   Enter page numbers and/or page ranges separated by commas. The document has {totalPages} pages.
                 </p>
+
+                {/* Live Preview UI */}
+                {pageRange && (
+                  <div className="mt-6 border border-slate-200 rounded-xl overflow-hidden bg-slate-50 relative">
+                    {isPreviewGenerating && (
+                      <div className="absolute inset-0 bg-slate-50/80 flex flex-col items-center justify-center z-10">
+                        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mb-2"></div>
+                        <p className="text-sm font-medium text-slate-600">Updating preview...</p>
+                      </div>
+                    )}
+                    {previewPdfUrl ? (
+                      <iframe 
+                        src={previewPdfUrl} 
+                        className="w-full h-[400px] md:h-[500px] border-0"
+                        title="PDF Preview"
+                      />
+                    ) : !isPreviewGenerating && (
+                      <div className="w-full h-[200px] flex items-center justify-center text-slate-400 text-sm">
+                        Waiting for valid page range...
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>
