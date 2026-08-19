@@ -14,7 +14,10 @@ import {
   Clock,
   QrCode,
   SplitSquareHorizontal,
-  ReceiptText
+  ReceiptText,
+  Wand2,
+  ShieldCheck,
+  TrendingDown
 } from 'lucide-react';
 
 export const TOOLS_CATEGORIES = [
@@ -36,6 +39,14 @@ export const TOOLS_CATEGORIES = [
         icon: QrCode,
         color: 'bg-indigo-50 text-indigo-600',
         href: '/tools/qr-code-generator'
+      },
+      {
+        id: 'password-generator',
+        name: 'Password Generator',
+        description: 'Create cryptographically secure, random passwords locally in your browser.',
+        icon: ShieldCheck,
+        color: 'bg-emerald-50 text-emerald-600',
+        href: '/tools/password-generator'
       }
     ]
   },
@@ -81,6 +92,22 @@ export const TOOLS_CATEGORIES = [
         icon: SplitSquareHorizontal,
         color: 'bg-rose-50 text-rose-600',
         href: '/tools/split-pdf'
+      },
+      {
+        id: 'background-remover',
+        name: 'AI Background Remover',
+        description: 'Instantly strip image backgrounds using a local AI model for absolute privacy.',
+        icon: Wand2,
+        color: 'bg-fuchsia-50 text-fuchsia-600',
+        href: '/tools/background-remover'
+      },
+      {
+        id: 'heic-to-jpg',
+        name: 'HEIC to JPG Converter',
+        description: 'Convert iPhone photos to standard JPG format instantly. 100% private.',
+        icon: Image,
+        color: 'bg-orange-50 text-orange-600',
+        href: '/tools/heic-to-jpg'
       }
     ]
   },
@@ -142,6 +169,14 @@ export const TOOLS_CATEGORIES = [
         icon: PiggyBank,
         color: 'bg-pink-50 text-pink-600',
         href: '/tools/deposit-calculator'
+      },
+      {
+        id: 'loan-prepayment',
+        name: 'Loan Prepayment Calculator',
+        description: 'See how much interest you save by making extra EMI payments.',
+        icon: TrendingDown,
+        color: 'bg-teal-50 text-teal-600',
+        href: '/tools/loan-prepayment'
       }
     ]
   },

@@ -68,13 +68,13 @@ export default function EmiCalculatorPage() {
         <div className="lg:col-span-5 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-xs">
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
+              <label htmlFor="emi-principal" className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                 <Home className="w-4 h-4 text-indigo-500" />
                 Loan Amount (Principal)
               </label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">₹</span>
-                <input type="number" min="0"
+                <input id="emi-principal" type="number" min="0"
                   value={principal === 0 ? '' : principal}
                   onChange={(e) => setPrincipal(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                   className="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden font-semibold text-slate-900"
@@ -83,12 +83,12 @@ export default function EmiCalculatorPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
+              <label htmlFor="emi-rate" className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                 <Percent className="w-4 h-4 text-indigo-500" />
                 Interest Rate (p.a.)
               </label>
               <div className="relative">
-                <input type="number" min="0"
+                <input id="emi-rate" type="number" min="0"
                   step="0.1"
                   value={rate === 0 ? '' : rate}
                   onChange={(e) => setRate(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
@@ -99,12 +99,13 @@ export default function EmiCalculatorPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
+              <label htmlFor="emi-years" className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                 <CalendarDays className="w-4 h-4 text-indigo-500" />
                 Loan Tenure (Years)
               </label>
               <div className="flex gap-4">
                 <input
+                  id="emi-years"
                   type="range"
                   min="1"
                   max="30"

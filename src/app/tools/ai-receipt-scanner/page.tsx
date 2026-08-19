@@ -49,14 +49,10 @@ export default function AIReceiptScannerPage() {
         </p>
       </div>
 
-      <AdSlot format="horizontal" slotId="auto-ai-scanner-top" />
-
       {/* Main Client Tool */}
       <div className="w-full">
         <ScannerClient />
       </div>
-
-      <AdSlot format="horizontal" slotId="auto-ai-scanner-mid" />
 
       {/* Features Content for SEO */}
       <div className="bg-white rounded-3xl border border-slate-200/80 p-8 md:p-12 shadow-xs space-y-8 mt-12">
