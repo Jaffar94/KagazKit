@@ -173,7 +173,7 @@ export default function SplitPdfPage() {
         <p className="text-slate-500">Extract specific pages from your PDF quickly. 100% secure and runs locally in your browser.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="split-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
@@ -330,6 +330,15 @@ export default function SplitPdfPage() {
 
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Extracting Pages from PDFs</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Extracting specific pages from massive PDF documents shouldn't require expensive desktop software. Our Split PDF tool allows you to slice, extract, and save targeted page ranges instantly. We engineered a seamless, debounced live-preview feature that lets you verify the exact pages before downloading. Best of all, because it runs on a client-side architecture, your confidential 50MB documents are processed instantly on your device without ever touching our servers.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="split-bottom-ad" className="mb-12" />
 
       <FAQ 

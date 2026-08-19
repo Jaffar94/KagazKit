@@ -106,7 +106,7 @@ export default function TaxCalculatorPage() {
         <p className="text-slate-500">Calculate exactly which tax regime saves you more money based on standard deductions and rebates.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="tax-top-ad" className="mb-8" />
+      
 
       <div className="flex flex-col gap-8">
         <div className="lg:col-span-6 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-5">
@@ -197,6 +197,15 @@ export default function TaxCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Navigating Income Tax Slabs</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Understanding your income tax liability under the new tax regime is crucial for financial planning. Our Tax Calculator precisely evaluates your gross annual income against the latest progressive tax slabs, calculating both the base tax and the mandatory education cess. It provides a crystal-clear, tiered breakdown of exactly how much tax you owe in each bracket, empowering you to optimize your savings and file your returns with confidence.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="tax-bottom-ad" className="mt-12" />
 
       <FAQ items={faqs} />

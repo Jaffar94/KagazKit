@@ -180,7 +180,7 @@ export default function ImageToPdfPage() {
         <p className="text-slate-500">Convert Aadhaar, PAN, or any image to PDF format strictly within your KB limit.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="imgpdf-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
@@ -263,6 +263,15 @@ export default function ImageToPdfPage() {
         />
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Secure Image to PDF Conversion</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Combining multiple scanned documents, photos, or receipts into a single PDF file is a daily necessity. Our Image to PDF tool seamlessly handles high-resolution JPGs and PNGs, assembling them into a highly optimized, universally compatible PDF document. Because the entire conversion process occurs locally within your browser using HTML5 Canvas and pdf-lib, your sensitive photos are never uploaded to the cloud, guaranteeing absolute data privacy and zero server lag.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="imgpdf-bottom-ad" className="mb-12" />
 
       <FAQ 

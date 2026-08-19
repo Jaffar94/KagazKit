@@ -58,7 +58,7 @@ export default function GstCalculatorPage() {
         <p className="text-slate-500">Instantly calculate GST for your business invoices. Add or remove GST (5%, 12%, 18%, 28%).</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="gst-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
@@ -169,6 +169,15 @@ export default function GstCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant GST Calculations</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Navigating the Goods and Services Tax (GST) can be complicated for business owners. Our GST Calculator is engineered to instantly add or remove GST from any base amount. Whether you are generating an invoice and need to add 18% GST (exclusive mode) or you have a final retail price and need to extract the base value (inclusive mode), this tool mathematically isolates the CGST and SGST components instantly and privately in your browser.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="gst-bottom-ad" className="mb-12" />
 
       <FAQ 

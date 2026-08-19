@@ -91,7 +91,7 @@ export default function EPFCalculatorPage() {
         <p className="text-slate-500">Calculate your Provident Fund maturity value, PF interest, and check employer vs employee contributions.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="epf-top-ad" className="mb-8" />
+      
 
       <div className="flex flex-col gap-8">
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
@@ -169,6 +169,15 @@ export default function EPFCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Calculating Your EPF Corpus</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          The Employees' Provident Fund (EPF) is one of the most powerful retirement saving vehicles in India. Our EPF Calculator accurately projects your final retirement corpus by factoring in both employee and employer contributions, alongside the prevailing government-mandated interest rate. It elegantly models the power of long-term compounding and salary growth, giving you a realistic and highly private estimation of your financial security upon retirement.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="epf-bottom-ad" className="mt-12" />
 
       <FAQ items={faqs} />

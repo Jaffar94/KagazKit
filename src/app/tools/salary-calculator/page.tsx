@@ -71,7 +71,7 @@ export default function SalaryCalculatorPage() {
         <p className="text-slate-500">Calculate your exact monthly take-home pay based on your CTC, PF, and Professional Tax.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="salary-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
@@ -156,6 +156,15 @@ export default function SalaryCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding Your Take-Home Pay</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Decoding a complex CTC (Cost to Company) offer letter can be confusing. Our Salary Calculator elegantly breaks down your gross salary into actionable insights. By estimating common deductions like PF, Professional Tax, and standard allowances, it provides a highly accurate projection of your actual monthly take-home pay. This tool is indispensable for professionals evaluating new job offers or planning their monthly budgets.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="salary-bottom-ad" className="mb-12" />
 
       <FAQ 

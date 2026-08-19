@@ -93,6 +93,15 @@ export default function AIReceiptScannerPage() {
       <AdSlot format="horizontal" slotId="auto-ai-scanner-bottom" />
 
       {/* FAQ Section */}
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">How Our AI Receipt Scanner Works</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Digitizing financial records has never been easier. Our AI-powered Receipt Scanner leverages Google Gemini's advanced computer vision models to instantly extract line items, prices, taxes, and totals from your paper receipts. Simply upload a clear photo or scanned image, and our system will accurately parse the data into a clean, structured table. This is the perfect tool for freelancers, small business owners, and accounting professionals who need to quickly digitize their expenses without manually typing out every single item.
+        </p>
+      </div>
+  
       <FAQ items={faqItems} />
     </div>
   );

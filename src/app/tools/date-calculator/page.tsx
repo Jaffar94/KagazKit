@@ -71,7 +71,7 @@ export default function DateCalculatorPage() {
         <p className="text-slate-500">Calculate the exact duration between any two dates in days, weeks, months, and years.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="date-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
@@ -154,6 +154,15 @@ export default function DateCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding the Date Calculator</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          The KagazKit Date Calculator allows you to effortlessly add or subtract days, weeks, months, or years from any given starting date. It automatically accounts for leap years and varying month lengths, ensuring perfect mathematical precision. Whether you are planning a project timeline, tracking a pregnancy due date, or calculating a legal deadline, this client-side tool provides instant, accurate results without ever storing your calendar data on external servers.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="date-bottom-ad" className="mb-12" />
 
       <FAQ 

@@ -61,7 +61,7 @@ export default function DepositCalculatorPage() {
         <p className="text-slate-500">Calculate maturity amounts and total interest earned on your Indian bank deposits.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="deposit-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
@@ -165,6 +165,15 @@ export default function DepositCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Fixed & Recurring Deposit Returns</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Planning your savings is crucial for financial stability. Our Deposit Calculator precisely models the growth of both Fixed Deposits (FD) and Recurring Deposits (RD) based on Indian banking standards. It automatically factors in quarterly compounding interest for FDs and the Future Value of Annuity Due formulas for RDs. By providing a clear breakdown of your total invested principal versus your estimated interest earnings, this tool empowers you to make highly informed wealth-building decisions.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="deposit-bottom-ad" className="mb-12" />
 
       <FAQ 

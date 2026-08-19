@@ -110,7 +110,7 @@ export default function CompressPdfPage() {
         <p className="text-slate-500">Reduce PDF file size quickly for email and web uploads. Max file size: 50MB.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="compress-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
@@ -274,6 +274,15 @@ export default function CompressPdfPage() {
 
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Advanced PDF Compression Engine</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Large PDF files can be a nightmare to email or upload to government portals. Our PDF Compressor utilizes an advanced, server-side Ghostscript engine to dramatically reduce your file size while maintaining pristine document readability. We employ strict Ephemeral SSD storage architecture, meaning your PDF is compressed directly on a secure disk and instantly destroyed the moment your download is complete, ensuring your data is never permanently stored.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="compress-bottom-ad" className="mb-12" />
 
       <FAQ 

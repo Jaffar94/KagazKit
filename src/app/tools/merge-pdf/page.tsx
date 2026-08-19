@@ -90,7 +90,7 @@ export default function MergePdfPage() {
         <p className="text-slate-500">Combine multiple PDF files into one instantly. 100% secure and runs locally in your browser.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="merge-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         
@@ -212,6 +212,15 @@ export default function MergePdfPage() {
 
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">How to Merge PDF Files Safely</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Managing digital documents often requires combining multiple files into a single, cohesive package. Our Merge PDF tool allows you to effortlessly combine multiple PDF documents into one seamless file. Utilizing cutting-edge WebAssembly and client-side processing, the merging happens instantly on your own device. This ensures that your sensitive legal contracts, financial reports, or personal documents are never exposed to remote servers or third-party databases.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="merge-bottom-ad" className="mb-12" />
 
       <FAQ 

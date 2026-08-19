@@ -49,7 +49,7 @@ export default function AgeCalculatorPage() {
         <p className="text-slate-500">Calculate your exact age in years, months, and days for exam forms.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="age-top-ad" className="mb-8" />
+      
 
       <div className="bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 mb-12 shadow-xs">
         <div className="flex flex-col gap-8">
@@ -116,6 +116,15 @@ export default function AgeCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">About the Age Calculator</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Our chronological age calculator is a precise tool designed to instantly compute your exact age in years, months, days, and even weeks. Whether you are filling out an official application, calculating the age gap between two dates, or simply curious about your exact age down to the day, this tool provides mathematically accurate results. Unlike many online calculators that send your data to remote servers, our tool processes all dates entirely within your local browser, ensuring 100% privacy and lightning-fast performance.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="age-bottom-ad" className="mb-12" />
 
       <FAQ 

@@ -64,7 +64,7 @@ export default function SIPCalculatorPage() {
         <p className="text-slate-500">Plan your mutual fund investments and discover the power of step-up compounding.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="sip-top-ad" className="mb-8" />
+      
 
       <div className="flex flex-col gap-8">
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs">
@@ -135,6 +135,15 @@ export default function SIPCalculatorPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">The Power of Step-Up SIPs</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Systematic Investment Plans (SIPs) are the cornerstone of wealth creation in mutual funds. Our SIP Calculator goes beyond basic compounding by introducing the "Step-Up" feature, which models increasing your investment annually as your income grows. By visualizing the massive difference between your total invested capital and your estimated maturity returns, this tool clearly demonstrates the unparalleled power of long-term compound interest.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="sip-bottom-ad" className="mt-12" />
 
       <FAQ items={faqs} />

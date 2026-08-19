@@ -203,7 +203,7 @@ export default function PhotoResizerPage() {
         <p className="text-slate-500">Resize image to 20KB-50KB for UPSC, SSC, IBPS with strict size limits. 100% private, client-side resizing.</p>
       </div>
 
-      <AdSlot format="horizontal" slotId="photo-top-ad" className="mb-8" />
+      
 
       <div className="flex flex-col gap-8">
         {/* Controls */}
@@ -331,6 +331,15 @@ export default function PhotoResizerPage() {
         </div>
       </div>
 
+      
+      {/* SEO Content Block */}
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Pixel-Perfect Photo Resizing</h2>
+        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+          Whether you are applying for a passport, updating a social media profile, or optimizing images for a website, precise image dimensions are critical. Our Photo Resizer tool allows you to scale and crop your images with absolute pixel accuracy. Operating entirely client-side, the tool ensures that your high-resolution portraits and sensitive photographs remain strictly on your device, providing instantaneous rendering without the risk of cloud uploads.
+        </p>
+      </div>
+  
       <AdSlot format="horizontal" slotId="photo-bottom-ad" className="mt-12" />
 
       <FAQ items={faqs} />
