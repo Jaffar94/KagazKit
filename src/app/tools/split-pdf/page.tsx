@@ -6,7 +6,7 @@ import { PDFDocument } from 'pdf-lib';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
-import { FileUp, FileText, CheckCircle, Download, X, SplitSquareHorizontal } from 'lucide-react';
+import { FileUp, FileText, CheckCircle, Download, X, SplitSquareHorizontal, ExternalLink } from 'lucide-react';
 
 export default function SplitPdfPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -251,11 +251,27 @@ export default function SplitPdfPage() {
                       </div>
                     )}
                     {previewPdfUrl ? (
-                      <iframe 
-                        src={previewPdfUrl} 
-                        className="w-full h-[400px] md:h-[500px] border-0"
-                        title="PDF Preview"
-                      />
+                      <>
+                        {/* Desktop Iframe */}
+                        <iframe 
+                          src={previewPdfUrl} 
+                          className="hidden md:block w-full h-[500px] border-0"
+                          title="PDF Preview"
+                        />
+                        {/* Mobile Button Fallback */}
+                        <div className="md:hidden w-full h-[200px] flex flex-col items-center justify-center p-6 text-center">
+                          <p className="text-sm text-slate-500 mb-4">Preview is ready. (Embedded PDFs are limited on mobile browsers)</p>
+                          <a 
+                            href={previewPdfUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 bg-indigo-100 text-indigo-700 font-bold rounded-xl hover:bg-indigo-200 transition-colors flex items-center justify-center gap-2"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            Tap to Preview
+                          </a>
+                        </div>
+                      </>
                     ) : !isPreviewGenerating && (
                       <div className="w-full h-[200px] flex items-center justify-center text-slate-400 text-sm">
                         Waiting for valid page range...
