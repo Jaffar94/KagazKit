@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/tools/emi-calculator',
+  },
   title: "Home Loan EMI Calculator India | Personal Loan & Car Loan EMI",
   description: "Calculate your monthly EMI, total interest, and principal amount for home loans, car loans, and personal loans in India. Visual interest breakdown.",
   keywords: ["Home loan EMI calculator India", "EMI interest calculator with chart", "Calculate loan EMI", "Personal loan EMI calculator"],

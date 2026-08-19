@@ -1,7 +1,13 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import ToolsList from '@/components/ToolsList';
+import type { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 export default function Home() {
   return (
     <div className="w-full">

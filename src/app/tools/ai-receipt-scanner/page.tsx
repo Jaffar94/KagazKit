@@ -5,8 +5,11 @@ import AdSlot from '@/components/AdSlot';
 import { ReceiptText, CheckCircle, Zap, TableProperties } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free AI Receipt Scanner & Invoice Extractor | KagazKit',
-  description: 'Instantly extract items, prices, tax, and totals from any receipt or invoice using our free AI Receipt Scanner. Export structured data to CSV or Excel instantly.',
+  title: 'AI Receipt Scanner | Extract Data from Bills & Invoices',
+  description: 'Upload any receipt, bill, or invoice. Our client-side AI instantly extracts the merchant name, total amount, taxes, and date. 100% private processing.',
+  alternates: {
+    canonical: '/tools/ai-receipt-scanner',
+  },
   keywords: ['ai receipt scanner', 'invoice extractor', 'extract text from receipt', 'ocr receipt online', 'free receipt scanner to excel'],
 };
 

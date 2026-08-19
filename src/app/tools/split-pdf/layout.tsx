@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/tools/split-pdf',
+  },
   title: 'Split PDF Online Free | Extract Pages from PDF',
   description: 'Easily extract specific pages from your PDF or split a large PDF into smaller ones. 100% private, client-side processing.',
   keywords: ['split pdf', 'extract pdf pages', 'separate pdf pages', 'cut pdf', 'pdf splitter online free'],
