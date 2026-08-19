@@ -254,12 +254,12 @@ export default function SplitPdfPage() {
                       <>
                         {/* Desktop Iframe */}
                         <iframe 
-                          src={previewPdfUrl} 
-                          className="hidden md:block w-full h-[500px] border-0"
+                          src={`${previewPdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                          className="hidden lg:block w-full h-[500px] border-0"
                           title="PDF Preview"
                         />
                         {/* Mobile Button Fallback */}
-                        <div className="md:hidden w-full h-[200px] flex flex-col items-center justify-center p-6 text-center">
+                        <div className="lg:hidden w-full h-[200px] flex flex-col items-center justify-center p-6 text-center">
                           <p className="text-sm text-slate-500 mb-4">Preview is ready. (Embedded PDFs are limited on mobile browsers)</p>
                           <a 
                             href={previewPdfUrl} 
