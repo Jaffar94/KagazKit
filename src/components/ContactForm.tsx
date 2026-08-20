@@ -27,8 +27,7 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const submitForm = async (prevState: any, formData: FormData) => {
-    // Note: You can replace YOUR_ACCESS_KEY_HERE with your real key from Web3Forms.
-    const accessKey = "YOUR_ACCESS_KEY_HERE";
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
     formData.append("access_key", accessKey);
 
     // If using the dummy key, we simulate a successful submission.

@@ -29,6 +29,10 @@ export default function ImageToPdfPage() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const selected = e.target.files[0];
+      if (selected.size > 10 * 1024 * 1024) {
+        toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
+        return;
+      }
       setFile(selected);
       setPreviewUrl(URL.createObjectURL(selected));
       setResultBlob(null);

@@ -36,19 +36,15 @@ export default function ScannerClient() {
       return;
     }
 
-    // Convert to base64
+    // Display preview
     const reader = new FileReader();
     reader.onload = async (e) => {
       const base64String = e.target?.result as string;
       setImage(base64String);
-      
-      // Extract the mime type and raw base64 data
-      const mimeType = file.type;
-      const rawBase64 = base64String.split(',')[1];
-      
-      await scanReceipt(rawBase64, mimeType);
     };
     reader.readAsDataURL(file);
+
+    await scanReceipt(file);
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -58,7 +54,7 @@ export default function ScannerClient() {
     }
   };
 
-  const scanReceipt = async (imageBase64: string, mimeType: string) => {
+  const scanReceipt = async (file: File) => {
     setIsScanning(true);
     setData(null);
     toast.loading('Analyzing receipt...', { id: 'scan' });
@@ -67,10 +63,12 @@ export default function ScannerClient() {
       const baseUrl = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/compress').replace('/compress', '');
       const apiUrl = `${baseUrl}/extract-receipt`;
 
+      const formData = new FormData();
+      formData.append('image', file);
+
       const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageBase64, mimeType }),
+        body: formData,
       });
 
       const responseText = await response.text();

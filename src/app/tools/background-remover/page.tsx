@@ -6,7 +6,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { Image as ImageIcon, Download, Loader2, Wand2, Sparkles } from 'lucide-react';
-import { removeBackground } from '@imgly/background-removal';
+import { removeBackground, preload } from '@imgly/background-removal';
 
 export default function BackgroundRemoverPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -18,6 +18,12 @@ export default function BackgroundRemoverPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    // Preload the AI model in the background when the user visits the page
+    preload({
+      model: 'isnet',
+      device: 'gpu'
+    }).catch(console.error);
+
     return () => {
       if (originalUrl) URL.revokeObjectURL(originalUrl);
       if (removedUrl) URL.revokeObjectURL(removedUrl);
@@ -50,6 +56,10 @@ export default function BackgroundRemoverPage() {
       return;
     }
 
+    // Revoke previous URLs to prevent memory leaks
+    if (originalUrl) URL.revokeObjectURL(originalUrl);
+    if (removedUrl) URL.revokeObjectURL(removedUrl);
+
     setFile(selectedFile);
     setOriginalUrl(URL.createObjectURL(selectedFile));
     setRemovedUrl(null);
@@ -57,15 +67,22 @@ export default function BackgroundRemoverPage() {
     setProgress(0);
     setLoadingMessage('Initializing AI Model...');
 
+    // Yield the main thread so React can render the loading spinner
+    await new Promise(r => setTimeout(r, 50));
+
     try {
       const config = {
+        model: 'isnet' as const,
+        device: 'gpu' as const,
         progress: (key: string, current: number, total: number) => {
-          if (key === 'compute:inference') {
+          if (key.startsWith('fetch')) {
+            setLoadingMessage(current < total ? 'Downloading AI Model (First time)...' : 'Initializing AI Engine...');
+          } else if (key.startsWith('compute')) {
             setLoadingMessage('Processing Image...');
           } else {
-            setLoadingMessage('Downloading AI Model (First time only)...');
+            setLoadingMessage('Loading...');
           }
-          const percent = Math.round((current / total) * 100);
+          const percent = total > 0 ? Math.round((current / total) * 100) : 0;
           setProgress(percent);
         }
       };

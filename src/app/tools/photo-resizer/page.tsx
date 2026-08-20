@@ -60,6 +60,10 @@ export default function PhotoResizerPage() {
         toast.error('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
         return;
       }
+      if (selected.size > 10 * 1024 * 1024) {
+        toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
+        return;
+      }
       setFile(selected);
       setPreviewUrl(URL.createObjectURL(selected));
       setResultDataUrl(null);
@@ -74,13 +78,17 @@ export default function PhotoResizerPage() {
     e.preventDefault();
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       const selected = e.dataTransfer.files[0];
-      if (selected.type.startsWith('image/')) {
-        setFile(selected);
-        setPreviewUrl(URL.createObjectURL(selected));
-        setResultDataUrl(null);
-      } else {
+      if (!selected.type.startsWith('image/')) {
         toast.error('Invalid file format. Please upload an image (JPG, PNG, WEBP).');
+        return;
       }
+      if (selected.size > 10 * 1024 * 1024) {
+        toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
+        return;
+      }
+      setFile(selected);
+      setPreviewUrl(URL.createObjectURL(selected));
+      setResultDataUrl(null);
     }
   };
 
