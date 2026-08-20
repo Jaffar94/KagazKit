@@ -1,26 +1,37 @@
 # KagazKit
 
-**KagazKit** is an ultra-fast, modern web utility portal designed for global users. It provides 15 essential tools and calculators with a focus on ease of use, zero server uploads for image processing, and a premium "Soft UI" aesthetic.
+**KagazKit** is an ultra-fast, modern web utility portal designed for global users. It provides 19 essential tools and calculators with a focus on ease of use, zero server uploads for image processing, and a premium "Soft UI" aesthetic.
 
 ## Features & Tools
 
-KagazKit currently includes 15 core utilities:
+KagazKit currently includes 19 core utilities across various categories:
 
-1. **AI Receipt Scanner:** Instantly extract items, prices, and taxes from receipt images using Google Gemini Vision AI.
-2. **PDF Compressor:** High-quality PDF compression powered by a custom Ghostscript backend with a continuous granular percentage slider.
-2. **Merge PDF:** Combine multiple PDF documents seamlessly in your browser.
-3. **Image to PDF:** Convert JPG, PNG, and other images to a single PDF document.
-4. **Photo Resizer:** Strictly compress and resize images to exact KB limits (e.g., 20KB - 50KB) using HTML5 Canvas in the browser.
-5. **Income Tax Calculator:** A comprehensive tax comparator calculating Standard Deductions and rebates to recommend the most profitable tax regime.
-6. **EPF Calculator:** Calculate Provident Fund maturity values and compound interest.
-7. **SIP Calculator:** Mutual fund investment planner demonstrating the power of compounding.
-8. **EMI Calculator:** Quickly calculate your monthly loan EMI payments.
-9. **Age Calculator:** Find exact age in years, months, and days.
-10. **Date Calculator:** Add or subtract days to find a future or past date.
-11. **Percentage Calculator:** Simple and fast percentage math utility.
-12. **Deposit Calculator:** Calculate FD/RD returns over time.
-13. **GST Calculator:** Quickly add or remove GST from a net/gross amount.
-14. **Salary Calculator:** Compute in-hand take-home salary based on CTC and deductions.
+**General Utilities:**
+1. **AI Receipt Scanner:** Instantly extract items, prices, and taxes from receipts using Vision AI.
+2. **QR Code Generator:** Instantly generate free, high-quality QR codes for URLs and text.
+3. **Password Generator:** Create cryptographically secure, random passwords locally in your browser.
+
+**PDF & Image Tools:**
+4. **Image Resizer:** Strictly compress and resize images to exact KB limits (e.g., 20KB - 50KB).
+5. **Compress PDF:** High-quality PDF compression powered by a custom backend.
+6. **Merge PDF:** Combine multiple PDF documents seamlessly in your browser.
+7. **Image to PDF:** Convert JPG, PNG, and other images to a single PDF document.
+8. **Split PDF:** Extract pages from your PDF or split it into multiple files.
+9. **AI Background Remover:** Instantly strip image backgrounds using a local AI model for absolute privacy.
+
+**Financial & Tax Calculators:**
+10. **Income Tax Calculator:** Compare Old vs New Tax Regime for FY 2024-25.
+11. **Home Loan EMI Calculator:** Calculate monthly EMI, interest, and view a visual breakdown.
+12. **SIP Return Calculator:** Mutual fund investment planner demonstrating the power of compounding.
+13. **In-Hand Salary Calculator:** Compute in-hand take-home salary based on CTC and deductions.
+14. **GST Calculator:** Quickly add or remove GST from a net/gross amount.
+15. **EPF & PF Calculator:** Calculate Provident Fund maturity values and compound interest.
+16. **FD & RD Return Calculator:** Calculate maturity amounts and interest earned for Fixed Deposits.
+17. **Loan Prepayment Calculator:** See how much interest you save by making extra EMI payments.
+
+**Date & Age Calculators:**
+18. **Govt Exam Age Calculator:** Find exact age in years, months, and days for exam forms.
+19. **Date Calculator:** Add or subtract days to find a future or past date.
 
 ## Tech Stack
 

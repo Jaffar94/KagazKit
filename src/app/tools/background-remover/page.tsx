@@ -20,10 +20,7 @@ export default function BackgroundRemoverPage() {
   useEffect(() => {
     // Preload the AI model in the background when the user visits the page.
     // Run this ONLY once on mount.
-    preload({
-      model: 'isnet',
-      device: 'gpu'
-    }).catch(console.error);
+    preload().catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -89,8 +86,6 @@ export default function BackgroundRemoverPage() {
 
     try {
       const config = {
-        model: 'isnet' as const,
-        device: 'gpu' as const,
         progress: (key: string, current: number, total: number) => {
           if (key.startsWith('fetch')) {
             setLoadingMessage(current < total ? 'Downloading AI Model (First time)...' : 'Initializing AI Engine...');

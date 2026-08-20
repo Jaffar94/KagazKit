@@ -100,14 +100,6 @@ export const TOOLS_CATEGORIES = [
         icon: Wand2,
         color: 'bg-fuchsia-50 text-fuchsia-600',
         href: '/tools/background-remover'
-      },
-      {
-        id: 'heic-to-jpg',
-        name: 'HEIC to JPG Converter',
-        description: 'Convert iPhone photos to standard JPG format instantly. 100% private.',
-        icon: Image,
-        color: 'bg-orange-50 text-orange-600',
-        href: '/tools/heic-to-jpg'
       }
     ]
   },
