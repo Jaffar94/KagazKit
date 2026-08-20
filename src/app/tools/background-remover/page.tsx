@@ -18,12 +18,14 @@ export default function BackgroundRemoverPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Preload the AI model in the background when the user visits the page
-    preload({
-      model: 'isnet',
-      device: 'gpu'
-    }).catch(console.error);
+    // Preload the AI model in the background when the user visits the page.
+    // Run this ONLY once on mount.
+    preload().catch(console.error);
+  }, []);
 
+  useEffect(() => {
+    // Cleanup URLs ONLY when the component unmounts to prevent memory leaks,
+    // or when the URLs actually change (the closure captures the old URLs).
     return () => {
       if (originalUrl) URL.revokeObjectURL(originalUrl);
       if (removedUrl) URL.revokeObjectURL(removedUrl);
@@ -55,10 +57,15 @@ export default function BackgroundRemoverPage() {
       toast.error('Please upload a valid image file.');
       return;
     }
+    
+    // Add 10MB limit as per AGENTS.md rule to prevent Safari crashes
+    if (selectedFile.size > 10 * 1024 * 1024) {
+      toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
+      return;
+    }
 
-    // Revoke previous URLs to prevent memory leaks
-    if (originalUrl) URL.revokeObjectURL(originalUrl);
-    if (removedUrl) URL.revokeObjectURL(removedUrl);
+    // Note: We DO NOT revoke the old URLs here, because the `useEffect` cleanup 
+    // will automatically run when we update the state variables below, handling the old URLs.
 
     setFile(selectedFile);
     setOriginalUrl(URL.createObjectURL(selectedFile));
@@ -72,8 +79,6 @@ export default function BackgroundRemoverPage() {
 
     try {
       const config = {
-        model: 'isnet' as const,
-        device: 'gpu' as const,
         progress: (key: string, current: number, total: number) => {
           if (key.startsWith('fetch')) {
             setLoadingMessage(current < total ? 'Downloading AI Model (First time)...' : 'Initializing AI Engine...');
@@ -103,8 +108,6 @@ export default function BackgroundRemoverPage() {
 
   const resetTool = () => {
     setFile(null);
-    if (originalUrl) URL.revokeObjectURL(originalUrl);
-    if (removedUrl) URL.revokeObjectURL(removedUrl);
     setOriginalUrl(null);
     setRemovedUrl(null);
   };
