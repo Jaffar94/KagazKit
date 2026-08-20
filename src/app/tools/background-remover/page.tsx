@@ -20,7 +20,10 @@ export default function BackgroundRemoverPage() {
   useEffect(() => {
     // Preload the AI model in the background when the user visits the page.
     // Run this ONLY once on mount.
-    preload().catch(console.error);
+    preload({
+      model: 'isnet',
+      device: 'gpu'
+    }).catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -58,6 +61,13 @@ export default function BackgroundRemoverPage() {
       return;
     }
     
+    // Explicitly reject HEIC/TIFF as Chrome cannot decode them for WebGL
+    const invalidTypes = ['image/heic', 'image/heif', 'image/tiff'];
+    if (invalidTypes.includes(selectedFile.type) || selectedFile.name.toLowerCase().endsWith('.heic')) {
+      toast.error('HEIC/TIFF formats are not supported in Chrome. Please convert to JPG first!');
+      return;
+    }
+
     // Add 10MB limit as per AGENTS.md rule to prevent Safari crashes
     if (selectedFile.size > 10 * 1024 * 1024) {
       toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
@@ -79,6 +89,8 @@ export default function BackgroundRemoverPage() {
 
     try {
       const config = {
+        model: 'isnet' as const,
+        device: 'gpu' as const,
         progress: (key: string, current: number, total: number) => {
           if (key.startsWith('fetch')) {
             setLoadingMessage(current < total ? 'Downloading AI Model (First time)...' : 'Initializing AI Engine...');
@@ -152,7 +164,7 @@ export default function BackgroundRemoverPage() {
             </button>
             <input 
               type="file" 
-              accept="image/*" 
+              accept="image/jpeg, image/png, image/webp" 
               className="hidden" 
               ref={fileInputRef}
               onChange={handleFileChange}

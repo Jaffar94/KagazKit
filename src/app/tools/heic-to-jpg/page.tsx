@@ -29,6 +29,11 @@ export default function HeicToJpgPage() {
         toast.error('Please select a valid HEIC or HEIF file.');
         return;
       }
+
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        toast.error('File is too large! Please upload a file under 10MB to prevent browser crashes.');
+        return;
+      }
       
       setFile(selectedFile);
       setConvertedUrl(null);
@@ -42,7 +47,9 @@ export default function HeicToJpgPage() {
     const loadingToast = toast.loading('Converting HEIC to JPG...');
     
     try {
-      const heic2any = (await import('heic2any')).default;
+      const heic2anyModule = await import('heic2any');
+      const heic2any = heic2anyModule.default || heic2anyModule;
+      
       const convertedBlob = await heic2any({
         blob: sourceFile,
         toType: 'image/jpeg',
@@ -79,6 +86,11 @@ export default function HeicToJpgPage() {
       
       if (!fileName.endsWith('.heic') && !fileName.endsWith('.heif')) {
         toast.error('Please drop a valid HEIC or HEIF file.');
+        return;
+      }
+
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        toast.error('File is too large! Please drop a file under 10MB to prevent browser crashes.');
         return;
       }
       
