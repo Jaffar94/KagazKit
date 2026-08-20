@@ -64,6 +64,8 @@ export default function PhotoResizerPage() {
         toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
         return;
       }
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+
       setFile(selected);
       setPreviewUrl(URL.createObjectURL(selected));
       setResultDataUrl(null);
@@ -86,6 +88,8 @@ export default function PhotoResizerPage() {
         toast.error('File is too large! Please upload an image under 10MB to prevent browser crashes.');
         return;
       }
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+
       setFile(selected);
       setPreviewUrl(URL.createObjectURL(selected));
       setResultDataUrl(null);

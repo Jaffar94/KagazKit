@@ -38,9 +38,10 @@ export default function ToolsDropdown() {
         aria-expanded={isOpen}
         aria-haspopup="true"
         className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition-colors"
+        aria-label="Tools"
       >
         <Wrench className="w-4 h-4" />
-        Tools
+        <span className="hidden sm:inline">Tools</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 

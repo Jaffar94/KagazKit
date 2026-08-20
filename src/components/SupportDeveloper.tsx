@@ -27,7 +27,7 @@ export default function SupportDeveloper() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="support-modal-title"
-      className="fixed inset-0 z-100 px-4 py-12 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-200 flex items-center justify-center"
+      className="fixed inset-0 z-[100] px-4 py-12 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-200 flex items-center justify-center"
       onClick={() => setIsOpen(false)}
     >
       <div
@@ -98,10 +98,11 @@ export default function SupportDeveloper() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="group flex items-center gap-2 px-4 py-2 bg-linear-to-r from-rose-50 to-pink-50 text-rose-600 rounded-full font-bold text-sm hover:from-rose-100 hover:to-pink-100 transition-all duration-300 border border-rose-100 shadow-xs hover:shadow-sm"
+        className="group flex items-center gap-2 px-3 sm:px-4 py-2 bg-linear-to-r from-rose-50 to-pink-50 text-rose-600 rounded-full font-bold text-sm hover:from-rose-100 hover:to-pink-100 transition-all duration-300 border border-rose-100 shadow-xs hover:shadow-sm"
+        aria-label="Support Developer"
       >
         <Heart className="w-4 h-4 group-hover:scale-110 group-hover:fill-rose-600 transition-all duration-300" />
-        <span>Support Developer</span>
+        <span className="hidden sm:inline">Support Developer</span>
       </button>
 
       {mounted && typeof document !== 'undefined' ? createPortal(modalContent, document.body) : null}
