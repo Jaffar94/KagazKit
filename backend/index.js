@@ -50,13 +50,27 @@ const limiter = rateLimit({
 // Apply rate limiter specifically to the compression endpoint
 app.use('/compress', limiter);
 
-// Configure multer for file uploads
-const upload = multer({ 
+// Configure multer for PDF file uploads (Compression)
+const uploadPdf = multer({ 
   dest: 'uploads/',
   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit
   fileFilter: (req, file, cb) => {
     // Only accept PDF files
     if (file.mimetype === 'application/pdf') {
+      cb(null, true);
+    } else {
+      cb(new Error('INVALID_FILE_TYPE'), false);
+    }
+  }
+});
+
+// Configure multer for Image file uploads (AI Scanner)
+const uploadImage = multer({ 
+  dest: 'uploads/',
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  fileFilter: (req, file, cb) => {
+    // Only accept Image files
+    if (file.mimetype.startsWith('image/')) {
       cb(null, true);
     } else {
       cb(new Error('INVALID_FILE_TYPE'), false);
@@ -108,17 +122,22 @@ const receiptResponseSchema = {
   required: ['items']
 };
 
-app.post('/extract-receipt', express.json({ limit: '10mb' }), async (req, res) => {
+app.post('/extract-receipt', uploadImage.single('image'), async (req, res) => {
   try {
-    const { imageBase64, mimeType } = req.body;
-
-    if (!imageBase64 || !mimeType) {
-      return res.status(400).json({ error: 'Missing image data' });
+    if (!req.file) {
+      return res.status(400).json({ error: 'Missing image file' });
     }
 
     if (!process.env.GEMINI_API_KEY) {
+      fs.unlinkSync(req.file.path);
       return res.status(500).json({ error: 'API key not configured on server' });
     }
+
+    const mimeType = req.file.mimetype;
+    const imageBase64 = fs.readFileSync(req.file.path, { encoding: 'base64' });
+    
+    // Clean up file immediately after reading into memory
+    fs.unlinkSync(req.file.path);
 
     const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -161,7 +180,7 @@ app.post('/extract-receipt', express.json({ limit: '10mb' }), async (req, res) =
   }
 });
 
-app.post('/compress', upload.single('file'), (req, res) => {
+app.post('/compress', uploadPdf.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded.' });
   }
