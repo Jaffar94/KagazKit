@@ -5,6 +5,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, FileText } from 'lucide-react';
+import { calculateOldRegimeTax, calculateNewRegimeTax } from '@/utils/tax';
 
 export default function TaxCalculatorPage() {
   const [salary, setSalary] = useState(1200000);
@@ -13,58 +14,12 @@ export default function TaxCalculatorPage() {
   const [hra, setHra] = useState(0);
   const [homeLoan, setHomeLoan] = useState(0);
 
-  const calculateOldRegime = (gross: number, c80: number, d80: number, hraExempt: number, loanInt: number) => {
-    const stdDed = 50000;
-    const deductions = stdDed + Math.min(150000, c80) + d80 + hraExempt + Math.min(200000, loanInt);
-    let taxable = Math.max(0, gross - deductions);
-    
-    let tax = 0;
-    if (taxable > 1000000) {
-      tax += (taxable - 1000000) * 0.30;
-      taxable = 1000000;
-    }
-    if (taxable > 500000) {
-      tax += (taxable - 500000) * 0.20;
-      taxable = 500000;
-    }
-    if (taxable > 250000) {
-      tax += (taxable - 250000) * 0.05;
-    }
-    
-    // Rebate 87A under old regime (up to 5L)
-    if (gross - deductions <= 500000) {
-      tax = Math.max(0, tax - 12500);
-    }
-    
-    const cess = tax * 0.04;
-    return tax + cess;
-  };
-
-  const calculateNewRegime = (gross: number) => {
-    const stdDed = 75000;
-    let taxable = Math.max(0, gross - stdDed);
-    const originalTaxable = taxable;
-    
-    let tax = 0;
-    if (taxable > 2400000) { tax += (taxable - 2400000) * 0.30; taxable = 2400000; }
-    if (taxable > 2000000) { tax += (taxable - 2000000) * 0.25; taxable = 2000000; }
-    if (taxable > 1600000) { tax += (taxable - 1600000) * 0.20; taxable = 1600000; }
-    if (taxable > 1200000) { tax += (taxable - 1200000) * 0.15; taxable = 1200000; }
-    if (taxable > 800000) { tax += (taxable - 800000) * 0.10; taxable = 800000; }
-    if (taxable > 400000) { tax += (taxable - 400000) * 0.05; }
-    
-    // Rebate up to 12L taxable income
-    if (originalTaxable <= 1200000) {
-      tax = Math.max(0, tax - 60000);
-    }
-    
-    const cess = tax * 0.04;
-    return tax + cess;
-  };
+  // Tax calculation functions moved to @/utils/tax
 
   const { oldTax, newTax, winner, savings } = useMemo(() => {
-    const ot = calculateOldRegime(salary, sec80c, sec80d, hra, homeLoan);
-    const nt = calculateNewRegime(salary);
+    const deductionsTotal = Math.min(150000, sec80c) + sec80d + hra + Math.min(200000, homeLoan);
+    const ot = calculateOldRegimeTax(salary, deductionsTotal);
+    const nt = calculateNewRegimeTax(salary);
     
     let winner = 'EQUAL';
     let savings = 0;
@@ -113,10 +68,11 @@ export default function TaxCalculatorPage() {
           <h2 className="text-lg font-bold text-slate-800 border-b border-slate-100 pb-2">Income & Deductions</h2>
           
           <div>
-            <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+            <label htmlFor="salary" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><IndianRupee className="w-4 h-4 text-emerald-600"/> Gross Annual Salary</span>
             </label>
             <input 
+              id="salary"
               type="number" 
               min="0"
               value={salary === 0 ? '' : salary} 
@@ -127,8 +83,9 @@ export default function TaxCalculatorPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Sec 80C (Max 1.5L)</label>
+              <label htmlFor="sec80c" className="block text-sm font-semibold text-slate-700 mb-2">Sec 80C (Max 1.5L)</label>
               <input 
+                id="sec80c"
                 type="number" 
                 min="0"
                 value={sec80c === 0 ? '' : sec80c} 
@@ -137,8 +94,9 @@ export default function TaxCalculatorPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Sec 80D (Health)</label>
+              <label htmlFor="sec80d" className="block text-sm font-semibold text-slate-700 mb-2">Sec 80D (Health)</label>
               <input 
+                id="sec80d"
                 type="number" 
                 min="0"
                 value={sec80d === 0 ? '' : sec80d} 
@@ -150,8 +108,9 @@ export default function TaxCalculatorPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">HRA Exemption</label>
+              <label htmlFor="hra" className="block text-sm font-semibold text-slate-700 mb-2">HRA Exemption</label>
               <input 
+                id="hra"
                 type="number" 
                 min="0"
                 value={hra === 0 ? '' : hra} 
@@ -160,8 +119,9 @@ export default function TaxCalculatorPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Home Loan Int.</label>
+              <label htmlFor="homeLoan" className="block text-sm font-semibold text-slate-700 mb-2">Home Loan Int.</label>
               <input 
+                id="homeLoan"
                 type="number" 
                 min="0"
                 value={homeLoan === 0 ? '' : homeLoan} 
@@ -185,12 +145,14 @@ export default function TaxCalculatorPage() {
             <div className={`p-6 rounded-2xl border flex flex-col justify-center transition-all ${winner === 'NEW' ? 'bg-white border-emerald-500 shadow-md ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200'}`}>
               <p className="text-sm font-bold text-slate-500 mb-2 uppercase tracking-wider">New Regime</p>
               <p className="text-3xl font-extrabold text-slate-900">{formatCurrency(newTax)}</p>
+              <p className="text-sm font-medium text-red-600 mt-1">-{formatCurrency(Math.round(newTax / 12))} / month</p>
               <p className="text-xs text-slate-400 mt-2">Includes ₹75k Std. Ded.</p>
             </div>
             
             <div className={`p-6 rounded-2xl border flex flex-col justify-center transition-all ${winner === 'OLD' ? 'bg-white border-emerald-500 shadow-md ring-2 ring-emerald-500/20' : 'bg-slate-50 border-slate-200'}`}>
               <p className="text-sm font-bold text-slate-500 mb-2 uppercase tracking-wider">Old Regime</p>
               <p className="text-3xl font-extrabold text-slate-900">{formatCurrency(oldTax)}</p>
+              <p className="text-sm font-medium text-red-600 mt-1">-{formatCurrency(Math.round(oldTax / 12))} / month</p>
               <p className="text-xs text-slate-400 mt-2">Includes exemptions</p>
             </div>
           </div>

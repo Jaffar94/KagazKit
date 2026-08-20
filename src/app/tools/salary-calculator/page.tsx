@@ -4,11 +4,14 @@ import { useState } from 'react';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
-import { IndianRupee, Briefcase, Calculator } from 'lucide-react';
+import { IndianRupee, Briefcase, Calculator, Settings2 } from 'lucide-react';
+import { calculateOldRegimeTax, calculateNewRegimeTax } from '@/utils/tax';
 
 export default function SalaryCalculatorPage() {
   const [ctc, setCtc] = useState<number | ''>('');
   const [bonus, setBonus] = useState<number | ''>('');
+  const [taxRegime, setTaxRegime] = useState<'NEW' | 'OLD'>('NEW');
+  const [taxDeductions, setTaxDeductions] = useState<number | ''>('');
   const [result, setResult] = useState<{
     monthlyInHand: number;
     annualInHand: number;
@@ -17,6 +20,7 @@ export default function SalaryCalculatorPage() {
     specialAllowance: number;
     pf: number;
     pt: number;
+    tax: number;
   } | null>(null);
 
   const calculateSalary = () => {
@@ -48,9 +52,19 @@ export default function SalaryCalculatorPage() {
     // Employee Deductions
     const employeePf = annualBasic * 0.12;
     const professionalTax = 2500; // Standard approx annual PT
+
+    // Income Tax Calculation
+    const taxableGross = annualCtc - employerPf; // Total gross income before tax
+    let annualTax = 0;
+    if (taxRegime === 'NEW') {
+      annualTax = calculateNewRegimeTax(taxableGross);
+    } else {
+      const deductions = Number(taxDeductions) || 0;
+      annualTax = calculateOldRegimeTax(taxableGross, deductions);
+    }
     
     // Net In Hand
-    const annualInHand = annualGross - employeePf - professionalTax;
+    const annualInHand = annualGross + annualBonus - employeePf - professionalTax - annualTax;
     
     setResult({
       monthlyInHand: Math.round(annualInHand / 12),
@@ -59,7 +73,8 @@ export default function SalaryCalculatorPage() {
       hra: Math.round(annualHra / 12),
       specialAllowance: Math.round(annualSpecial / 12),
       pf: Math.round(employeePf / 12),
-      pt: Math.round(professionalTax / 12)
+      pt: Math.round(professionalTax / 12),
+      tax: Math.round(annualTax / 12)
     });
   };
 
@@ -77,11 +92,11 @@ export default function SalaryCalculatorPage() {
         <div className="flex flex-col gap-8">
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
+              <label htmlFor="ctc" className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-indigo-500" />
                 Annual CTC (₹)
               </label>
-              <input type="number" min="0"
+              <input id="ctc" type="number" min="0"
                 value={ctc}
                 onChange={(e) => setCtc(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 1200000"
@@ -90,16 +105,57 @@ export default function SalaryCalculatorPage() {
             </div>
             
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
+              <label htmlFor="bonus" className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                 <IndianRupee className="w-4 h-4 text-indigo-500" />
                 Annual Bonus / Variable (₹) - Optional
               </label>
-              <input type="number" min="0"
+              <input id="bonus" type="number" min="0"
                 value={bonus}
                 onChange={(e) => setBonus(e.target.value ? Number(e.target.value) : '')}
                 placeholder="e.g. 100000"
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />
+            </div>
+
+            <div className="pt-4 border-t border-slate-200/80">
+              <h3 className="text-sm font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <Settings2 className="w-4 h-4 text-slate-500" />
+                Tax Settings
+              </h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">Tax Regime</label>
+                  <div className="flex bg-slate-100 p-1 rounded-xl">
+                    <button 
+                      onClick={() => setTaxRegime('NEW')}
+                      className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${taxRegime === 'NEW' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                    >
+                      New Regime
+                    </button>
+                    <button 
+                      onClick={() => setTaxRegime('OLD')}
+                      className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${taxRegime === 'OLD' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                    >
+                      Old Regime
+                    </button>
+                  </div>
+                </div>
+
+                {taxRegime === 'OLD' && (
+                  <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                    <label htmlFor="taxDeductions" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Total Tax Deductions (80C, 80D, HRA etc.)
+                    </label>
+                    <input id="taxDeductions" type="number" min="0"
+                      value={taxDeductions}
+                      onChange={(e) => setTaxDeductions(e.target.value ? Number(e.target.value) : '')}
+                      placeholder="e.g. 150000"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
 
             <button
@@ -144,6 +200,10 @@ export default function SalaryCalculatorPage() {
                     <span>Professional Tax (PT)</span>
                     <span className="font-medium">- ₹{result.pt.toLocaleString('en-IN')}</span>
                   </div>
+                  <div className="flex justify-between p-2 rounded-sm hover:bg-white transition-colors text-red-600">
+                    <span>Income Tax (TDS)</span>
+                    <span className="font-medium">- ₹{result.tax.toLocaleString('en-IN')}</span>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -159,9 +219,9 @@ export default function SalaryCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding Your Take-Home Pay</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding Your Take-Home Pay with Tax Deductions</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Decoding a complex CTC (Cost to Company) offer letter can be confusing. Our Salary Calculator elegantly breaks down your gross salary into actionable insights. By estimating common deductions like PF, Professional Tax, and standard allowances, it provides a highly accurate projection of your actual monthly take-home pay. This tool is indispensable for professionals evaluating new job offers or planning their monthly budgets.
+          Decoding a complex CTC (Cost to Company) offer letter can be confusing. Our enhanced Salary Calculator elegantly breaks down your gross salary into actionable insights, now including highly accurate Income Tax (TDS) projections for both the New and Old Tax Regimes. By estimating common deductions like PF, Professional Tax, and Income Tax based on your specific exemptions, it provides a realistic projection of your actual monthly take-home pay. This tool is indispensable for professionals evaluating new job offers or planning their monthly budgets.
         </p>
       </div>
   
