@@ -11,6 +11,9 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 8080;
 
+// Trust the reverse proxy (Render/Cloudflare) so rate limiting works per user IP, not proxy IP.
+app.set('trust proxy', 1);
+
 // Set security HTTP headers
 app.use(helmet());
 
@@ -227,12 +230,16 @@ app.post('/compress', uploadPdf.single('file'), (req, res) => {
   gsArgs.push(inputPath);
 
   // Run Ghostscript with custom env to force temp files to our disk directory
-  // Added a strict 60-second timeout to prevent zombie processes
   console.log(`[EXEC] Running gs with DPI=${dpi}`);
   const gsProcess = spawn('gs', gsArgs, {
-    env: { ...process.env, TMPDIR: path.join(__dirname, 'uploads') },
-    timeout: 60000 // 60 seconds
+    env: { ...process.env, TMPDIR: path.join(__dirname, 'uploads') }
   });
+
+  // Strict 60-second timeout with forceful SIGKILL to prevent zombie processes
+  const killTimer = setTimeout(() => {
+    console.error(`[TIMEOUT] Ghostscript took longer than 60 seconds. Forcefully terminating process...`);
+    gsProcess.kill('SIGKILL');
+  }, 60000);
 
   gsProcess.on('error', (error) => {
     console.error('Failed to start ghostscript:', error);
@@ -243,6 +250,8 @@ app.post('/compress', uploadPdf.single('file'), (req, res) => {
   });
 
   gsProcess.on('close', (code) => {
+    clearTimeout(killTimer); // Prevent memory leak of the timer
+
     if (code !== 0) {
       console.error(`Ghostscript process exited with code ${code}`);
       cleanUpFiles(inputPath, outputPath);
