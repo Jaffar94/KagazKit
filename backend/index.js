@@ -96,6 +96,50 @@ if (!fs.existsSync('uploads')) {
   console.log('Cleaned up orphaned files in uploads directory.');
 }
 
+const { Redis } = require('@upstash/redis');
+
+// Initialize Redis client
+// Note: You must set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in your Render environment variables
+const redis = process.env.UPSTASH_REDIS_REST_URL 
+  ? new Redis({
+      url: process.env.UPSTASH_REDIS_REST_URL,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN,
+    })
+  : null;
+
+app.get('/stats', async (req, res) => {
+  try {
+    if (!redis) {
+      return res.json({ downloads: 12543 }); // Fallback if Redis isn't configured yet
+    }
+    const count = await redis.get('kagazkit_downloads');
+    res.json({ downloads: count || 12543 });
+  } catch (err) {
+    console.error('Redis GET error:', err);
+    res.status(500).json({ error: 'Failed to read stats' });
+  }
+});
+
+app.post('/stats/download', async (req, res) => {
+  try {
+    if (!redis) {
+      return res.json({ downloads: 12544 }); // Fallback if Redis isn't configured yet
+    }
+    
+    // Check if key exists; if not, initialize it to our base number
+    const exists = await redis.exists('kagazkit_downloads');
+    if (!exists) {
+      await redis.set('kagazkit_downloads', 12543);
+    }
+    
+    const newCount = await redis.incr('kagazkit_downloads');
+    res.json({ downloads: newCount });
+  } catch (err) {
+    console.error('Redis POST error:', err);
+    res.status(500).json({ error: 'Failed to update stats' });
+  }
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
