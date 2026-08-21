@@ -3,6 +3,7 @@ import ScannerClient from './ScannerClient';
 import FAQ from '@/components/FAQ';
 import AdSlot from '@/components/AdSlot';
 import { ReceiptText, CheckCircle, Zap, TableProperties } from 'lucide-react';
+import BackToHome from '@/components/BackToHome';
 
 export const metadata: Metadata = {
   title: 'AI Receipt Scanner | Extract Data from Bills & Invoices',
@@ -39,6 +40,7 @@ const faqItems = [
 export default function AIReceiptScannerPage() {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-12">
+      <BackToHome />
       {/* Header Section */}
       <div className="text-center space-y-4">
         <div className="w-20 h-20 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm border border-emerald-100">
