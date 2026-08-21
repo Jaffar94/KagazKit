@@ -1,12 +1,12 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Exact Age Calculator in Years, Months, and Days | KagazKit',
+  description: 'Calculate your exact chronological age or the time between two dates in years, months, days, and weeks. 100% private, client-side age calculator.',
+  keywords: 'age calculator, chronological age calculator, age difference, exact age in days',
   alternates: {
     canonical: '/tools/age-calculator',
   },
-  title: "Govt Exam Age Calculator | Calculate Exact Age in Years, Months, Days",
-  description: "Free online age calculator for Indian government exams. Calculate your exact age in years, months, and days as of a specific cutoff date.",
-  keywords: ["Govt exam age calculator as of date", "Calculate exact age in years months days", "UPSC age calculator", "SSC age calculator cutoff"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

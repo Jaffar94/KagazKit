@@ -272,9 +272,9 @@ export default function ImageToPdfPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Secure Image to PDF Conversion</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Secure, Client-Side Image to PDF Conversion</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Combining multiple scanned documents, photos, or receipts into a single PDF file is a daily necessity. Our Image to PDF tool seamlessly handles high-resolution JPGs and PNGs, assembling them into a highly optimized, universally compatible PDF document. Because the entire conversion process occurs locally within your browser using HTML5 Canvas and pdf-lib, your sensitive photos are never uploaded to the cloud, guaranteeing absolute data privacy and zero server lag.
+          Converting physical documents, receipts, and identity cards from raw image files into a single, professional PDF document is a universal requirement for online applications, corporate communications, and digital archiving. Our advanced Image to PDF Converter goes significantly beyond standard conversion by offering an intelligent, target-size compression feature. This means you can specify an exact maximum file size (such as under 200KB or 1MB) as mandated by strict government portals, university admissions sites, or corporate HR systems, and the tool will automatically adjust the image compression to meet that precise constraint. Most importantly, unlike the vast majority of online PDF converters that require you to upload your highly sensitive personal documents to mysterious cloud servers, our tool is engineered with a strict 100% client-side processing architecture. The entire conversion, rendering, and compression process happens locally within the memory of your own browser, ensuring absolute privacy, zero data retention, and immediate offline functionality.
         </p>
       </div>
   

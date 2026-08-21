@@ -217,9 +217,9 @@ export default function MergePdfPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">How to Merge PDF Files Safely</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Lightning-Fast, Privacy-First PDF Merging</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Managing digital documents often requires combining multiple files into a single, cohesive package. Our Merge PDF tool allows you to effortlessly combine multiple PDF documents into one seamless file. Utilizing cutting-edge WebAssembly and client-side processing, the merging happens instantly on your own device. This ensures that your sensitive legal contracts, financial reports, or personal documents are never exposed to remote servers or third-party databases.
+          Managing digital paperwork often requires consolidating multiple disparate documents—such as separate bank statements, scanned identity proofs, or multi-part contracts—into one cohesive file. Our Secure PDF Merger is a state-of-the-art utility that allows you to seamlessly combine multiple PDF documents into a single, perfectly formatted file with unparalleled ease. Featuring an intuitive drag-and-drop interface, you can effortlessly rearrange the sequence of your documents before executing the merge. What truly sets our tool apart is its uncompromising commitment to data security. While traditional online PDF services force you to upload your highly confidential legal and financial documents to their remote servers—exposing you to significant privacy risks—our merger utilizes advanced WebAssembly technology to process everything locally on your device. The files never leave your browser, ensuring 100% absolute privacy, zero upload wait times, and complete protection against unauthorized data harvesting or data breaches.
         </p>
       </div>
   

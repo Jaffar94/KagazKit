@@ -177,9 +177,9 @@ export default function PasswordGeneratorPage() {
 
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Create Bulletproof Passwords</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Cryptographically Secure, Local Password Generation</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          In an era of rampant data breaches and sophisticated cyber attacks, using a unique, highly complex password for every single account is your first line of defense. Our Random Password Generator allows you to instantly create cryptographically strong passwords tailored to specific length and character requirements. Because the generation algorithm runs entirely locally using your browser's native JavaScript capabilities, your newly minted passwords are never transmitted across the internet, ensuring absolute privacy and zero risk of interception. Pair this tool with a reliable password manager to secure your digital life completely.
+          In an era of relentless cyber attacks, data breaches, and sophisticated brute-force hacking attempts, using a strong, completely unique password for every single digital account is your primary line of defense. Our Secure Random Password Generator is engineered to create virtually unbreakable, cryptographically strong passwords tailored to your exact specifications. You have full control over the password length and the inclusion of uppercase letters, lowercase letters, numbers, and special symbols, ensuring compliance with the strictest corporate or institutional password policies. Crucially, true security requires that a generated password is never transmitted across a network. Our tool utilizes the browser's native, highly secure cryptographic API (window.crypto) to generate true randomness locally on your machine. The passwords are created instantly in your browser's memory and are never sent to, stored on, or logged by any server. This guarantees that you are the absolute only person who will ever see or possess the generated credentials.
         </p>
       </div>
 

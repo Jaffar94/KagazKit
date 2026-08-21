@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Free QR Code Generator | URLs, Text, WiFi | KagazKit',
+  description: 'Generate high-quality QR codes for websites, text, phone numbers, or WiFi networks instantly. Download as HD PNG images for print or digital use.',
+  keywords: 'qr code generator, create qr code free, wifi qr code maker, url to qr code',
   alternates: {
     canonical: '/tools/qr-code-generator',
   },
-  title: 'Free QR Code Generator Online | High Quality',
-  description: 'Instantly generate free, high-quality QR codes for URLs, text, and Wi-Fi. 100% private, client-side generation. No signups required.',
-  keywords: ['qr code generator', 'create qr code', 'free qr code', 'url to qr code', 'text to qr code'],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

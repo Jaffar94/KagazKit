@@ -1,12 +1,12 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'EPF Calculator | PF Balance & Maturity Amount | KagazKit',
+  description: 'Calculate your Employees Provident Fund (EPF) maturity amount, total contributions, and interest earned based on your basic salary and age.',
+  keywords: 'EPF calculator, PF balance calculator, provident fund maturity, EPF interest calculator india',
   alternates: {
     canonical: '/tools/epf-calculator',
   },
-  title: "EPF Calculator India & PF Balance Interest Estimator",
-  description: "Calculate your EPF maturity value, PF interest, and check employer vs employee PF contributions for retirement planning.",
-  keywords: ["EPF calculator India", "PF balance calculator", "Calculate EPF maturity value", "PF interest calculator", "How to calculate PF contribution"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

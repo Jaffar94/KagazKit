@@ -219,9 +219,9 @@ export default function SalaryCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding Your Take-Home Pay with Tax Deductions</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Accurate CTC Breakdown and Take-Home Pay Analysis</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Decoding a complex CTC (Cost to Company) offer letter can be confusing. Our enhanced Salary Calculator elegantly breaks down your gross salary into actionable insights, now including highly accurate Income Tax (TDS) projections for both the New and Old Tax Regimes. By estimating common deductions like PF, Professional Tax, and Income Tax based on your specific exemptions, it provides a realistic projection of your actual monthly take-home pay. This tool is indispensable for professionals evaluating new job offers or planning their monthly budgets.
+          Understanding the massive difference between your official Cost to Company (CTC) and the actual money that hits your bank account every month is absolutely crucial for job seekers, employees negotiating raises, and financial planners across India. Our advanced In-Hand Salary Calculator is meticulously designed to instantly demystify your paycheck by providing a highly accurate, granular breakdown of your entire compensation package. By simply inputting your annual CTC, the tool automatically calculates the standard components including Basic Pay, House Rent Allowance (HRA), and Special Allowances. It then precisely deducts standard professional taxes, mandatory Employees' Provident Fund (EPF) contributions for both the employee and employer shares, and estimates your monthly income tax liability based on the latest tax slabs. This provides you with an incredibly clear, reliable projection of your actual monthly take-home pay. All of these complex financial calculations are performed entirely locally on your device, guaranteeing that your personal salary figures remain 100% private.
         </p>
       </div>
   

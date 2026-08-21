@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Add or Subtract Days from a Date | Date Calculator | KagazKit',
+  description: 'Easily calculate past or future dates by adding or subtracting days, weeks, months, or years from a specific date. 100% private, client-side calculator.',
+  keywords: 'date calculator, add days to date, subtract days from date, date difference calculator',
   alternates: {
     canonical: '/tools/date-calculator',
   },
-  title: 'Days Between Two Dates Calculator | Exact Date Duration',
-  description: 'Calculate the exact number of days, months, and years between two dates. Free online date difference calculator for planning and applications.',
-  keywords: ['date calculator', 'days between dates', 'date difference calculator', 'how many days between two dates', 'duration calculator'],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

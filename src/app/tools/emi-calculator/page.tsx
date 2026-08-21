@@ -174,9 +174,9 @@ export default function EmiCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Mastering Your Home & Auto Loans</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Comprehensive Loan EMI and Amortization Analysis</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Taking on debt is a major financial decision. Our EMI (Equated Monthly Installment) Calculator helps you visualize the true cost of your home, auto, or personal loans. By instantly processing your principal amount, interest rate, and loan tenure, the tool provides a crystal-clear breakdown of your monthly payments and the total interest burden. The visual progress bar makes it easy to see exactly how much of your money is going towards the bank's interest versus paying down your actual debt.
+          Taking on a major financial commitment like a home mortgage, a vehicle loan, or a personal loan requires careful planning and a deep understanding of your future cash flow. Our advanced EMI (Equated Monthly Installment) Calculator is engineered to provide you with exact monthly payment figures, total interest obligations, and the complete total cost of your loan over its entire tenure. It goes far beyond simple math by instantly generating a detailed, interactive amortization schedule that breaks down exactly how much of each monthly payment goes toward reducing the principal versus paying off the interest. This level of transparency is essential for comparing different loan offers from various banks, understanding the long-term impact of fluctuating interest rates, and planning your household budget. Because financial data is highly sensitive, our calculator operates entirely on the client-side within your browser. This means your personal loan figures, interest rates, and financial planning scenarios are never uploaded to any external server, guaranteeing total privacy and security.
         </p>
       </div>
   

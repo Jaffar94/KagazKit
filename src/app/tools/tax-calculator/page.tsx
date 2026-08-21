@@ -162,9 +162,9 @@ export default function TaxCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Navigating Income Tax Slabs</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Optimize Your Tax Liability: Old vs. New Regime</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Understanding your income tax liability under the new tax regime is crucial for financial planning. Our Tax Calculator precisely evaluates your gross annual income against the latest progressive tax slabs, calculating both the base tax and the mandatory education cess. It provides a crystal-clear, tiered breakdown of exactly how much tax you owe in each bracket, empowering you to optimize your savings and file your returns with confidence.
+          Understanding your total income tax liability and strategically choosing between the Old Tax Regime and the New Tax Regime is one of the most critical financial decisions you make every financial year. Our highly advanced, dual-engine Income Tax Calculator is precisely calibrated to evaluate your gross annual income, standard deductions, and tax-saving investments (such as Section 80C and 80D) against the absolute latest progressive tax slabs mandated by the Government of India. It performs a rigorous, simultaneous calculation of your owed tax, including the mandatory health and education cess, under both regimes. The tool then instantly provides a crystal-clear, side-by-side comparative breakdown, mathematically proving exactly which regime will save you the most money. This empowers salaried employees, freelancers, and business professionals to optimize their tax planning, maximize their take-home pay, and file their returns with absolute confidence. All calculations are executed securely on your local device to ensure maximum financial privacy.
         </p>
       </div>
   

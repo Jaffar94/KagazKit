@@ -97,9 +97,9 @@ export default function AIReceiptScannerPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">How Our AI Receipt Scanner Works</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Next-Generation AI Receipt Scanning Technology</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Digitizing financial records has never been easier. Our AI-powered Receipt Scanner leverages Google Gemini's advanced computer vision models to instantly extract line items, prices, taxes, and totals from your paper receipts. Simply upload a clear photo or scanned image, and our system will accurately parse the data into a clean, structured table. This is the perfect tool for freelancers, small business owners, and accounting professionals who need to quickly digitize their expenses without manually typing out every single item.
+          Digitizing financial records and managing expenses has never been easier or more secure. Our AI-powered Receipt Scanner leverages highly advanced computer vision models and large language models (LLMs) to instantly extract line items, individual prices, taxes, merchant names, and total amounts from your paper receipts. Simply upload a clear photo or scanned image, and our sophisticated system will accurately parse the messy visual data into a clean, structured table. This is the perfect daily utility for freelancers, small business owners, corporate employees, and accounting professionals who need to quickly digitize their expenses without enduring the painful process of manually typing out every single item. Because the AI processes the document in-memory and instantly discards the image upon completion, your highly sensitive financial data remains completely confidential. Once the extraction is complete, you can effortlessly download a formatted CSV file that integrates flawlessly with Microsoft Excel, Google Sheets, Quickbooks, or your preferred accounting software.
         </p>
       </div>
   

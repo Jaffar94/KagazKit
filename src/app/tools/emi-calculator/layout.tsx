@@ -1,12 +1,12 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'EMI Calculator | Home, Car & Personal Loan Monthly EMI | KagazKit',
+  description: 'Calculate your exact monthly EMI, total interest, and total payment for home loans, car loans, or personal loans. View detailed amortization schedules.',
+  keywords: 'EMI calculator, home loan EMI, car loan EMI, personal loan EMI, amortization schedule',
   alternates: {
     canonical: '/tools/emi-calculator',
   },
-  title: "Home Loan EMI Calculator India | Personal Loan & Car Loan EMI",
-  description: "Calculate your monthly EMI, total interest, and principal amount for home loans, car loans, and personal loans in India. Visual interest breakdown.",
-  keywords: ["Home loan EMI calculator India", "EMI interest calculator with chart", "Calculate loan EMI", "Personal loan EMI calculator"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

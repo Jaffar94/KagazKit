@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Split & Extract PDF Pages | Secure Online Tool | KagazKit',
+  description: 'Extract specific pages or split a large PDF document into smaller files. Visual preview lets you select exactly what pages to keep. 100% private.',
+  keywords: 'split pdf, extract pdf pages, cut pdf, separate pdf pages online',
   alternates: {
     canonical: '/tools/split-pdf',
   },
-  title: 'Split PDF Online Free | Extract Pages from PDF',
-  description: 'Easily extract specific pages from your PDF or split a large PDF into smaller ones. 100% private, client-side processing.',
-  keywords: ['split pdf', 'extract pdf pages', 'separate pdf pages', 'cut pdf', 'pdf splitter online free'],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

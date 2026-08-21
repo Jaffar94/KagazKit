@@ -168,9 +168,9 @@ export default function DepositCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Fixed & Recurring Deposit Returns</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Master Your Savings with Precision</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Planning your savings is crucial for financial stability. Our Deposit Calculator precisely models the growth of both Fixed Deposits (FD) and Recurring Deposits (RD) based on Indian banking standards. It automatically factors in quarterly compounding interest for FDs and the Future Value of Annuity Due formulas for RDs. By providing a clear breakdown of your total invested principal versus your estimated interest earnings, this tool empowers you to make highly informed wealth-building decisions.
+          Planning your long-term savings strategy is absolutely crucial for achieving financial stability and building wealth. Our comprehensive Deposit Calculator precisely models the projected growth of both Fixed Deposits (FD) and Recurring Deposits (RD) based on standard banking formulas used worldwide, including strict Indian banking standards. It automatically factors in the complex mathematics of quarterly compounding interest for Fixed Deposits, and flawlessly applies the Future Value of Annuity Due formulas for Recurring Deposits. By providing a crystal-clear, intuitive breakdown of your total invested principal versus your estimated interest earnings over time, this sophisticated tool empowers you to make highly informed, strategic wealth-building decisions. You can experiment with varying interest rates, different tenure lengths, and monthly contribution amounts to visualize exactly how your money will compound. Best of all, this calculation happens instantly and securely on your own device, ensuring your sensitive financial planning data remains entirely private and protected from third-party tracking.
         </p>
       </div>
   

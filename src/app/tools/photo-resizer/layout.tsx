@@ -1,12 +1,12 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Photo Resizer for Govt Exams | Crop to exact Pixels/KB | KagazKit',
+  description: 'Resize, crop, and compress your passport photo or signature to exact pixel dimensions (e.g. 3.5x4.5cm) and KB limits required for govt applications.',
+  keywords: 'photo resizer, resize image for exam form, reduce photo size in kb, passport photo maker, signature resizer',
   alternates: {
     canonical: '/tools/photo-resizer',
   },
-  title: "Free Online Photo & Signature Resizer",
-  description: "Resize your photo and signature to strict 20KB-50KB limits for UPSC, SSC, and IBPS exams. 100% private, client-side resizing.",
-  keywords: ["UPSC photo signature resize", "SSC CGL photo and signature size", "Resize image to 20KB-50KB", "Govt exam photo resizer online", "Image Resizer"],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -335,9 +335,9 @@ export default function SplitPdfPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Extracting Pages from PDFs</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Precise, Visual PDF Page Extraction</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Extracting specific pages from massive PDF documents shouldn't require expensive desktop software. Our Split PDF tool allows you to slice, extract, and save targeted page ranges instantly. We engineered a seamless, debounced live-preview feature that lets you verify the exact pages before downloading. Best of all, because it runs on a client-side architecture, your confidential 50MB documents are processed instantly on your device without ever touching our servers.
+          Extracting specific, highly relevant pages from massive, bloated PDF documents shouldn't require purchasing expensive, heavy desktop software or navigating confusing interfaces. Our highly intuitive Split PDF tool is engineered to allow you to seamlessly slice, extract, and save targeted page ranges from any document instantly. We have built a robust, visual live-preview interface that displays thumbnails of your document, allowing you to visually verify and select the exact pages you need to extract before initiating the download. This is the perfect utility for students pulling a single chapter from a massive digital textbook, lawyers extracting a single exhibit from a hundred-page brief, or office workers separating mixed scanned invoices. Best of all, because this tool utilizes an advanced WebAssembly client-side architecture, your highly confidential, multi-megabyte documents are processed instantly within the memory of your own device. Your sensitive files never touch our servers, guaranteeing absolute data privacy and zero risk of interception.
         </p>
       </div>
   

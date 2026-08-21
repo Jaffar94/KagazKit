@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'GST Calculator | Add or Remove GST from Price | KagazKit',
+  description: 'Instantly add or reverse calculate Goods and Services Tax (GST). Find the base price, CGST, SGST, and IGST components for any amount.',
+  keywords: 'GST calculator, reverse GST, add GST to price, CGST SGST calculator, India tax calculator',
   alternates: {
     canonical: '/tools/gst-calculator',
   },
-  title: 'Free GST Calculator India | Add/Remove GST (5%, 12%, 18%, 28%)',
-  description: 'Instantly calculate GST for your business invoices. Add or remove GST from any amount using the official Indian tax slabs.',
-  keywords: ['gst calculator india', 'add gst', 'remove gst', 'reverse gst calculation', 'cgst sgst calculator'],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

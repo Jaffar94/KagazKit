@@ -172,9 +172,9 @@ export default function GstCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant GST Calculations</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant and Accurate Goods and Services Tax Calculations</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Navigating the Goods and Services Tax (GST) can be complicated for business owners. Our GST Calculator is engineered to instantly add or remove GST from any base amount. Whether you are generating an invoice and need to add 18% GST (exclusive mode) or you have a final retail price and need to extract the base value (inclusive mode), this tool mathematically isolates the CGST and SGST components instantly and privately in your browser.
+          Navigating the complexities of the Goods and Services Tax (GST) system is a daily necessity for business owners, freelancers, and consumers across India. Our specialized GST Calculator is a powerful, dual-function utility designed to instantly add GST to a base amount or perform a reverse calculation to extract the base price and tax components from a gross total. Whether you are generating invoices for your clients, verifying supplier bills, or simply trying to understand the exact tax breakdown of a retail purchase, this tool provides instant clarity. It seamlessly splits the total tax into its Central GST (CGST) and State GST (SGST) components for intra-state transactions, or provides the Integrated GST (IGST) figure for inter-state commerce. With support for all standard tax slabs (5%, 12%, 18%, and 28%), the calculator ensures flawless accounting accuracy. Furthermore, it operates 100% locally in your browser, ensuring that your proprietary pricing data, business invoices, and financial figures remain strictly confidential and are never sent to external servers.
         </p>
       </div>
   

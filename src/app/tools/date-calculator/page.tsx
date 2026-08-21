@@ -157,9 +157,9 @@ export default function DateCalculatorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Understanding the Date Calculator</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Accurate Future and Past Date Calculations</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          The KagazKit Date Calculator allows you to effortlessly add or subtract days, weeks, months, or years from any given starting date. It automatically accounts for leap years and varying month lengths, ensuring perfect mathematical precision. Whether you are planning a project timeline, tracking a pregnancy due date, or calculating a legal deadline, this client-side tool provides instant, accurate results without ever storing your calendar data on external servers.
+          Time management, project planning, and legal compliance often require mathematically precise date calculations that are difficult to perform manually. Our Date Calculator is an indispensable utility designed to effortlessly add or subtract days, weeks, months, or years from any given starting date. Whether you need to determine the exact expiration date of a contract, calculate a project deadline that is exactly 90 days away, or figure out a historical date based on a specific duration, this tool delivers instant, flawless results. It correctly handles complex calendar variables including leap years, varying month lengths, and year transitions without any manual effort on your part. Built with a strict privacy-first architecture, the calculator runs entirely within your local browser environment. This guarantees that your proprietary project timelines and personal schedules are never transmitted to external servers. Enjoy a fast, reliable, and entirely secure method for managing all your critical chronological calculations with absolute certainty.
         </p>
       </div>
   

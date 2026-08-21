@@ -348,9 +348,9 @@ export default function PhotoResizerPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Pixel-Perfect Photo Resizing</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Precision Image Resizing for Official Applications</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Whether you are applying for a passport, updating a social media profile, or optimizing images for a website, precise image dimensions are critical. Our Photo Resizer tool allows you to scale and crop your images with absolute pixel accuracy. Operating entirely client-side, the tool ensures that your high-resolution portraits and sensitive photographs remain strictly on your device, providing instantaneous rendering without the risk of cloud uploads.
+          Applying for official government exams, passports, visas, or university admissions often involves incredibly frustrating, hyper-specific requirements for uploading your personal photograph and signature. Portals routinely demand exact pixel dimensions (such as 3.5cm by 4.5cm or 200x230 pixels) alongside strict maximum and minimum file size limits (such as strictly between 20KB and 50KB). Our Specialized Photo Resizer is an essential utility custom-built to eliminate this exact frustration. It provides a highly intuitive cropping interface combined with precise width and height controls, allowing you to format your images flawlessly. Furthermore, it incorporates an intelligent, iterative compression algorithm that actively adjusts the image quality to guarantee the final output falls exactly within your required KB constraints. Because identity documents and personal photographs are highly sensitive, this entire resizing and compression engine executes 100% locally within your web browser. Your face and signature are never uploaded to any remote server, ensuring absolute privacy and immediate offline functionality.
         </p>
       </div>
   

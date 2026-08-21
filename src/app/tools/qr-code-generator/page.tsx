@@ -128,9 +128,9 @@ export default function QrCodeGeneratorPage() {
       
       {/* SEO Content Block */}
       <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Customizing Your QR Codes</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant, High-Definition QR Code Creation</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          QR codes are the ultimate bridge between the physical and digital worlds. Our QR Code Generator allows you to instantly encode URLs, contact information, or raw text into a scannable graphic. With customization options for sizing and error-correction levels, you can generate high-quality, print-ready QR codes in milliseconds. All generation happens locally within your browser, ensuring maximum privacy and zero latency.
+          QR codes have become an absolute necessity for modern marketing, contactless sharing, and seamless digital interaction. Our Free QR Code Generator is a powerful, lightning-fast utility that allows you to instantly encode any website URL, custom text message, phone number, vCard, or secure WiFi network credentials into a scannable, high-definition matrix barcode. Whether you are a restaurant owner creating a digital menu, a marketer printing promotional flyers, or a professional generating a digital business card, this tool delivers crisp, perfectly readable QR codes every single time. You can instantly preview the code as you type and download the final asset as a high-resolution PNG image that is perfectly suited for both sharp digital displays and high-quality commercial printing. Furthermore, the generation process happens entirely on your local device using secure browser-based encoding, ensuring that your private URLs, personal contact information, and hidden WiFi passwords are never logged or stored on our servers.
         </p>
       </div>
   

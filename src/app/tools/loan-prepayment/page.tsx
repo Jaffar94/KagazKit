@@ -217,10 +217,10 @@ export default function LoanPrepaymentPage() {
       </div>
 
       {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8 mt-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Crush Your Debt with Loan Prepayment</h2>
+      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Optimize Your Debt with Strategic Prepayments</h2>
         <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Long-term home loans and personal loans are heavily front-loaded with interest, meaning the majority of your early EMI payments go directly to the bank's profits rather than reducing your actual debt. Our Loan Prepayment Calculator vividly demonstrates the sheer power of paying extra. By committing just a few thousand rupees extra each month toward your principal, you can bypass decades of compound interest and become debt-free years ahead of schedule. This client-side tool allows you to confidently model various prepayment scenarios without sharing your sensitive financial details.
+          One of the most effective strategies for achieving financial freedom is aggressively paying down high-interest debt, such as a 20-year home mortgage or a long-term vehicle loan. Our sophisticated Loan Prepayment Calculator is designed to show you exactly how making periodic part-payments, or permanently increasing your monthly EMI, can dramatically reduce your overall interest burden and shave years off your loan tenure. By inputting your outstanding principal, current interest rate, and remaining months, you can model various prepayment scenarios to see the exact financial impact. The tool generates a clear, side-by-side comparison of your original loan trajectory versus your accelerated repayment plan, displaying the massive thousands of rupees you will save in pure interest. Because your specific financial debt figures are highly private, this calculator executes all complex amortization algorithms entirely on your local device. Your data is never uploaded, recorded, or analyzed by our servers, granting you a completely secure environment to strategize your path to becoming debt-free.
         </p>
       </div>
 

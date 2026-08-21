@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'In-Hand Salary Calculator | India Take-Home Pay | KagazKit',
+  description: 'Calculate your exact in-hand, take-home salary in India. Instantly break down your CTC into Basic, HRA, PF deductions, and income tax.',
+  keywords: 'salary calculator india, in hand salary calculator, take home pay, CTC breakdown, PF deduction calculator',
   alternates: {
     canonical: '/tools/salary-calculator',
   },
-  title: 'In-Hand Salary Calculator India with Income Tax & TDS | Take Home Pay',
-  description: 'Calculate your exact monthly in-hand salary based on your CTC. Includes New vs Old tax regime deductions, PF, and Professional Tax. 100% free, client-side calculator for Indian employees.',
-  keywords: ['salary calculator india', 'in hand salary calculator', 'take home pay', 'CTC to in hand', 'PF deduction calculator', 'income tax calculator', 'TDS salary calculator'],
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
