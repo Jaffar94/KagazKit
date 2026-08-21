@@ -7,6 +7,7 @@ import BackToHome from '@/components/BackToHome';
 import { UploadCloud, FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 import toast from 'react-hot-toast';
+import { trackDownload } from '@/utils/stats';
 
 export default function ImageToPdfPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -167,6 +168,7 @@ export default function ImageToPdfPage() {
 
   const handleDownload = () => {
     if (resultBlob) {
+      trackDownload();
       const url = URL.createObjectURL(resultBlob);
       const link = document.createElement('a');
       link.href = url;

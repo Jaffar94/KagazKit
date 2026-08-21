@@ -6,6 +6,7 @@ import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { UploadCloud, Image as ImageIcon, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { trackDownload } from '@/utils/stats';
 
 type Preset = {
   id: string;
@@ -182,6 +183,7 @@ export default function PhotoResizerPage() {
 
   const downloadImage = () => {
     if (!resultDataUrl) return;
+    trackDownload();
     const link = document.createElement('a');
     link.href = resultDataUrl;
     const isPng = file?.type === 'image/png';

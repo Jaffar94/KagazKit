@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { PDFDocument } from 'pdf-lib';
 import toast from 'react-hot-toast';
+import { trackDownload } from '@/utils/stats';
 import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
@@ -187,6 +188,7 @@ export default function MergePdfPage() {
                 <a
                   href={mergedPdfUrl}
                   download="KagazKit_Merged.pdf"
+                  onClick={() => trackDownload()}
                   className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-xs"
                 >
                   <Download className="w-5 h-5" />

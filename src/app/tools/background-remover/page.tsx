@@ -6,6 +6,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { Image as ImageIcon, Download, Loader2, Wand2, Sparkles } from 'lucide-react';
+import { trackDownload } from '@/utils/stats';
 import { removeBackground, preload } from '@imgly/background-removal';
 
 export default function BackgroundRemoverPage() {
@@ -217,6 +218,7 @@ export default function BackgroundRemoverPage() {
                 <a 
                   href={removedUrl} 
                   download="background-removed.png"
+                  onClick={() => trackDownload()}
                   className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-md flex items-center gap-2"
                 >
                   <Download className="w-5 h-5" />

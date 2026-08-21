@@ -6,6 +6,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { Download, QrCode } from 'lucide-react';
+import { trackDownload } from '@/utils/stats';
 
 export default function QrCodeGeneratorPage() {
   const [text, setText] = useState('https://kagazkit.com');
@@ -16,6 +17,7 @@ export default function QrCodeGeneratorPage() {
   const qrRef = useRef<HTMLDivElement>(null);
 
   const downloadQR = () => {
+    trackDownload();
     const canvas = qrRef.current?.querySelector('canvas');
     if (!canvas) return;
 

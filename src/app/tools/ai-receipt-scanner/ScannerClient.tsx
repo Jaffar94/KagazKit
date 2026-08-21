@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { Upload, FileText, Download, Loader2, AlertCircle, ScanText, Table } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { trackDownload } from '@/utils/stats';
 
 type ReceiptItem = {
   name: string;
@@ -94,6 +95,7 @@ export default function ScannerClient() {
 
   const downloadCSV = () => {
     if (!data) return;
+    trackDownload();
 
     const headers = ['Item', 'Quantity', 'Price'];
     const rows = data.items.map(item => [

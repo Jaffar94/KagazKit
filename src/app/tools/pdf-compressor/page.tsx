@@ -6,6 +6,7 @@ import AdSlot from '@/components/AdSlot';
 import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
 import { FileUp, FileText, Download, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
+import { trackDownload } from '@/utils/stats';
 
 export default function CompressPdfPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -251,6 +252,7 @@ export default function CompressPdfPage() {
                   <a
                     href={compressedPdfUrl}
                     download={`Compressed_${file.name}`}
+                    onClick={() => trackDownload()}
                     className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-xs"
                   >
                     <Download className="w-5 h-5" />
