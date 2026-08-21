@@ -4,6 +4,9 @@ import AdSlot from '@/components/AdSlot';
 export const metadata: Metadata = {
   title: 'Privacy Policy | KagazKit',
   description: 'Privacy Policy for KagazKit web utilities.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

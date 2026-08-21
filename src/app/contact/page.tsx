@@ -6,6 +6,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Contact Us | KagazKit',
   description: 'Get in touch with the KagazKit team for support, feedback, or inquiries.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {

@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms of Service | KagazKit',
   description: 'Terms of Service for KagazKit web utilities.',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {

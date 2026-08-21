@@ -5,6 +5,9 @@ import { ShieldCheck, Zap, Globe, Heart } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'About | KagazKit',
   description: 'Learn about KagazKit, the fast, private, and 100% client-side web tools portal.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {
