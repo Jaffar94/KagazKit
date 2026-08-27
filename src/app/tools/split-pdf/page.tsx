@@ -32,6 +32,12 @@ export default function SplitPdfPage() {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
+      
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        toast.error('File is too large. Maximum allowed size is 10MB.');
+        return;
+      }
+      
       setFile(selectedFile);
       setSplitPdfUrl(null);
       setErrorMsg(null);
@@ -109,6 +115,7 @@ export default function SplitPdfPage() {
     }
     
     setIsPreviewGenerating(true);
+    await new Promise(r => setTimeout(r, 50)); // Yield main thread
     try {
       const pageNumbers = parsePageRange(pageRange, totalPages);
       if (pageNumbers.length === 0) {
@@ -139,6 +146,7 @@ export default function SplitPdfPage() {
     
     setErrorMsg(null);
     setIsSplitting(true);
+    await new Promise(r => setTimeout(r, 50)); // Yield main thread
     
     try {
       const pageNumbers = parsePageRange(pageRange, totalPages);

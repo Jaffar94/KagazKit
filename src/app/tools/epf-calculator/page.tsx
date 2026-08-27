@@ -96,10 +96,10 @@ export default function EPFCalculatorPage() {
       <div className="flex flex-col gap-8">
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-6">
           <div>
-            <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+            <label htmlFor="basicPay" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><IndianRupee className="w-4 h-4 text-indigo-600"/> Basic + DA (Monthly)</span>
             </label>
-            <input type="number" min="0" 
+            <input id="basicPay" type="number" min="0" 
               value={basicPay === 0 ? '' : basicPay} 
               onChange={(e) => setBasicPay(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
@@ -108,20 +108,20 @@ export default function EPFCalculatorPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+              <label htmlFor="currentAge" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
                 <span className="flex items-center gap-2"><User className="w-4 h-4 text-indigo-600"/> Current Age</span>
               </label>
-              <input type="number" min="0" 
+              <input id="currentAge" type="number" min="0" 
                 value={currentAge === 0 ? '' : currentAge} 
                 onChange={(e) => setCurrentAge(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
               />
             </div>
             <div>
-              <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+              <label htmlFor="retirementAge" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
                 <span className="flex items-center gap-2"><User className="w-4 h-4 text-indigo-600"/> Retire Age</span>
               </label>
-              <input type="number" min="0" 
+              <input id="retirementAge" type="number" min="0" 
                 value={retirementAge === 0 ? '' : retirementAge} 
                 onChange={(e) => setRetirementAge(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
                 className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
@@ -130,10 +130,10 @@ export default function EPFCalculatorPage() {
           </div>
 
           <div>
-            <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+            <label htmlFor="currentBalance" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><Wallet className="w-4 h-4 text-indigo-600"/> Current EPF Balance</span>
             </label>
-            <input type="number" min="0" 
+            <input id="currentBalance" type="number" min="0" 
               value={currentBalance === 0 ? '' : currentBalance} 
               onChange={(e) => setCurrentBalance(e.target.value === '' ? 0 : Math.max(0, Number(e.target.value)))}
               className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg outline-hidden focus:ring-2 focus:ring-indigo-600/20"
@@ -141,11 +141,11 @@ export default function EPFCalculatorPage() {
           </div>
 
           <div>
-            <label className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
+            <label htmlFor="salaryIncrement" className="flex justify-between text-sm font-semibold text-slate-700 mb-2">
               <span className="flex items-center gap-2"><TrendingUp className="w-4 h-4 text-indigo-600"/> Annual Increment (%)</span>
               <span>{salaryIncrement}%</span>
             </label>
-            <input 
+            <input id="salaryIncrement"
               type="range" min="0" max="20" step="1" 
               value={salaryIncrement} onChange={(e) => setSalaryIncrement(Number(e.target.value) || 0)}
               className="w-full accent-indigo-600"

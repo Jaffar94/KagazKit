@@ -80,16 +80,21 @@ NEXT_PUBLIC_API_URL=http://localhost:8080/compress
 In your `backend/` directory, create a `.env` file and add:
 ```env
 GEMINI_API_KEY=your_google_ai_studio_key_here
+UPSTASH_REDIS_REST_URL=your_upstash_redis_url_here
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token_here
 ```
 
 ## Deployment
 
 ### Frontend (Vercel / Cloudflare Pages)
-The easiest way to deploy the frontend is to push this repository to GitHub and import it into Vercel or Cloudflare. Make sure to add `NEXT_PUBLIC_API_URL` to your Environment Variables, pointing to your live Render backend URL.
+The easiest way to deploy the frontend is to push this repository to GitHub and import it into Vercel or Cloudflare. Make sure to add `NEXT_PUBLIC_API_URL` to your Environment Variables, pointing to your live Render backend URL (e.g., `https://your-backend.onrender.com/compress`).
 
 ### Backend (Render)
 The backend is Dockerized and ready to be deployed on [Render.com](https://render.com).
 1. Create a new **Web Service** on Render.
 2. Connect this repository and set the **Root Directory** to `backend`.
 3. Set the Environment to **Docker** (Render will automatically use the provided `Dockerfile` to install Ghostscript and Node.js).
-4. In the Render Dashboard, add `GEMINI_API_KEY` to your Environment Variables.
+4. In the Render Dashboard, add the following to your Environment Variables:
+   - `GEMINI_API_KEY`
+   - `UPSTASH_REDIS_REST_URL`
+   - `UPSTASH_REDIS_REST_TOKEN`

@@ -24,14 +24,26 @@ export default function MergePdfPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const newFiles = Array.from(e.target.files).map(file => ({
-        id: Math.random().toString(36).substring(7),
-        file,
-        name: file.name,
-        size: file.size
-      }));
-      setFiles(prev => [...prev, ...newFiles]);
-      setMergedPdfUrl(null); // Reset when new files added
+      const selectedFiles = Array.from(e.target.files);
+      const validFiles: PdfFile[] = [];
+
+      for (const file of selectedFiles) {
+        if (file.size > 10 * 1024 * 1024) {
+          toast.error(`"${file.name}" is too large. Maximum size is 10MB.`);
+          continue;
+        }
+        validFiles.push({
+          id: crypto.randomUUID(),
+          file,
+          name: file.name,
+          size: file.size
+        });
+      }
+
+      if (validFiles.length > 0) {
+        setFiles(prev => [...prev, ...validFiles]);
+        setMergedPdfUrl(null); // Reset when new files added
+      }
     }
   };
 
@@ -61,6 +73,8 @@ export default function MergePdfPage() {
     if (files.length < 2) return;
     
     setIsMerging(true);
+    await new Promise(r => setTimeout(r, 50)); // Yield main thread
+
     try {
       const mergedPdf = await PDFDocument.create();
 

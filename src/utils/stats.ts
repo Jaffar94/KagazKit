@@ -7,7 +7,7 @@ export const getStats = async () => {
     return await res.json();
   } catch (e) {
     console.error('Error fetching stats:', e);
-    return { downloads: 0 };
+    return null;
   }
 };
 

@@ -44,6 +44,7 @@ export default function ImageToPdfPage() {
     if (!file || !previewUrl) return;
     setIsProcessing(true);
     setResultBlob(null);
+    await new Promise(r => setTimeout(r, 50)); // Yield main thread
 
     try {
       const img = new Image();

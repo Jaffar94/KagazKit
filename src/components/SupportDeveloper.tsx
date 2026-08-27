@@ -63,6 +63,7 @@ export default function SupportDeveloper() {
                 alt="UPI QR Code"
                 width={180}
                 height={180}
+                priority={true}
                 className="rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </div>

@@ -8,17 +8,35 @@ export default function StatsDisplay() {
   const [downloads, setDownloads] = useState<number | null>(null);
 
   useEffect(() => {
-    getStats().then((data) => {
+    let timeoutId: NodeJS.Timeout;
+    let isMounted = true;
+
+    const fetchStats = async () => {
+      const data = await getStats();
+      if (!isMounted) return;
+      
       if (data && typeof data.downloads === 'number') {
         setDownloads(data.downloads);
+      } else {
+        // If it fails or returns null, wait 5 seconds and retry
+        timeoutId = setTimeout(fetchStats, 5000);
       }
-    });
+    };
+
+    fetchStats();
+
+    return () => {
+      isMounted = false;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   if (downloads === null) {
     return (
-      <div className="flex justify-center mt-6 animate-pulse">
-        <div className="h-10 bg-slate-100 rounded-full w-48 border border-slate-200"></div>
+      <div className="flex justify-center mt-6">
+        <div className="h-10 bg-slate-100 rounded-full px-6 border border-slate-200 flex items-center justify-center animate-pulse">
+          <span className="text-slate-400 text-sm font-medium">Loading stats...</span>
+        </div>
       </div>
     );
   }
