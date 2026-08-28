@@ -103,7 +103,7 @@ export default function SupportDeveloper() {
         aria-label="Support Developer"
       >
         <Heart className="w-4 h-4 group-hover:scale-110 group-hover:fill-rose-600 transition-all duration-300" />
-        <span className="hidden sm:inline">Support Developer</span>
+        <span className="inline">Support Developer</span>
       </button>
 
       {mounted && typeof document !== 'undefined' ? createPortal(modalContent, document.body) : null}
