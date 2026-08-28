@@ -241,10 +241,11 @@ export default function SplitPdfPage() {
             {/* Split Options */}
             {!splitPdfUrl && (
               <div className="space-y-4">
-                <label className="block text-sm font-bold text-slate-700">
+                <label htmlFor="split-pages" className="block text-sm font-bold text-slate-700">
                   Pages to Extract
                 </label>
                 <input
+                  id="split-pages"
                   type="text"
                   placeholder="e.g., 1-5, 8, 11-13"
                   value={pageRange}

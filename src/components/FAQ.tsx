@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 export type FAQItem = {
@@ -13,8 +12,6 @@ type FAQProps = {
 };
 
 export default function FAQ({ items }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   // Generate JSON-LD Structured Data
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -40,27 +37,16 @@ export default function FAQ({ items }: FAQProps) {
       
       <div className="space-y-4">
         {items.map((item, index) => (
-          <div key={index} className="border border-slate-200/80 rounded-2xl bg-white overflow-hidden">
-            <button
-              className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              aria-expanded={openIndex === index}
-            >
+          <details key={index} className="group border border-slate-200/80 rounded-2xl bg-white overflow-hidden">
+            <summary className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary rounded-lg cursor-pointer list-none [&::-webkit-details-marker]:hidden">
               <span className="font-semibold text-slate-800 pr-4">{item.question}</span>
-              <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-180 text-indigo-600' : 'text-slate-400'}`} />
-            </button>
+              <ChevronDown className="w-5 h-5 shrink-0 transition-transform duration-200 group-open:rotate-180 text-slate-400 group-open:text-indigo-600" />
+            </summary>
             
-            {/* Always render answer in DOM for SEO crawlability — use CSS to hide/show */}
-            <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
-              <div className="px-6 pb-4 pt-1 text-slate-600">
-                <p className="leading-relaxed">{item.answer}</p>
-              </div>
+            <div className="px-6 pb-4 pt-1 text-slate-600">
+              <p className="leading-relaxed">{item.answer}</p>
             </div>
-          </div>
+          </details>
         ))}
       </div>
     </div>

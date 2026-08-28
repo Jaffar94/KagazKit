@@ -18,12 +18,12 @@ export const TOOL_CONTENT: Record<string, ToolContentData> = {
         { step: 'Download the result', description: 'Review the final file size shown on screen, then click "Download Image" to save the compliant file to your device.' },
       ],
       features: [
-        '100% client-side — your photo never leaves your device',
+        'Privacy-first — your photo is processed securely',
         'Binary-search compression for pixel-perfect KB targeting',
         'Pre-built presets for UPSC, SSC CGL, IBPS PO exams',
         'Custom dimensions and KB limits for any portal',
         'Supports JPG, PNG, and WebP input formats',
-        'Instant processing with no server upload wait times',
+        'Instant processing with secure processing',
       ],
       useCases: [
         'Resizing passport photos for UPSC Civil Services application forms that require 350×350px images between 20KB and 50KB.',
@@ -84,11 +84,11 @@ export const TOOL_CONTENT: Record<string, ToolContentData> = {
         { step: 'Download the merged file', description: 'Your combined PDF is ready for download. The original files remain untouched on your device.' },
       ],
       features: [
-        '100% client-side processing — your documents never leave your browser',
+        'Privacy-first processing — your documents are handled securely',
         'Drag-and-drop reordering for precise page sequence control',
         'No file count limit — merge as many PDFs as your browser can handle',
         'Preserves original formatting, fonts, images, and hyperlinks',
-        'Instant processing with no server upload delays',
+        'Instant processing with secure processing',
         'Works offline after the page loads',
       ],
       useCases: [
@@ -153,7 +153,7 @@ export const TOOL_CONTENT: Record<string, ToolContentData> = {
         'Convert multiple images into a single multi-page PDF',
         'Strict KB limit enforcement for government portal compliance',
         'Supports JPG, PNG, and WebP image formats',
-        '100% client-side — images never leave your device',
+        'Privacy-first — images are processed securely',
         'Automatic page sizing and orientation detection',
         'Drag-and-drop reordering for multi-page documents',
       ],
@@ -287,7 +287,7 @@ export const TOOL_CONTENT: Record<string, ToolContentData> = {
         'Automatically calculates PF (employee + employer contribution)',
         'Shows Basic Pay, HRA, and Special Allowance split',
         'Includes income tax estimation with standard deduction',
-        '100% client-side — your salary data stays private',
+        'Privacy-first — your salary data stays private',
       ],
       useCases: [
         'Evaluating a new job offer by understanding how much of the CTC you will actually take home each month after all deductions.',
@@ -452,7 +452,7 @@ export const TOOL_CONTENT: Record<string, ToolContentData> = {
         'Adjustable size from 128px to 512px',
         'High error correction level (H) for reliable scanning',
         'Downloads as high-resolution PNG image',
-        '100% client-side — your data never touches a server',
+        'Privacy-first — your data is processed securely',
       ],
       useCases: [
         'Creating QR codes for restaurant digital menus that link to an online menu page when scanned by diners.',

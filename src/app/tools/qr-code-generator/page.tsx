@@ -59,9 +59,7 @@ export default function QrCodeGeneratorPage() {
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">QR Color</label>
                 <div className="flex items-center gap-2">
-                  <input
-                    type="color"
-                    value={fgColor}
+                  <input id="qr-fg" type="color" value={fgColor}
                     onChange={(e) => setFgColor(e.target.value)}
                     className="w-10 h-10 rounded-sm cursor-pointer border-0 p-0 bg-transparent"
                   />
@@ -71,9 +69,7 @@ export default function QrCodeGeneratorPage() {
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">Background</label>
                 <div className="flex items-center gap-2">
-                  <input
-                    type="color"
-                    value={bgColor}
+                  <input id="qr-bg" type="color" value={bgColor}
                     onChange={(e) => setBgColor(e.target.value)}
                     className="w-10 h-10 rounded-sm cursor-pointer border-0 p-0 bg-transparent"
                   />
@@ -118,7 +114,7 @@ export default function QrCodeGeneratorPage() {
               Download PNG
             </button>
             <p className="text-xs text-slate-400 mt-3 text-center">
-              100% Client-side. No data is sent to servers.
+              Privacy-first. Your data is processed securely.
             </p>
           </div>
 

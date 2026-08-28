@@ -59,9 +59,7 @@ export default function AgeCalculatorPage() {
                 <User className="w-4 h-4 text-indigo-500" />
                 Date of Birth
               </label>
-              <input
-                type="date"
-                value={dob}
+              <input id="dob" type="date" value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-600/20 focus:border-indigo-600 transition-all outline-hidden"
               />

@@ -72,7 +72,7 @@ export const TOOLS_CATEGORIES = [
       {
         id: 'merge-pdf',
         name: 'Merge PDF Online',
-        description: 'Combine multiple PDF files into one easily and securely. 100% private.',
+        description: 'Combine multiple PDF files into one easily and securely. privacy-first.',
         icon: Layers,
         color: 'bg-indigo-50 text-indigo-600',
         href: '/tools/merge-pdf'
@@ -88,7 +88,7 @@ export const TOOLS_CATEGORIES = [
       {
         id: 'split-pdf',
         name: 'Split PDF Online',
-        description: 'Extract pages from your PDF or split it into multiple files. 100% private.',
+        description: 'Extract pages from your PDF or split it into multiple files. privacy-first.',
         icon: SplitSquareHorizontal,
         color: 'bg-rose-50 text-rose-600',
         href: '/tools/split-pdf'

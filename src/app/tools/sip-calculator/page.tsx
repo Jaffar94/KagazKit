@@ -58,8 +58,7 @@ export default function SIPCalculatorPage() {
                 <span className="flex items-center gap-2"><IndianRupee className="w-4 h-4 text-indigo-600"/> Monthly SIP</span>
                 <span>{formatCurrency(monthlySIP)}</span>
               </label>
-              <input 
-                type="range" min="500" max="100000" step="500" 
+              <input id="sip-monthly-range" type="range" min="500" max="100000" step="500" 
                 value={monthlySIP} onChange={(e) => setMonthlySIP(Number(e.target.value) || 0)}
                 className="w-full accent-indigo-600"
               />
