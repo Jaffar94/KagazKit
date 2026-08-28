@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, Briefcase, Calculator, Settings2 } from 'lucide-react';
 import { calculateOldRegimeTax, calculateNewRegimeTax } from '@/utils/tax';
@@ -215,34 +215,9 @@ export default function SalaryCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Accurate CTC Breakdown and Take-Home Pay Analysis</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Understanding the massive difference between your official Cost to Company (CTC) and the actual money that hits your bank account every month is absolutely crucial for job seekers, employees negotiating raises, and financial planners across India. Our advanced In-Hand Salary Calculator is meticulously designed to instantly demystify your paycheck by providing a highly accurate, granular breakdown of your entire compensation package. By simply inputting your annual CTC, the tool automatically calculates the standard components including Basic Pay, House Rent Allowance (HRA), and Special Allowances. It then precisely deducts standard professional taxes, mandatory Employees' Provident Fund (EPF) contributions for both the employee and employer shares, and estimates your monthly income tax liability based on the latest tax slabs. This provides you with an incredibly clear, reliable projection of your actual monthly take-home pay. All of these complex financial calculations are performed entirely locally on your device, guaranteeing that your personal salary figures remain 100% private.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="salary-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "How is In-Hand Salary calculated from CTC?",
-            answer: "CTC (Cost to Company) includes your direct salary plus company contributions like Employer PF. To calculate your in-hand salary, we deduct Employer PF to find your Gross Salary, and then deduct Employee PF and Professional Tax to arrive at your Net Take-Home Salary."
-          },
-          {
-            question: "Why is my Basic Salary exactly 50% of my CTC?",
-            answer: "In India, most standard corporate payroll structures set Basic Salary at 50% of the fixed CTC to optimize tax benefits and comply with labor laws regarding Provident Fund contributions."
-          },
-          {
-            question: "Does this tool calculate Income Tax (TDS)?",
-            answer: "This is a base salary breakdown. Income Tax (TDS) depends on your chosen tax regime (Old vs New) and your personal investments under section 80C. You can use our dedicated Income Tax Calculator for exact TDS figures."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="salary-calculator" />
     </div>
   );
 }

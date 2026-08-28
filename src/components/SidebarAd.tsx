@@ -1,6 +1,10 @@
 import AdSlot from './AdSlot';
 
 export default function SidebarAd() {
+  if (process.env.NEXT_PUBLIC_ADS_ENABLED === 'false') {
+    return null;
+  }
+
   return (
     <div className="flex flex-col gap-6 h-full pb-8">
       {/* Top Ad - Scrolls away naturally */}

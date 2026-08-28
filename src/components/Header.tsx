@@ -12,7 +12,10 @@ export default function Header() {
           </div>
           <span className="font-bold text-xl tracking-tight text-slate-900">KagazKit</span>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <Link href="/blog" className="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors hidden sm:block">
+            Blog & Guides
+          </Link>
           <ToolsDropdown />
           <SupportDeveloper />
         </div>

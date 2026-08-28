@@ -16,6 +16,7 @@ export default function Footer() {
           
           <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
             <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
+            <Link href="/blog" className="hover:text-indigo-600 transition-colors">Blog</Link>
             <Link href="/contact" className="hover:text-indigo-600 transition-colors">Contact</Link>
             <Link href="/privacy-policy" className="hover:text-indigo-600 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms of Service</Link>

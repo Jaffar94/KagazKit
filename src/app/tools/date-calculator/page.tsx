@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Calendar, Clock, Calculator } from 'lucide-react';
 
@@ -153,30 +153,9 @@ export default function DateCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Accurate Future and Past Date Calculations</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Time management, project planning, and legal compliance often require mathematically precise date calculations that are difficult to perform manually. Our Date Calculator is an indispensable utility designed to effortlessly add or subtract days, weeks, months, or years from any given starting date. Whether you need to determine the exact expiration date of a contract, calculate a project deadline that is exactly 90 days away, or figure out a historical date based on a specific duration, this tool delivers instant, flawless results. It correctly handles complex calendar variables including leap years, varying month lengths, and year transitions without any manual effort on your part. Built with a strict privacy-first architecture, the calculator runs entirely within your local browser environment. This guarantees that your proprietary project timelines and personal schedules are never transmitted to external servers. Enjoy a fast, reliable, and entirely secure method for managing all your critical chronological calculations with absolute certainty.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="date-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Why would I include the end date?",
-            answer: "By default, calendar math counts the number of midnights between two dates. For example, Monday to Tuesday is 1 day. If you are calculating the total duration of a 2-day event that runs all Monday and all Tuesday, you need to 'include the end date' to get 2 days."
-          },
-          {
-            question: "Does this tool account for leap years?",
-            answer: "Yes, our calculator automatically accounts for leap years and the varying number of days in different months (28, 29, 30, or 31) because it relies on accurate native browser date parsing."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="date-calculator" />
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Download, QrCode } from 'lucide-react';
 import { trackDownload } from '@/utils/stats';
@@ -124,34 +124,9 @@ export default function QrCodeGeneratorPage() {
 
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant, High-Definition QR Code Creation</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          QR codes have become an absolute necessity for modern marketing, contactless sharing, and seamless digital interaction. Our Free QR Code Generator is a powerful, lightning-fast utility that allows you to instantly encode any website URL, custom text message, phone number, vCard, or secure WiFi network credentials into a scannable, high-definition matrix barcode. Whether you are a restaurant owner creating a digital menu, a marketer printing promotional flyers, or a professional generating a digital business card, this tool delivers crisp, perfectly readable QR codes every single time. You can instantly preview the code as you type and download the final asset as a high-resolution PNG image that is perfectly suited for both sharp digital displays and high-quality commercial printing. Furthermore, the generation process happens entirely on your local device using secure browser-based encoding, ensuring that your private URLs, personal contact information, and hidden WiFi passwords are never logged or stored on our servers.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="qr-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Is this QR code generator completely free?",
-            answer: "Yes, it is 100% free with no limits. We do not track how many codes you generate, and there are no watermarks."
-          },
-          {
-            question: "Do the QR codes expire?",
-            answer: "No, they never expire! They are static QR codes containing the direct text or URL. Since the data is encoded directly into the image, it will work forever."
-          },
-          {
-            question: "Is my data sent to a server to generate the code?",
-            answer: "No. For your privacy, the QR code is generated entirely inside your web browser. Nothing you type is ever uploaded or saved to our servers."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="qr-code-generator" />
     </div>
   );
 }

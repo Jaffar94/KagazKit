@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export type FAQItem = {
   question: string;
@@ -47,18 +47,19 @@ export default function FAQ({ items }: FAQProps) {
               aria-expanded={openIndex === index}
             >
               <span className="font-semibold text-slate-800 pr-4">{item.question}</span>
-              {openIndex === index ? (
-                <ChevronUp className="w-5 h-5 text-primary shrink-0" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
-              )}
+              <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-180 text-indigo-600' : 'text-slate-400'}`} />
             </button>
             
-            {openIndex === index && (
+            {/* Always render answer in DOM for SEO crawlability — use CSS to hide/show */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
               <div className="px-6 pb-4 pt-1 text-slate-600">
                 <p className="leading-relaxed">{item.answer}</p>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

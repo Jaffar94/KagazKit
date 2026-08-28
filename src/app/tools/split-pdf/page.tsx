@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { PDFDocument } from 'pdf-lib';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { FileUp, FileText, CheckCircle, Download, X, SplitSquareHorizontal, ExternalLink } from 'lucide-react';
 import { trackDownload } from '@/utils/stats';
@@ -42,6 +42,11 @@ export default function SplitPdfPage() {
       setSplitPdfUrl(null);
       setErrorMsg(null);
       setPageRange('');
+
+      // Yield main thread to allow React to paint the loading spinner
+      await new Promise(r => setTimeout(r, 50));
+
+      const { PDFDocument } = await import('pdf-lib');
       
       // Determine total pages
       try {
@@ -339,34 +344,9 @@ export default function SplitPdfPage() {
         )}
 
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Precise, Visual PDF Page Extraction</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Extracting specific, highly relevant pages from massive, bloated PDF documents shouldn't require purchasing expensive, heavy desktop software or navigating confusing interfaces. Our highly intuitive Split PDF tool is engineered to allow you to seamlessly slice, extract, and save targeted page ranges from any document instantly. We have built a robust, visual live-preview interface that displays thumbnails of your document, allowing you to visually verify and select the exact pages you need to extract before initiating the download. This is the perfect utility for students pulling a single chapter from a massive digital textbook, lawyers extracting a single exhibit from a hundred-page brief, or office workers separating mixed scanned invoices. Best of all, because this tool utilizes an advanced WebAssembly client-side architecture, your highly confidential, multi-megabyte documents are processed instantly within the memory of your own device. Your sensitive files never touch our servers, guaranteeing absolute data privacy and zero risk of interception.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="split-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Is it safe to upload my PDFs here?",
-            answer: "Yes, it is 100% safe. KagazKit processes the split operation entirely in your web browser using JavaScript. Your files are NEVER uploaded to any server."
-          },
-          {
-            question: "How do I extract a specific range of pages?",
-            answer: "Simply type the page range into the input box. For example, typing '1-5' will extract the first five pages into a new PDF."
-          },
-          {
-            question: "Can I extract non-consecutive pages?",
-            answer: "Yes! Use commas to separate different pages or ranges. For example, '1, 3, 5-8' will extract page 1, page 3, and pages 5 through 8."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="split-pdf" />
     </div>
   );
 }

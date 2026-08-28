@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Image as ImageIcon, Download, Loader2, Wand2, Sparkles } from 'lucide-react';
 import { trackDownload } from '@/utils/stats';
@@ -119,22 +119,6 @@ export default function BackgroundRemoverPage() {
     setOriginalUrl(null);
     setRemovedUrl(null);
   };
-
-  const faqs = [
-    {
-      question: "Are my photos uploaded to a server?",
-      answer: "No! This tool represents a breakthrough in web technology. We use an advanced AI model that runs completely inside your web browser. Your photos never leave your device, ensuring absolute privacy."
-    },
-    {
-      question: "Why does it take a few seconds to load?",
-      answer: "Because the AI runs locally on your device, your browser needs to download the AI model the very first time you use the tool (approx 40MB). Once downloaded, subsequent images will process much faster."
-    },
-    {
-      question: "What format does it save in?",
-      answer: "The final image is saved as a high-quality PNG with a transparent background, perfect for dropping into presentations, websites, or design tools."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl mx-auto">
       <BackToHome />
@@ -229,18 +213,9 @@ export default function BackgroundRemoverPage() {
           </div>
         )}
       </div>
-
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Privacy-First HD Background Removal</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Removing the background from images used to require expensive desktop software or complicated cloud services that compromise your privacy by uploading your personal photos to remote servers. Our revolutionary Background Remover tool changes the paradigm by utilizing a lightweight, highly optimized Artificial Intelligence model that runs directly inside your web browser. This means that your photos never leave your device—ensuring absolute privacy, zero upload wait times, and maximum security for your sensitive personal or commercial images. The AI intelligently detects the primary subject of your photo, cleanly separating it from complex backgrounds like landscapes, crowded rooms, or textured walls with pixel-perfect precision. Whether you are a graphic designer creating marketing assets, an e-commerce seller preparing product photos, or just someone looking to make a fun sticker, this tool delivers flawless, high-definition transparent PNG files in seconds. Experience professional-grade photo editing that respects your data privacy and operates at lightning speed entirely on your local machine.
-        </p>
-      </div>
-
       <AdSlot format="horizontal" slotId="bg-remover-bottom-ad" className="mb-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="background-remover" />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, Percent, Calculator, ArrowRightLeft } from 'lucide-react';
 
@@ -168,34 +168,9 @@ export default function GstCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Instant and Accurate Goods and Services Tax Calculations</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Navigating the complexities of the Goods and Services Tax (GST) system is a daily necessity for business owners, freelancers, and consumers across India. Our specialized GST Calculator is a powerful, dual-function utility designed to instantly add GST to a base amount or perform a reverse calculation to extract the base price and tax components from a gross total. Whether you are generating invoices for your clients, verifying supplier bills, or simply trying to understand the exact tax breakdown of a retail purchase, this tool provides instant clarity. It seamlessly splits the total tax into its Central GST (CGST) and State GST (SGST) components for intra-state transactions, or provides the Integrated GST (IGST) figure for inter-state commerce. With support for all standard tax slabs (5%, 12%, 18%, and 28%), the calculator ensures flawless accounting accuracy. Furthermore, it operates 100% locally in your browser, ensuring that your proprietary pricing data, business invoices, and financial figures remain strictly confidential and are never sent to external servers.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="gst-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "What is the difference between Adding and Removing GST?",
-            answer: "Adding GST means calculating the tax on top of a base price (Exclusive of tax). Removing GST means calculating backwards from a final total price to find what the original base price was before the tax was applied (Inclusive of tax)."
-          },
-          {
-            question: "How is CGST and SGST calculated?",
-            answer: "For intra-state sales (within the same state), the total GST amount is divided equally into two halves: Central GST (CGST) and State GST (SGST). For example, an 18% GST becomes 9% CGST and 9% SGST."
-          },
-          {
-            question: "What are the standard GST slabs in India?",
-            answer: "The primary GST slabs currently active in India are 5% (essential goods), 12% (standard goods), 18% (standard services and goods), and 28% (luxury items)."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="gst-calculator" />
     </div>
   );
 }

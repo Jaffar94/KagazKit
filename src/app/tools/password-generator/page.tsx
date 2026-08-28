@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Copy, RefreshCw, CheckCircle, ShieldAlert, ShieldCheck } from 'lucide-react';
 
@@ -83,22 +83,6 @@ export default function PasswordGeneratorPage() {
     navigator.clipboard.writeText(password);
     toast.success('Password copied to clipboard!');
   };
-
-  const faqs = [
-    {
-      question: "Is this password generator safe?",
-      answer: "Yes, 100% safe. The passwords are generated locally within your web browser using JavaScript's secure math functions. No data is ever sent to or stored on our servers."
-    },
-    {
-      question: "What makes a password strong?",
-      answer: "A strong password is typically at least 16 characters long and includes a completely random mix of uppercase letters, lowercase letters, numbers, and special symbols. Avoiding dictionary words makes it virtually impossible to crack."
-    },
-    {
-      question: "Should I memorize these passwords?",
-      answer: "No, you should use a trusted Password Manager to store these randomly generated passwords. You only need to memorize one master password for the manager itself."
-    }
-  ];
-
   return (
     <div className="w-full max-w-4xl mx-auto">
       <BackToHome />
@@ -154,38 +138,29 @@ export default function PasswordGeneratorPage() {
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <label className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
-                <input type="checkbox" checked={includeUppercase} onChange={(e) => setIncludeUppercase(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
+              <label htmlFor="inc-upper" className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                <input id="inc-upper" type="checkbox" checked={includeUppercase} onChange={(e) => setIncludeUppercase(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
                 <span className="font-medium text-slate-700">Uppercase (A-Z)</span>
               </label>
-              <label className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
-                <input type="checkbox" checked={includeLowercase} onChange={(e) => setIncludeLowercase(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
+              <label htmlFor="inc-lower" className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                <input id="inc-lower" type="checkbox" checked={includeLowercase} onChange={(e) => setIncludeLowercase(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
                 <span className="font-medium text-slate-700">Lowercase (a-z)</span>
               </label>
-              <label className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
-                <input type="checkbox" checked={includeNumbers} onChange={(e) => setIncludeNumbers(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
+              <label htmlFor="inc-num" className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                <input id="inc-num" type="checkbox" checked={includeNumbers} onChange={(e) => setIncludeNumbers(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
                 <span className="font-medium text-slate-700">Numbers (0-9)</span>
               </label>
-              <label className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
-                <input type="checkbox" checked={includeSymbols} onChange={(e) => setIncludeSymbols(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
+              <label htmlFor="inc-sym" className="flex items-center gap-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                <input id="inc-sym" type="checkbox" checked={includeSymbols} onChange={(e) => setIncludeSymbols(e.target.checked)} className="w-5 h-5 accent-indigo-600" />
                 <span className="font-medium text-slate-700">Symbols (!@#$%)</span>
               </label>
             </div>
           </div>
         </div>
       </div>
-
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Cryptographically Secure, Local Password Generation</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          In an era of relentless cyber attacks, data breaches, and sophisticated brute-force hacking attempts, using a strong, completely unique password for every single digital account is your primary line of defense. Our Secure Random Password Generator is engineered to create virtually unbreakable, cryptographically strong passwords tailored to your exact specifications. You have full control over the password length and the inclusion of uppercase letters, lowercase letters, numbers, and special symbols, ensuring compliance with the strictest corporate or institutional password policies. Crucially, true security requires that a generated password is never transmitted across a network. Our tool utilizes the browser's native, highly secure cryptographic API (window.crypto) to generate true randomness locally on your machine. The passwords are created instantly in your browser's memory and are never sent to, stored on, or logged by any server. This guarantees that you are the absolute only person who will ever see or possess the generated credentials.
-        </p>
-      </div>
-
       <AdSlot format="horizontal" slotId="password-generator-bottom-ad" className="mb-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="password-generator" />
     </div>
   );
 }

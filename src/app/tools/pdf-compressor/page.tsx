@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { FileUp, FileText, Download, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import { trackDownload } from '@/utils/stats';
@@ -275,34 +275,9 @@ export default function CompressPdfPage() {
         )}
 
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Advanced, High-Fidelity PDF Compression Engine</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Large, bloated PDF files can be a massive nightmare when you need to email critical documents, submit portfolios, or upload forms to strict government and corporate portals that enforce incredibly small file size limits (often under 1MB or 2MB). Our Advanced PDF Compressor solves this problem by utilizing an industrial-grade, server-side Ghostscript rendering engine to dramatically shrink the footprint of your documents while meticulously preserving pristine text readability and image quality. It intelligently downsamples heavy embedded graphics, discards unnecessary metadata, and optimizes font embedding to achieve compression ratios that standard client-side tools simply cannot match. Because this specific heavy-lifting requires backend processing, we have engineered a strict Ephemeral SSD storage architecture. This means your PDF is securely transferred, compressed directly in a volatile memory space, and the original and compressed files are instantly and permanently deleted from our disks the exact millisecond your download completes, guaranteeing zero data retention.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="compress-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "How does the PDF compression work?",
-            answer: "Our tool uploads your file via a secure encrypted connection to our dedicated compression server, where it uses advanced tools like Ghostscript to reduce image resolution, compress fonts, and drastically shrink the PDF file size based on the level you select."
-          },
-          {
-            question: "Is my document stored on your servers?",
-            answer: "No. Your privacy is paramount. Your uploaded PDF and the compressed version are processed entirely in memory or temporary isolated storage, and are permanently deleted immediately after the compression is complete."
-          },
-          {
-            question: "Why did my file size not reduce much?",
-            answer: "If your PDF is already highly optimized (like those exported from modern design tools) or contains primarily text without many images, there is very little left to compress."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="pdf-compressor" />
     </div>
   );
 }

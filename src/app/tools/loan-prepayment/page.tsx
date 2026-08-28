@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, TrendingDown, Calendar, ArrowRight } from 'lucide-react';
 
@@ -71,22 +71,6 @@ export default function LoanPrepaymentPage() {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-
-  const faqs = [
-    {
-      question: "What is loan prepayment?",
-      answer: "Loan prepayment means paying an extra amount towards your loan principal on top of your regular monthly EMI. This directly reduces your outstanding principal, which in turn slashes the interest charged in subsequent months."
-    },
-    {
-      question: "Are there any charges for prepaying a loan?",
-      answer: "In India, the RBI has mandated that banks cannot charge prepayment or foreclosure penalties on floating rate home loans for individual borrowers. However, for personal loans or fixed-rate loans, banks may charge a prepayment penalty of 2% to 5%."
-    },
-    {
-      question: "Why does a small extra payment make such a big difference?",
-      answer: "Because of compound interest. When you pay extra, 100% of that extra payment goes toward reducing your principal. Over a 20-year loan, reducing your principal early prevents years of compounding interest from accumulating on that amount."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl mx-auto">
       <BackToHome />
@@ -215,18 +199,9 @@ export default function LoanPrepaymentPage() {
           </div>
         )}
       </div>
-
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Optimize Your Debt with Strategic Prepayments</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          One of the most effective strategies for achieving financial freedom is aggressively paying down high-interest debt, such as a 20-year home mortgage or a long-term vehicle loan. Our sophisticated Loan Prepayment Calculator is designed to show you exactly how making periodic part-payments, or permanently increasing your monthly EMI, can dramatically reduce your overall interest burden and shave years off your loan tenure. By inputting your outstanding principal, current interest rate, and remaining months, you can model various prepayment scenarios to see the exact financial impact. The tool generates a clear, side-by-side comparison of your original loan trajectory versus your accelerated repayment plan, displaying the massive thousands of rupees you will save in pure interest. Because your specific financial debt figures are highly private, this calculator executes all complex amortization algorithms entirely on your local device. Your data is never uploaded, recorded, or analyzed by our servers, granting you a completely secure environment to strategize your path to becoming debt-free.
-        </p>
-      </div>
-
       <AdSlot format="horizontal" slotId="loan-prepayment-bottom-ad" className="mb-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="loan-prepayment" />
     </div>
   );
 }

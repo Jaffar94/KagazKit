@@ -2,8 +2,8 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
 import BackToHome from '@/components/BackToHome';
+import ToolContentSection from '@/components/ToolContentSection';
 import { UploadCloud, Image as ImageIcon, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { trackDownload } from '@/utils/stats';
@@ -195,21 +195,6 @@ export default function PhotoResizerPage() {
     document.body.removeChild(link);
   };
 
-  const faqs = [
-    {
-      question: "Will my photo be saved on your servers?",
-      answer: "No. This tool runs 100% locally in your web browser. Your photo never leaves your device, ensuring complete privacy."
-    },
-    {
-      question: "Why does the image quality change?",
-      answer: "To fit strict government limits (like 20-50KB), the tool compresses the image by lowering its quality and resizing its dimensions. We use a binary search algorithm to find the best possible quality that still fits under the maximum KB limit."
-    },
-    {
-      question: "What formats are supported?",
-      answer: "You can upload JPG, PNG, or WebP. The final downloaded file will always be a standard JPG, as required by almost all government portals."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl">
       <BackToHome />
@@ -346,18 +331,9 @@ export default function PhotoResizerPage() {
         </div>
       </div>
 
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Precision Image Resizing for Official Applications</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Applying for official government exams, passports, visas, or university admissions often involves incredibly frustrating, hyper-specific requirements for uploading your personal photograph and signature. Portals routinely demand exact pixel dimensions (such as 3.5cm by 4.5cm or 200x230 pixels) alongside strict maximum and minimum file size limits (such as strictly between 20KB and 50KB). Our Specialized Photo Resizer is an essential utility custom-built to eliminate this exact frustration. It provides a highly intuitive cropping interface combined with precise width and height controls, allowing you to format your images flawlessly. Furthermore, it incorporates an intelligent, iterative compression algorithm that actively adjusts the image quality to guarantee the final output falls exactly within your required KB constraints. Because identity documents and personal photographs are highly sensitive, this entire resizing and compression engine executes 100% locally within your web browser. Your face and signature are never uploaded to any remote server, ensuring absolute privacy and immediate offline functionality.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="photo-bottom-ad" className="mt-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="photo-resizer" />
     </div>
   );
 }

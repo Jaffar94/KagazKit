@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Home, Percent, CalendarDays } from 'lucide-react';
 
@@ -170,30 +170,9 @@ export default function EmiCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Comprehensive Loan EMI and Amortization Analysis</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Taking on a major financial commitment like a home mortgage, a vehicle loan, or a personal loan requires careful planning and a deep understanding of your future cash flow. Our advanced EMI (Equated Monthly Installment) Calculator is engineered to provide you with exact monthly payment figures, total interest obligations, and the complete total cost of your loan over its entire tenure. It goes far beyond simple math by instantly generating a detailed, interactive amortization schedule that breaks down exactly how much of each monthly payment goes toward reducing the principal versus paying off the interest. This level of transparency is essential for comparing different loan offers from various banks, understanding the long-term impact of fluctuating interest rates, and planning your household budget. Because financial data is highly sensitive, our calculator operates entirely on the client-side within your browser. This means your personal loan figures, interest rates, and financial planning scenarios are never uploaded to any external server, guaranteeing total privacy and security.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="emi-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "How is EMI calculated?",
-            answer: "EMI is calculated using the formula: P x R x (1+R)^N / [(1+R)^N-1], where P is Principal amount, R is monthly interest rate, and N is the number of months."
-          },
-          {
-            question: "Why is the total interest sometimes higher than the loan amount?",
-            answer: "For long-term home loans (e.g., 20 or 30 years), the power of compound interest works against you. Because you are paying the loan over decades, the accumulated interest often surpasses the original borrowed amount. Our visual bar chart clearly shows exactly how much of your money is going to the bank as pure interest."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="emi-calculator" />
     </div>
   );
 }

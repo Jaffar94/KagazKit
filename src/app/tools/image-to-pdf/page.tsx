@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { UploadCloud, FileText, Download, Loader2, CheckCircle2 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
@@ -44,7 +44,9 @@ export default function ImageToPdfPage() {
     if (!file || !previewUrl) return;
     setIsProcessing(true);
     setResultBlob(null);
-    await new Promise(r => setTimeout(r, 50)); // Yield main thread
+    
+    // Yield main thread to allow React to paint the loading spinner
+    await new Promise(r => setTimeout(r, 50));
 
     try {
       const img = new Image();
@@ -269,30 +271,9 @@ export default function ImageToPdfPage() {
           className="hidden" 
         />
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Secure, Client-Side Image to PDF Conversion</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Converting physical documents, receipts, and identity cards from raw image files into a single, professional PDF document is a universal requirement for online applications, corporate communications, and digital archiving. Our advanced Image to PDF Converter goes significantly beyond standard conversion by offering an intelligent, target-size compression feature. This means you can specify an exact maximum file size (such as under 200KB or 1MB) as mandated by strict government portals, university admissions sites, or corporate HR systems, and the tool will automatically adjust the image compression to meet that precise constraint. Most importantly, unlike the vast majority of online PDF converters that require you to upload your highly sensitive personal documents to mysterious cloud servers, our tool is engineered with a strict 100% client-side processing architecture. The entire conversion, rendering, and compression process happens locally within the memory of your own browser, ensuring absolute privacy, zero data retention, and immediate offline functionality.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="imgpdf-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Is it safe to upload my Aadhaar card or PAN card?",
-            answer: "Yes, 100% safe. This tool operates entirely in your web browser using client-side JavaScript. Your images and documents are never uploaded to our servers, ensuring absolute privacy for sensitive documents like Aadhaar, PAN, and passports."
-          },
-          {
-            question: "How does the tool ensure the PDF is under 300KB?",
-            answer: "If your image is too large, our system automatically runs a smart compression loop. It slightly reduces the JPEG quality step-by-step before injecting it into the PDF format, stopping the exact moment it hits your target KB limit while preserving maximum readability."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="image-to-pdf" />
     </div>
   );
 }

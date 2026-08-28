@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, TrendingUp, Calendar, ArrowUpRight } from 'lucide-react';
 
@@ -40,22 +40,6 @@ export default function SIPCalculatorPage() {
       maximumFractionDigits: 0,
     }).format(val);
   };
-
-  const faqs = [
-    {
-      question: "What is Step-Up SIP?",
-      answer: "A Step-Up SIP automatically increases your monthly investment amount by a specific percentage every year. It aligns your investments with your growing income, significantly boosting your final corpus through the power of compounding."
-    },
-    {
-      question: "Are the returns guaranteed?",
-      answer: "No, SIP returns in mutual funds are subject to market risks. The expected return rate is just an estimation based on historical data. Equity mutual funds typically yield around 10-12% over the long term."
-    },
-    {
-      question: "Is this calculator safe to use?",
-      answer: "Yes, 100%. This calculator runs entirely in your browser. No financial data is ever sent to our servers."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl">
       <BackToHome />
@@ -134,19 +118,9 @@ export default function SIPCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Visualize Your Mutual Fund Wealth Creation</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          A Systematic Investment Plan (SIP) in mutual funds or index funds is widely regarded as one of the most powerful, disciplined strategies for long-term wealth creation and achieving financial independence. Our highly accurate SIP Calculator is an essential financial tool designed to help you project the staggering impact of compound interest over time. By inputting your monthly investment amount, your expected annual rate of return, and your total investment time horizon, the calculator instantly generates a comprehensive forecast of your future wealth. It provides a clear, side-by-side comparison of your total principal invested versus the massive wealth gained through compounding. Whether you are planning for early retirement, saving for your children's higher education, or building an emergency fund, visualizing this exponential growth curve empowers you to stay disciplined during market fluctuations. Because your investment goals are deeply personal, this calculator operates completely on the client-side, ensuring your financial scenarios are never tracked or stored on our servers.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="sip-bottom-ad" className="mt-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="sip-calculator" />
     </div>
   );
 }

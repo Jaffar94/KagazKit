@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, FileText } from 'lucide-react';
 import { calculateOldRegimeTax, calculateNewRegimeTax } from '@/utils/tax';
@@ -37,22 +37,6 @@ export default function TaxCalculatorPage() {
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
   };
-
-  const faqs = [
-    {
-      question: "What is the difference between Old and New Tax Regime?",
-      answer: "The Old Regime allows you to claim deductions like 80C, 80D, HRA, etc., which reduces your taxable income but has higher tax rates. The New Regime offers lower tax rates and a higher standard deduction (₹75k) but does not allow most Chapter VI-A deductions."
-    },
-    {
-      question: "Which regime is better?",
-      answer: "It depends on your deductions. If you have significant investments (like EPF, ELSS, Insurance) and pay home loan interest or HRA, the Old Regime might save you more. For those with fewer deductions, the New Regime is generally better."
-    },
-    {
-      question: "What is the 87A rebate?",
-      answer: "Under Section 87A, if your taxable income is below a certain threshold, the government gives you a tax rebate. In the New Regime, it makes income up to ₹12.75L effectively tax-free. In the Old Regime, it applies up to ₹5L."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl">
       <BackToHome />
@@ -158,19 +142,9 @@ export default function TaxCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Optimize Your Tax Liability: Old vs. New Regime</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Understanding your total income tax liability and strategically choosing between the Old Tax Regime and the New Tax Regime is one of the most critical financial decisions you make every financial year. Our highly advanced, dual-engine Income Tax Calculator is precisely calibrated to evaluate your gross annual income, standard deductions, and tax-saving investments (such as Section 80C and 80D) against the absolute latest progressive tax slabs mandated by the Government of India. It performs a rigorous, simultaneous calculation of your owed tax, including the mandatory health and education cess, under both regimes. The tool then instantly provides a crystal-clear, side-by-side comparative breakdown, mathematically proving exactly which regime will save you the most money. This empowers salaried employees, freelancers, and business professionals to optimize their tax planning, maximize their take-home pay, and file their returns with absolute confidence. All calculations are executed securely on your local device to ensure maximum financial privacy.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="tax-bottom-ad" className="mt-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="tax-calculator" />
     </div>
   );
 }

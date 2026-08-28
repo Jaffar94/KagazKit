@@ -5,7 +5,7 @@ import { PDFDocument } from 'pdf-lib';
 import toast from 'react-hot-toast';
 import { trackDownload } from '@/utils/stats';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { FileUp, FileText, X, CheckCircle, Download, Layers } from 'lucide-react';
 
@@ -73,7 +73,9 @@ export default function MergePdfPage() {
     if (files.length < 2) return;
     
     setIsMerging(true);
-    await new Promise(r => setTimeout(r, 50)); // Yield main thread
+
+    // Yield main thread to allow React to paint the loading spinner
+    await new Promise(r => setTimeout(r, 50));
 
     try {
       const mergedPdf = await PDFDocument.create();
@@ -227,34 +229,9 @@ export default function MergePdfPage() {
         </div>
 
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Lightning-Fast, Privacy-First PDF Merging</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Managing digital paperwork often requires consolidating multiple disparate documents—such as separate bank statements, scanned identity proofs, or multi-part contracts—into one cohesive file. Our Secure PDF Merger is a state-of-the-art utility that allows you to seamlessly combine multiple PDF documents into a single, perfectly formatted file with unparalleled ease. Featuring an intuitive drag-and-drop interface, you can effortlessly rearrange the sequence of your documents before executing the merge. What truly sets our tool apart is its uncompromising commitment to data security. While traditional online PDF services force you to upload your highly confidential legal and financial documents to their remote servers—exposing you to significant privacy risks—our merger utilizes advanced WebAssembly technology to process everything locally on your device. The files never leave your browser, ensuring 100% absolute privacy, zero upload wait times, and complete protection against unauthorized data harvesting or data breaches.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="merge-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Is it safe to upload my PDFs here?",
-            answer: "Yes, it is 100% safe. KagazKit processes the merge operation entirely in your web browser using JavaScript. Your files are NEVER uploaded to any server. They remain strictly on your device."
-          },
-          {
-            question: "Can I rearrange the order of the PDFs?",
-            answer: "Absolutely! After selecting your files, you can use the up (▲) and down (▼) arrows next to each file to change their order before merging."
-          },
-          {
-            question: "Is there a limit on file size or number of files?",
-            answer: "Because the merging happens in your browser, the limit depends on your device's memory (RAM). Generally, merging dozens of standard PDFs will work seamlessly on any modern smartphone or laptop."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="merge-pdf" />
     </div>
   );
 }

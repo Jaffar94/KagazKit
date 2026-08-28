@@ -12,6 +12,11 @@ type AdSlotProps = {
 export default function AdSlot({ format = 'horizontal', slotId = '3809487681', className = '' }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   const pathname = usePathname();
+
+  // Allow disabling all ads via environment variable (for AdSense resubmission)
+  if (process.env.NEXT_PUBLIC_ADS_ENABLED === 'false') {
+    return null;
+  }
   
   useEffect(() => {
     // Attempt to push ad to Google AdSense. 

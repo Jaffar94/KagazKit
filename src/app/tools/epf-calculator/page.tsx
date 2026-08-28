@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { IndianRupee, User, Wallet, TrendingUp } from 'lucide-react';
 
@@ -67,22 +67,6 @@ export default function EPFCalculatorPage() {
       maximumFractionDigits: 0,
     }).format(val);
   };
-
-  const faqs = [
-    {
-      question: "How is EPF calculated?",
-      answer: "Every month, 12% of your Basic + DA goes into your EPF account as your contribution. Your employer also contributes 12%, out of which 3.67% goes to EPF and 8.33% goes to EPS (Pension Scheme)."
-    },
-    {
-      question: "What is the current EPF interest rate?",
-      answer: "The current EPF interest rate is usually declared by the EPFO annually. It has recently hovered around 8.15% to 8.25%. This calculator uses 8.25%."
-    },
-    {
-      question: "Is this calculator exact?",
-      answer: "This is an estimator. Actual EPF calculations involve monthly closing balances and complex decimal roundings by EPFO. This tool provides a very close approximation for retirement planning."
-    }
-  ];
-
   return (
     <div className="w-full max-w-5xl">
       <BackToHome />
@@ -168,19 +152,9 @@ export default function EPFCalculatorPage() {
           </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Strategic Provident Fund Retirement Planning</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          The Employees' Provident Fund (EPF) is one of the most vital components of retirement planning for salaried professionals in India, offering a secure, tax-efficient way to build a massive corpus over decades of employment. Our comprehensive EPF Calculator is designed to help you project your exact retirement maturity amount by accurately modeling both your employee contributions and the employer's matching contributions based on your current basic salary. It factors in the complex, compound interest rates declared annually by the EPFO, allowing you to visualize the incredible power of long-term compounding over a 20 or 30-year career. By inputting your current age, retirement age, and expected annual salary increments, you can receive a highly detailed forecast of your total invested principal versus your total interest earned. This tool is built entirely on a secure, client-side architecture, meaning your sensitive salary figures and retirement goals are processed exclusively on your device and are never transmitted to our servers or stored anywhere.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="epf-bottom-ad" className="mt-12" />
 
-      <FAQ items={faqs} />
+      <ToolContentSection toolId="epf-calculator" />
     </div>
   );
 }

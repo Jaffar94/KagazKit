@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import AdSlot from '@/components/AdSlot';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import BackToHome from '@/components/BackToHome';
 import { Calendar, User, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -115,34 +115,9 @@ export default function AgeCalculatorPage() {
             </div>
         </div>
       </div>
-
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Why Use Our Chronological Age Calculator?</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Our chronological age calculator is an essential, highly precise tool designed to instantly compute your exact age down to the day. Whether you are filling out an official government application, preparing documents for a passport, calculating the age gap between two specific dates, or simply curious about your exact age in years, months, days, and even weeks, this tool provides mathematically flawless results. Unlike many online calculators that secretly send your personal data to remote servers, our KagazKit age calculator processes all dates entirely within your local browser. This guarantees 100% privacy and lightning-fast performance without any network latency. Furthermore, it meticulously accounts for leap years, varying month lengths (28, 29, 30, or 31 days), and precise date boundaries, ensuring that your calculations are always compliant with strict institutional cut-off dates. Experience a seamless, ad-free, and incredibly secure way to manage your critical date calculations without ever compromising your personal information.
-        </p>
-      </div>
-  
       <AdSlot format="horizontal" slotId="age-bottom-ad" className="mb-12" />
 
-      <FAQ 
-        items={[
-          {
-            question: "Why do I need to calculate my age in days?",
-            answer: "Most Indian government exams (UPSC, SSC, Banking) have strict age criteria. They require you to be within a specific age range (e.g., 21 to 32 years) strictly as of a given cutoff date mentioned in their official notification. Being even one day older or younger than the limit leads to application rejection."
-          },
-          {
-            question: "How is the exact age calculated?",
-            answer: "Our tool uses calendar math to calculate the precise difference between your Date of Birth and the target cutoff date, correctly accounting for leap years and months with 28, 29, 30, or 31 days."
-          },
-          {
-            question: "Is my date of birth saved?",
-            answer: "No. The KagazKit Age Calculator runs 100% locally in your browser. Your dates of birth are never sent to a server or stored anywhere."
-          }
-        ]}
-      />
+      <ToolContentSection toolId="age-calculator" />
     </div>
   );
 }

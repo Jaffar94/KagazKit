@@ -37,6 +37,45 @@ export default function PrivacyPolicyPage() {
       <p>
         KagazKit follows a standard procedure of using log files provided by our hosting environment (such as Vercel or similar CDN providers). These files log visitors when they visit websites. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable.
       </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+      <p>
+        Under the CCPA, among other rights, California consumers have the right to:
+      </p>
+      <ul className="list-disc pl-6 space-y-2 mt-4 text-slate-700">
+        <li>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
+        <li>Request that a business delete any personal data about the consumer that a business has collected.</li>
+        <li>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li>
+      </ul>
+      <p className="mt-4">
+        If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us. Note that because KagazKit processes most data client-side and does not create user accounts, we generally do not possess any personal data to sell or delete.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">GDPR Data Protection Rights</h2>
+      <p>
+        We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+      </p>
+      <ul className="list-disc pl-6 space-y-2 mt-4 text-slate-700">
+        <li>The right to access – You have the right to request copies of your personal data.</li>
+        <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate.</li>
+        <li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
+      </ul>
+      <p className="mt-4">
+        Again, as a primarily client-side application, we do not store personal data on our servers.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Children's Information (COPPA)</h2>
+      <p>
+        Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+      </p>
+      <p className="mt-4">
+        KagazKit does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Consent</h2>
+      <p>
+        By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.
+      </p>
     </div>
   );
 }

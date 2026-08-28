@@ -33,7 +33,30 @@ export default function TermsPage() {
 
       <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">4. Prohibited Uses</h2>
       <p>
-        You must not use this website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of KagazKit.
+        You must not use this website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of KagazKit. You must not use our tools to process illegal, harmful, or illicit content.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">5. Intellectual Property</h2>
+      <p>
+        Unless otherwise stated, KagazKit and/or its licensors own the intellectual property rights for all material on KagazKit (excluding any files or images uploaded by users for processing). All intellectual property rights are reserved. You may access this from KagazKit for your own personal use subjected to restrictions set in these terms and conditions.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">6. Limitation of Liability</h2>
+      <p>
+        In no event shall KagazKit, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract. KagazKit, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website or the tools provided herein.
+      </p>
+      <p className="mt-4">
+        We do not guarantee that the tools will meet your specific requirements, or that they will be uninterrupted, timely, secure, or error-free. The responsibility for verifying the final output of any tool before submission to official or government portals lies entirely with the user.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">7. Governing Law</h2>
+      <p>
+        These Terms will be governed by and interpreted in accordance with the laws of India, and you submit to the non-exclusive jurisdiction of the state and federal courts located in India for the resolution of any disputes.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">8. Changes to Terms</h2>
+      <p>
+        We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Website after those revisions become effective, you agree to be bound by the revised terms.
       </p>
     </div>
   );

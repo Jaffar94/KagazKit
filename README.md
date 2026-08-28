@@ -33,6 +33,10 @@ KagazKit currently includes 19 core utilities across various categories:
 18. **Govt Exam Age Calculator:** Find exact age in years, months, and days for exam forms.
 19. **Date Calculator:** Add or subtract days to find a future or past date.
 
+## Educational Content (Knowledge Hub)
+*   **Detailed Tool Guides:** Every tool includes ~500 words of structured explanation, use cases, and expanded FAQs.
+*   **Blog & Guides (`/blog`):** Long-form tutorials on digital privacy, tax planning, and mastering government document workflows.
+
 ## Tech Stack
 
 *   **Frontend Framework:** [Next.js 16](https://nextjs.org/) (App Router)
@@ -75,6 +79,7 @@ node index.js
 In your Next.js root directory, create a `.env.local` file and add:
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8080/compress
+NEXT_PUBLIC_ADS_ENABLED=false
 ```
 
 In your `backend/` directory, create a `.env` file and add:

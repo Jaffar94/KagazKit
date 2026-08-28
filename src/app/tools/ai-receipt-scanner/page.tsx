@@ -1,42 +1,18 @@
 import { Metadata } from 'next';
 import ScannerClient from './ScannerClient';
-import FAQ from '@/components/FAQ';
+import ToolContentSection from '@/components/ToolContentSection';
 import AdSlot from '@/components/AdSlot';
 import { ReceiptText, CheckCircle, Zap, TableProperties } from 'lucide-react';
 import BackToHome from '@/components/BackToHome';
 
 export const metadata: Metadata = {
   title: 'AI Receipt Scanner | Extract Data from Bills & Invoices',
-  description: 'Upload any receipt, bill, or invoice. Our client-side AI instantly extracts the merchant name, total amount, taxes, and date. 100% private processing.',
+  description: 'Upload any receipt, bill, or invoice. Our secure AI instantly extracts the merchant name, total amount, taxes, and date. Files are instantly deleted.',
   alternates: {
     canonical: '/tools/ai-receipt-scanner',
   },
   keywords: ['ai receipt scanner', 'invoice extractor', 'extract text from receipt', 'ocr receipt online', 'free receipt scanner to excel'],
 };
-
-const faqItems = [
-  {
-    question: "How does the AI Receipt Scanner work?",
-    answer: "Our tool uses advanced Vision AI (Multimodal Large Language Models) to \"read\" the image of your receipt. Unlike traditional OCR which just extracts dumb text, our AI actually understands the layout and logic of an invoice. It intelligently groups items with their corresponding prices, identifies the merchant, and calculates the tax and total."
-  },
-  {
-    question: "Is my receipt data stored or saved?",
-    answer: "No, absolutely not. KagazKit values your privacy. Your receipt is temporarily sent to the AI processing API in memory, the data is returned to your screen, and the image is immediately discarded. We do not store, save, or use your financial documents for training."
-  },
-  {
-    question: "What image formats are supported?",
-    answer: "You can upload standard image formats including JPG, PNG, and WEBP. For the best results, ensure the image is well-lit, in focus, and the text is legible."
-  },
-  {
-    question: "Why did my receipt fail to scan or say 'Not in pattern'?",
-    answer: "Our AI is strictly programmed to extract structured financial data (Item Name, Price, Tax, and Total). If you upload a receipt with a highly unusual layout, missing prices, or a document that isn't a receipt at all (like a credit card slip or a promotional voucher), the AI will reject it to prevent giving you corrupted data. For best results, use standard retail, grocery, or restaurant itemized receipts."
-  },
-  {
-    question: "Can I export the extracted data to Excel?",
-    answer: "Yes! Once the AI successfully extracts the line items and totals, a 'Download CSV' button will appear. Clicking it will instantly download a spreadsheet file that you can open in Microsoft Excel, Google Sheets, or Apple Numbers."
-  }
-];
-
 export default function AIReceiptScannerPage() {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-12">
@@ -92,18 +68,7 @@ export default function AIReceiptScannerPage() {
       </div>
 
       <AdSlot format="horizontal" slotId="auto-ai-scanner-bottom" />
-
-      {/* FAQ Section */}
-      
-      {/* SEO Content Block */}
-      <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 mb-8">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Next-Generation AI Receipt Scanning Technology</h2>
-        <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-          Digitizing financial records and managing expenses has never been easier or more secure. Our AI-powered Receipt Scanner leverages highly advanced computer vision models and large language models (LLMs) to instantly extract line items, individual prices, taxes, merchant names, and total amounts from your paper receipts. Simply upload a clear photo or scanned image, and our sophisticated system will accurately parse the messy visual data into a clean, structured table. This is the perfect daily utility for freelancers, small business owners, corporate employees, and accounting professionals who need to quickly digitize their expenses without enduring the painful process of manually typing out every single item. Because the AI processes the document in-memory and instantly discards the image upon completion, your highly sensitive financial data remains completely confidential. Once the extraction is complete, you can effortlessly download a formatted CSV file that integrates flawlessly with Microsoft Excel, Google Sheets, Quickbooks, or your preferred accounting software.
-        </p>
-      </div>
-  
-      <FAQ items={faqItems} />
+      <ToolContentSection toolId="ai-receipt-scanner" />
     </div>
   );
 }
